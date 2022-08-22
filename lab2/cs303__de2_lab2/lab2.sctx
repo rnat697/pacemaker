@@ -1,0 +1,28 @@
+scchart cs303_lab2 {
+  input bool A, B, R
+  output bool O = false
+  
+  initial state ABO {
+    entry do O = false
+    
+    initial state WaitAandB{
+      region HandleA{
+        initial state waitA
+        if A go to doneA
+        
+        final state doneA
+      }
+      region HandleB{
+        initial state waitB
+        if B go to doneB
+        
+        final state doneB
+       
+      }
+    }
+    do O = true join to done
+    final state done
+  
+  }
+  if R abort to ABO
+}

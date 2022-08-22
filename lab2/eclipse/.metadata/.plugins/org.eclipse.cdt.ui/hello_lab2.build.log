@@ -1,0 +1,8 @@
+13:57:14 **** Clean-only build of configuration Nios II for project hello_lab2 ****
+make clean 
+/usr/bin/sh: line 0: cd: ../hello_lab2_bsp/: No such file or directory
+/usr/bin/sh: line 0: cd: ../../: No such file or directory
+[hello_lab2 clean complete]
+
+13:57:14 Build Finished (took 548ms)
+

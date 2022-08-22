@@ -1,0 +1,62 @@
+#include <system.h>
+#include <altera_avalon_pio_regs.h>
+#include <stdio.h>
+#include <alt_types.h>
+#include <sys/alt_irq.h>
+#include "sccharts.h"
+void button_interrupts_function(void* contex, alt_u32 id)
+{
+	int* temp = (int*)context;
+	(*temp) = IORD_ALTERA_AVALON_PIO_EDGE_CAP(KEYS_BASE,0);
+	IOWR_ALTERA_AVALON_PIO_EDGE_CAP(KEY_BASE,0);
+	printf("button: %i\n", *temp);
+}
+alt_u32 timer_isr_function(void* context)
+{
+int *timeCount = (int*) context;
+(*timeCount)++;
+printf("time:%d\n", *timeCount);
+return 1000; // the next time out will be 1000 milli-seconds
+}
+
+int main(void)
+{
+int buttonValue = 1;
+void* context_going_to_be_passed = (void*) &buttonValue;
+// Create the struct
+TickData data;
+// Initialise
+// initialises button interrupt
+IOWR_ALTERA_AVALON_PIO_EDGE_CAP(KEYS_BASE, 0);
+// enable interrupts for all buttons
+IOWR_ALTERA_AVALON_PIO_IRQ_MASK(KEYS_BASE, 0x7);
+// register the ISR
+alt_irq_register(KEYS_IRQ,context_going_to_be_passed, 
+button_interrupts_function);
+
+// initialises timer interrupt
+alt_alarm timer;
+int timeCountMain = 0;
+void* timerContext = (void*) &timeCountMain;
+// start the timer, with timeout of 1000 milli-seconds
+alt_alarm_start(&timer, 1000, timer_isr_function, timerContext);
+reset(&data);
+while(1)
+{
+
+	if ( timeCountMain == 10)
+{
+alt_alarm_stop(&timer);
+usleep(1000000);
+alt_alarm_start(&timer, 1000, timer_isr_function, timerContext);
+usleep(1500000);
+}
+// Fetch button inputs
+// A is Key 2, B is Key 1, R is Key 0
+// Remember that keys are active low
+// Do a tick!
+tick(&data);
+// Output O to Red LED
+}
+return 0;
+}

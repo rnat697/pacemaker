@@ -1,0 +1,42 @@
+!SESSION 2022-08-10 12:56:08.922 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.11
+java.vendor=Amazon.com Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_NZ
+Framework arguments:  --launcher.XXPermSize 128m
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 --launcher.XXPermSize 128m
+
+!ENTRY org.eclipse.egit.ui 2 0 2022-08-10 12:56:32.635
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\smiy200'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2022-08-10 13:01:56.648 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.11
+java.vendor=Amazon.com Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_NZ
+Framework arguments:  --launcher.XXPermSize 128m
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 --launcher.XXPermSize 128m
+
+!ENTRY org.eclipse.egit.ui 2 0 2022-08-10 13:02:09.790
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\smiy200'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2022-08-10 13:16:07.171 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.11
+java.vendor=Amazon.com Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_NZ
+Framework arguments:  --launcher.XXPermSize 128m
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 --launcher.XXPermSize 128m
+
+!ENTRY org.eclipse.egit.ui 2 0 2022-08-10 13:16:19.359
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\smiy200'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
