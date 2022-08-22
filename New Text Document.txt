@@ -1,0 +1,58 @@
+scchart DDDpacemaker {
+  
+  // atrial sense atrial pace, ventricular sense and pace.
+  input signal AS,VS
+  output signal AP, VP
+
+@layout[elk.direction] LEFT
+
+  region Main  {
+    initial state AS{
+    entry do 0 = false
+    initial state WaitAVI{ //Atrial and ventricular event
+     region AtrialEvent{
+      initial state wAS
+      if AS go to dAS
+      final state dAS 
+      }
+      
+    region VentricleEvent{
+      initial state wVI
+      if VI go to dVI
+      final state dVI
+      }
+    }
+    do 0 = true join to done
+    final state done
+     }
+     if R abort to WaitAVI
+    }
+  
+  }
+  
+  
+  
+  region PVARP{
+    initial state A
+  }  
+  
+  region VRP{
+    initial state A
+  }
+   
+  region AEI{
+    initial state A
+  }
+  
+ 
+  region LRI{
+    initial state A
+  }
+  
+  region URI{
+    initial state A
+  }
+  
+  
+  
+}
