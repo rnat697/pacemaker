@@ -1,6 +1,0 @@
-scchart NewSCChart {
-
-  region {
-    initial state A
-  }
-}
