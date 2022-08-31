@@ -1,69 +1,50 @@
+#resource "timing.h"
+#hostcode-c "#include \"timing.h\""
 scchart DDDpacemaker {
   
   // atrial sense atrial pace, ventricular sense and pace.
-  input signal AS,VS,R
+  input signal AS,VS,AVI_counter, AEI_counter, PVARP_counter,VRP_counter, LRI_counter, URI_counter
+  
   output bool AP, VP
-  
-  //if init go to Main
-
     
-    signal dAS,dVS,dAVI
-    initial state AVI_event{ //Atrial and ventricular event
-     region AtrialEvent{
-       
-      initial state wAVI   //waiting for avi event
-      if AS do dAS go to VS  //if atricle done go to ventricle
-     
-      state VS //ventricule event
-      if VS do dVS go to dAVI   //ventricle done
-      
-      output VP
-      
-      final state dAVI go to wAVI 
-           //triggers other events.
-      }
-  
- 
-  region AEI_event{
-        
-    signal dAS,dVS
-      initial state wAVI
-      if VS go to wAS  //if 
-      
-      
-      state wAS
-      if dAS go to 
-      //if AS is completed 
-      
-      
-      }
-      
-     
-      state VS
-      if VS do dVS go to w
-      
-      final state dAVI
-           
-      
-  }  
-  
-  region VRP{
-    initial state A
-  }
+    bool AVI_start, AVI_extend, AVI_stop
+    bool AEI_start, AEI_stop
+    bool LRI_start, LRI_reset, LRI_stop
+    bool PVARP_start, PVARP_stop
+    bool VRP_start, VRP_stop
+    bool URI_start, URI_stop
+    
+    signal doneAS,doneVS,doneAVI
+     region AVI{
+      initial state init
+      if AS go to commit1
+
+      connector state commit1
+      immediate do AVI_start = true go to waitAVI
+
+
+      state waitAVI
+      if VS go to commit2
+      if AVI_extend go to comit3
+
+      connector state commit2
+      immediate do AVI_stop = true; VP=false go to init
+
+      connector state comit3
+      immediate do VP = true; AVI_stop = true go to init
+    }
+     region AVI_timer {
+      initial state idle
+      if AVI_start go to timer
+
+      state timer
+      if AVI_stop go to idle
+      if AVI_counter <`URI_VALUE` do AVI_extend = true go to idle // avi timing deadline extension
+    }
    
-  region AEI{
-    initial state A
-  }
   
  
-  region LRI{
-    initial state A
-  }
-  
-  region URI{
-    initial state A
-  }
-  
+
   
   
 }
