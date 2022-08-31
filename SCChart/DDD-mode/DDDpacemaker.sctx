@@ -3,49 +3,48 @@ scchart DDDpacemaker {
   // atrial sense atrial pace, ventricular sense and pace.
   input signal AS,VS,R
   output bool AP, VP
+  
+  //if init go to Main
 
-  region Main  {
-    entry do AP = false
+    
+    signal dAS,dVS,dAVI
     initial state AVI_event{ //Atrial and ventricular event
      region AtrialEvent{
-      initial state wAS
-      if AS go to dAS
-      final state dAS  
-      }
+       
+      initial state wAVI   //waiting for avi event
+      if AS do dAS go to VS  //if atricle done go to ventricle
+     
+      state VS //ventricule event
+      if VS do dVS go to dAVI   //ventricle done
       
-    region VentricleEvent{
-      initial state wVS
-      if VS go to dVS // go to done VS
-      final state dVS
-      }
-    }
-    do 0 = true join to done
-    final state done
-    
-    entry do AP = false
-    initial state PVARP_Event{ //Atrial and ventricular event
-     region AtrialEvent{
-      initial state wAS
-      if AS go to dAS
-      final state dAS  
-      }
+      output VP
       
-    region VentricleEvent{
-      initial state wVS
-      if VS go to dVS // go to done VS
-      final state dVS
+      final state dAVI go to wAVI 
+           //triggers other events.
       }
-    
-    do 0 = true join to done
-    final state done
-     }
-    
-    
-    
-     } 
   
-  region Ad{
-    initial state A
+ 
+  region AEI_event{
+        
+    signal dAS,dVS
+      initial state wAVI
+      if VS go to wAS  //if 
+      
+      
+      state wAS
+      if dAS go to 
+      //if AS is completed 
+      
+      
+      }
+      
+     
+      state VS
+      if VS do dVS go to w
+      
+      final state dAVI
+           
+      
   }  
   
   region VRP{
