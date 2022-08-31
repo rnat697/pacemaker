@@ -1,20 +1,24 @@
-
-
-#include "lib/ticktime.h"
+<#macro simulation_imports position>
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
 
 #include "lib/cJSON.h"
+</#macro>
 
-#include "DDDpacemaker.h"
+<#macro simulation_init position>
+sendVariables(1);
+</#macro>
 
-// The data for the model
-TickData model;
+<#macro simulation_in position>
+receiveVariables();
+</#macro>
 
-double _ticktime;
+<#macro simulation_out position>
+sendVariables(0);
+</#macro>
 
-
+<#macro simulation_body position>
 void receiveVariables() {
     size_t blocksize = 2048;
     char *buffer = realloc(NULL, sizeof(char) * blocksize);
@@ -41,52 +45,52 @@ void receiveVariables() {
         // Receive AEI_counter
         item = cJSON_GetObjectItemCaseSensitive(root, "AEI_counter");
         if(item != NULL) {
-            model.AEI_counter = item->valueint;
+            ${tickdata_name}.AEI_counter = item->valueint;
         }
         // Receive AS
         item = cJSON_GetObjectItemCaseSensitive(root, "AS");
         if(item != NULL) {
-            model.AS = item->valueint;
+            ${tickdata_name}.AS = item->valueint;
         }
         // Receive AVI_counter
         item = cJSON_GetObjectItemCaseSensitive(root, "AVI_counter");
         if(item != NULL) {
-            model.AVI_counter = item->valueint;
+            ${tickdata_name}.AVI_counter = item->valueint;
         }
         // Receive LRI_counter
         item = cJSON_GetObjectItemCaseSensitive(root, "LRI_counter");
         if(item != NULL) {
-            model.LRI_counter = item->valueint;
+            ${tickdata_name}.LRI_counter = item->valueint;
         }
         // Receive PVARP_counter
         item = cJSON_GetObjectItemCaseSensitive(root, "PVARP_counter");
         if(item != NULL) {
-            model.PVARP_counter = item->valueint;
+            ${tickdata_name}.PVARP_counter = item->valueint;
         }
         // Receive URI_counter
         item = cJSON_GetObjectItemCaseSensitive(root, "URI_counter");
         if(item != NULL) {
-            model.URI_counter = item->valueint;
+            ${tickdata_name}.URI_counter = item->valueint;
         }
         // Receive VRP_counter
         item = cJSON_GetObjectItemCaseSensitive(root, "VRP_counter");
         if(item != NULL) {
-            model.VRP_counter = item->valueint;
+            ${tickdata_name}.VRP_counter = item->valueint;
         }
         // Receive VS
         item = cJSON_GetObjectItemCaseSensitive(root, "VS");
         if(item != NULL) {
-            model.VS = item->valueint;
+            ${tickdata_name}.VS = item->valueint;
         }
         // Receive AP
         item = cJSON_GetObjectItemCaseSensitive(root, "AP");
         if(item != NULL) {
-            model.AP = item->valueint;
+            ${tickdata_name}.AP = item->valueint;
         }
         // Receive VP
         item = cJSON_GetObjectItemCaseSensitive(root, "VP");
         if(item != NULL) {
-            model.VP = item->valueint;
+            ${tickdata_name}.VP = item->valueint;
         }
         // Receive #ticktime
         item = cJSON_GetObjectItemCaseSensitive(root, "#ticktime");
@@ -96,304 +100,259 @@ void receiveVariables() {
         // Receive _DDDpacemaker_local_AEI_start
         item = cJSON_GetObjectItemCaseSensitive(root, "_DDDpacemaker_local_AEI_start");
         if(item != NULL) {
-            model._DDDpacemaker_local_AEI_start = item->valueint;
+            ${tickdata_name}._DDDpacemaker_local_AEI_start = item->valueint;
         }
         // Receive _DDDpacemaker_local_AEI_stop
         item = cJSON_GetObjectItemCaseSensitive(root, "_DDDpacemaker_local_AEI_stop");
         if(item != NULL) {
-            model._DDDpacemaker_local_AEI_stop = item->valueint;
+            ${tickdata_name}._DDDpacemaker_local_AEI_stop = item->valueint;
         }
         // Receive _DDDpacemaker_local_AVI_extend
         item = cJSON_GetObjectItemCaseSensitive(root, "_DDDpacemaker_local_AVI_extend");
         if(item != NULL) {
-            model._DDDpacemaker_local_AVI_extend = item->valueint;
+            ${tickdata_name}._DDDpacemaker_local_AVI_extend = item->valueint;
         }
         // Receive _DDDpacemaker_local_AVI_start
         item = cJSON_GetObjectItemCaseSensitive(root, "_DDDpacemaker_local_AVI_start");
         if(item != NULL) {
-            model._DDDpacemaker_local_AVI_start = item->valueint;
+            ${tickdata_name}._DDDpacemaker_local_AVI_start = item->valueint;
         }
         // Receive _DDDpacemaker_local_AVI_stop
         item = cJSON_GetObjectItemCaseSensitive(root, "_DDDpacemaker_local_AVI_stop");
         if(item != NULL) {
-            model._DDDpacemaker_local_AVI_stop = item->valueint;
+            ${tickdata_name}._DDDpacemaker_local_AVI_stop = item->valueint;
         }
         // Receive _DDDpacemaker_local_LRI_reset
         item = cJSON_GetObjectItemCaseSensitive(root, "_DDDpacemaker_local_LRI_reset");
         if(item != NULL) {
-            model._DDDpacemaker_local_LRI_reset = item->valueint;
+            ${tickdata_name}._DDDpacemaker_local_LRI_reset = item->valueint;
         }
         // Receive _DDDpacemaker_local_LRI_start
         item = cJSON_GetObjectItemCaseSensitive(root, "_DDDpacemaker_local_LRI_start");
         if(item != NULL) {
-            model._DDDpacemaker_local_LRI_start = item->valueint;
+            ${tickdata_name}._DDDpacemaker_local_LRI_start = item->valueint;
         }
         // Receive _DDDpacemaker_local_LRI_stop
         item = cJSON_GetObjectItemCaseSensitive(root, "_DDDpacemaker_local_LRI_stop");
         if(item != NULL) {
-            model._DDDpacemaker_local_LRI_stop = item->valueint;
+            ${tickdata_name}._DDDpacemaker_local_LRI_stop = item->valueint;
         }
         // Receive _DDDpacemaker_local_PVARP_start
         item = cJSON_GetObjectItemCaseSensitive(root, "_DDDpacemaker_local_PVARP_start");
         if(item != NULL) {
-            model._DDDpacemaker_local_PVARP_start = item->valueint;
+            ${tickdata_name}._DDDpacemaker_local_PVARP_start = item->valueint;
         }
         // Receive _DDDpacemaker_local_PVARP_stop
         item = cJSON_GetObjectItemCaseSensitive(root, "_DDDpacemaker_local_PVARP_stop");
         if(item != NULL) {
-            model._DDDpacemaker_local_PVARP_stop = item->valueint;
+            ${tickdata_name}._DDDpacemaker_local_PVARP_stop = item->valueint;
         }
         // Receive _DDDpacemaker_local_URI_start
         item = cJSON_GetObjectItemCaseSensitive(root, "_DDDpacemaker_local_URI_start");
         if(item != NULL) {
-            model._DDDpacemaker_local_URI_start = item->valueint;
+            ${tickdata_name}._DDDpacemaker_local_URI_start = item->valueint;
         }
         // Receive _DDDpacemaker_local_URI_stop
         item = cJSON_GetObjectItemCaseSensitive(root, "_DDDpacemaker_local_URI_stop");
         if(item != NULL) {
-            model._DDDpacemaker_local_URI_stop = item->valueint;
+            ${tickdata_name}._DDDpacemaker_local_URI_stop = item->valueint;
         }
         // Receive _DDDpacemaker_local_VRP_start
         item = cJSON_GetObjectItemCaseSensitive(root, "_DDDpacemaker_local_VRP_start");
         if(item != NULL) {
-            model._DDDpacemaker_local_VRP_start = item->valueint;
+            ${tickdata_name}._DDDpacemaker_local_VRP_start = item->valueint;
         }
         // Receive _DDDpacemaker_local_VRP_stop
         item = cJSON_GetObjectItemCaseSensitive(root, "_DDDpacemaker_local_VRP_stop");
         if(item != NULL) {
-            model._DDDpacemaker_local_VRP_stop = item->valueint;
+            ${tickdata_name}._DDDpacemaker_local_VRP_stop = item->valueint;
+        }
+        // Receive _DDDpacemaker_local_doneAS
+        item = cJSON_GetObjectItemCaseSensitive(root, "_DDDpacemaker_local_doneAS");
+        if(item != NULL) {
+            ${tickdata_name}._DDDpacemaker_local_doneAS = item->valueint;
+        }
+        // Receive _DDDpacemaker_local_doneAVI
+        item = cJSON_GetObjectItemCaseSensitive(root, "_DDDpacemaker_local_doneAVI");
+        if(item != NULL) {
+            ${tickdata_name}._DDDpacemaker_local_doneAVI = item->valueint;
+        }
+        // Receive _DDDpacemaker_local_doneVS
+        item = cJSON_GetObjectItemCaseSensitive(root, "_DDDpacemaker_local_doneVS");
+        if(item != NULL) {
+            ${tickdata_name}._DDDpacemaker_local_doneVS = item->valueint;
         }
         // Receive _GO
         item = cJSON_GetObjectItemCaseSensitive(root, "_GO");
         if(item != NULL) {
-            model._GO = item->valueint;
+            ${tickdata_name}._GO = item->valueint;
         }
         // Receive _TERM
         item = cJSON_GetObjectItemCaseSensitive(root, "_TERM");
         if(item != NULL) {
-            model._TERM = item->valueint;
+            ${tickdata_name}._TERM = item->valueint;
         }
-        // Receive _cg12
-        item = cJSON_GetObjectItemCaseSensitive(root, "_cg12");
+        // Receive _cg13
+        item = cJSON_GetObjectItemCaseSensitive(root, "_cg13");
         if(item != NULL) {
-            model._cg12 = item->valueint;
+            ${tickdata_name}._cg13 = item->valueint;
         }
-        // Receive _cg14
-        item = cJSON_GetObjectItemCaseSensitive(root, "_cg14");
+        // Receive _cg16
+        item = cJSON_GetObjectItemCaseSensitive(root, "_cg16");
         if(item != NULL) {
-            model._cg14 = item->valueint;
+            ${tickdata_name}._cg16 = item->valueint;
         }
-        // Receive _cg17
-        item = cJSON_GetObjectItemCaseSensitive(root, "_cg17");
+        // Receive _cg18
+        item = cJSON_GetObjectItemCaseSensitive(root, "_cg18");
         if(item != NULL) {
-            model._cg17 = item->valueint;
+            ${tickdata_name}._cg18 = item->valueint;
         }
-        // Receive _cg22
-        item = cJSON_GetObjectItemCaseSensitive(root, "_cg22");
+        // Receive _cg23
+        item = cJSON_GetObjectItemCaseSensitive(root, "_cg23");
         if(item != NULL) {
-            model._cg22 = item->valueint;
+            ${tickdata_name}._cg23 = item->valueint;
         }
-        // Receive _cg25
-        item = cJSON_GetObjectItemCaseSensitive(root, "_cg25");
+        // Receive _cg26
+        item = cJSON_GetObjectItemCaseSensitive(root, "_cg26");
         if(item != NULL) {
-            model._cg25 = item->valueint;
+            ${tickdata_name}._cg26 = item->valueint;
         }
-        // Receive _cg27
-        item = cJSON_GetObjectItemCaseSensitive(root, "_cg27");
+        // Receive _cg28
+        item = cJSON_GetObjectItemCaseSensitive(root, "_cg28");
         if(item != NULL) {
-            model._cg27 = item->valueint;
+            ${tickdata_name}._cg28 = item->valueint;
         }
         // Receive _cg3
         item = cJSON_GetObjectItemCaseSensitive(root, "_cg3");
         if(item != NULL) {
-            model._cg3 = item->valueint;
-        }
-        // Receive _cg32
-        item = cJSON_GetObjectItemCaseSensitive(root, "_cg32");
-        if(item != NULL) {
-            model._cg32 = item->valueint;
-        }
-        // Receive _cg35
-        item = cJSON_GetObjectItemCaseSensitive(root, "_cg35");
-        if(item != NULL) {
-            model._cg35 = item->valueint;
-        }
-        // Receive _cg37
-        item = cJSON_GetObjectItemCaseSensitive(root, "_cg37");
-        if(item != NULL) {
-            model._cg37 = item->valueint;
-        }
-        // Receive _cg42
-        item = cJSON_GetObjectItemCaseSensitive(root, "_cg42");
-        if(item != NULL) {
-            model._cg42 = item->valueint;
-        }
-        // Receive _cg45
-        item = cJSON_GetObjectItemCaseSensitive(root, "_cg45");
-        if(item != NULL) {
-            model._cg45 = item->valueint;
+            ${tickdata_name}._cg3 = item->valueint;
         }
         // Receive _cg6
         item = cJSON_GetObjectItemCaseSensitive(root, "_cg6");
         if(item != NULL) {
-            model._cg6 = item->valueint;
+            ${tickdata_name}._cg6 = item->valueint;
         }
-        // Receive _cg9
-        item = cJSON_GetObjectItemCaseSensitive(root, "_cg9");
+        // Receive _cg8
+        item = cJSON_GetObjectItemCaseSensitive(root, "_cg8");
         if(item != NULL) {
-            model._cg9 = item->valueint;
-        }
-        // Receive _g11
-        item = cJSON_GetObjectItemCaseSensitive(root, "_g11");
-        if(item != NULL) {
-            model._g11 = item->valueint;
+            ${tickdata_name}._cg8 = item->valueint;
         }
         // Receive _g12
         item = cJSON_GetObjectItemCaseSensitive(root, "_g12");
         if(item != NULL) {
-            model._g12 = item->valueint;
+            ${tickdata_name}._g12 = item->valueint;
         }
         // Receive _g13
         item = cJSON_GetObjectItemCaseSensitive(root, "_g13");
         if(item != NULL) {
-            model._g13 = item->valueint;
+            ${tickdata_name}._g13 = item->valueint;
         }
         // Receive _g14
         item = cJSON_GetObjectItemCaseSensitive(root, "_g14");
         if(item != NULL) {
-            model._g14 = item->valueint;
-        }
-        // Receive _g15
-        item = cJSON_GetObjectItemCaseSensitive(root, "_g15");
-        if(item != NULL) {
-            model._g15 = item->valueint;
+            ${tickdata_name}._g14 = item->valueint;
         }
         // Receive _g2
         item = cJSON_GetObjectItemCaseSensitive(root, "_g2");
         if(item != NULL) {
-            model._g2 = item->valueint;
-        }
-        // Receive _g21
-        item = cJSON_GetObjectItemCaseSensitive(root, "_g21");
-        if(item != NULL) {
-            model._g21 = item->valueint;
+            ${tickdata_name}._g2 = item->valueint;
         }
         // Receive _g22
         item = cJSON_GetObjectItemCaseSensitive(root, "_g22");
         if(item != NULL) {
-            model._g22 = item->valueint;
+            ${tickdata_name}._g22 = item->valueint;
         }
         // Receive _g23
         item = cJSON_GetObjectItemCaseSensitive(root, "_g23");
         if(item != NULL) {
-            model._g23 = item->valueint;
+            ${tickdata_name}._g23 = item->valueint;
+        }
+        // Receive _g24
+        item = cJSON_GetObjectItemCaseSensitive(root, "_g24");
+        if(item != NULL) {
+            ${tickdata_name}._g24 = item->valueint;
+        }
+        // Receive _g25
+        item = cJSON_GetObjectItemCaseSensitive(root, "_g25");
+        if(item != NULL) {
+            ${tickdata_name}._g25 = item->valueint;
+        }
+        // Receive _g26
+        item = cJSON_GetObjectItemCaseSensitive(root, "_g26");
+        if(item != NULL) {
+            ${tickdata_name}._g26 = item->valueint;
+        }
+        // Receive _g27
+        item = cJSON_GetObjectItemCaseSensitive(root, "_g27");
+        if(item != NULL) {
+            ${tickdata_name}._g27 = item->valueint;
         }
         // Receive _g3
         item = cJSON_GetObjectItemCaseSensitive(root, "_g3");
         if(item != NULL) {
-            model._g3 = item->valueint;
-        }
-        // Receive _g32
-        item = cJSON_GetObjectItemCaseSensitive(root, "_g32");
-        if(item != NULL) {
-            model._g32 = item->valueint;
+            ${tickdata_name}._g3 = item->valueint;
         }
         // Receive _g33
         item = cJSON_GetObjectItemCaseSensitive(root, "_g33");
         if(item != NULL) {
-            model._g33 = item->valueint;
-        }
-        // Receive _g35
-        item = cJSON_GetObjectItemCaseSensitive(root, "_g35");
-        if(item != NULL) {
-            model._g35 = item->valueint;
-        }
-        // Receive _g36
-        item = cJSON_GetObjectItemCaseSensitive(root, "_g36");
-        if(item != NULL) {
-            model._g36 = item->valueint;
-        }
-        // Receive _g37
-        item = cJSON_GetObjectItemCaseSensitive(root, "_g37");
-        if(item != NULL) {
-            model._g37 = item->valueint;
-        }
-        // Receive _g38
-        item = cJSON_GetObjectItemCaseSensitive(root, "_g38");
-        if(item != NULL) {
-            model._g38 = item->valueint;
+            ${tickdata_name}._g33 = item->valueint;
         }
         // Receive _g4
         item = cJSON_GetObjectItemCaseSensitive(root, "_g4");
         if(item != NULL) {
-            model._g4 = item->valueint;
-        }
-        // Receive _g41
-        item = cJSON_GetObjectItemCaseSensitive(root, "_g41");
-        if(item != NULL) {
-            model._g41 = item->valueint;
+            ${tickdata_name}._g4 = item->valueint;
         }
         // Receive _g5
         item = cJSON_GetObjectItemCaseSensitive(root, "_g5");
         if(item != NULL) {
-            model._g5 = item->valueint;
+            ${tickdata_name}._g5 = item->valueint;
         }
         // Receive _g6
         item = cJSON_GetObjectItemCaseSensitive(root, "_g6");
         if(item != NULL) {
-            model._g6 = item->valueint;
+            ${tickdata_name}._g6 = item->valueint;
         }
         // Receive _g7
         item = cJSON_GetObjectItemCaseSensitive(root, "_g7");
         if(item != NULL) {
-            model._g7 = item->valueint;
+            ${tickdata_name}._g7 = item->valueint;
         }
-        // Receive _g8
-        item = cJSON_GetObjectItemCaseSensitive(root, "_g8");
+        // Receive _pg12
+        item = cJSON_GetObjectItemCaseSensitive(root, "_pg12");
         if(item != NULL) {
-            model._g8 = item->valueint;
-        }
-        // Receive _pg11
-        item = cJSON_GetObjectItemCaseSensitive(root, "_pg11");
-        if(item != NULL) {
-            model._pg11 = item->valueint;
+            ${tickdata_name}._pg12 = item->valueint;
         }
         // Receive _pg2
         item = cJSON_GetObjectItemCaseSensitive(root, "_pg2");
         if(item != NULL) {
-            model._pg2 = item->valueint;
+            ${tickdata_name}._pg2 = item->valueint;
         }
-        // Receive _pg21
-        item = cJSON_GetObjectItemCaseSensitive(root, "_pg21");
+        // Receive _pg22
+        item = cJSON_GetObjectItemCaseSensitive(root, "_pg22");
         if(item != NULL) {
-            model._pg21 = item->valueint;
+            ${tickdata_name}._pg22 = item->valueint;
         }
-        // Receive _pg32
-        item = cJSON_GetObjectItemCaseSensitive(root, "_pg32");
+        // Receive _pg25
+        item = cJSON_GetObjectItemCaseSensitive(root, "_pg25");
         if(item != NULL) {
-            model._pg32 = item->valueint;
+            ${tickdata_name}._pg25 = item->valueint;
         }
-        // Receive _pg38
-        item = cJSON_GetObjectItemCaseSensitive(root, "_pg38");
+        // Receive _pg33
+        item = cJSON_GetObjectItemCaseSensitive(root, "_pg33");
         if(item != NULL) {
-            model._pg38 = item->valueint;
-        }
-        // Receive _pg41
-        item = cJSON_GetObjectItemCaseSensitive(root, "_pg41");
-        if(item != NULL) {
-            model._pg41 = item->valueint;
+            ${tickdata_name}._pg33 = item->valueint;
         }
         // Receive _pg5
         item = cJSON_GetObjectItemCaseSensitive(root, "_pg5");
         if(item != NULL) {
-            model._pg5 = item->valueint;
+            ${tickdata_name}._pg5 = item->valueint;
         }
         // Receive _taken_transitions
         item = cJSON_GetObjectItemCaseSensitive(root, "_taken_transitions");
         if(item != NULL) {
             for (int i0 = 0; i0 < cJSON_GetArraySize(item); i0++) {
                 cJSON *item0 = cJSON_GetArrayItem(item, i0);
-                model._taken_transitions[i0] = item0->valueint;
+                ${tickdata_name}._taken_transitions[i0] = item0->valueint;
             }
         }
     }
@@ -407,149 +366,131 @@ void sendVariables(int send_interface) {
     cJSON *array;
     
     // Send AEI_counter
-    cJSON_AddItemToObject(root, "AEI_counter", cJSON_CreateNumber(model.AEI_counter));
+    cJSON_AddItemToObject(root, "AEI_counter", cJSON_CreateNumber(${tickdata_name}.AEI_counter));
     // Send AS
-    cJSON_AddItemToObject(root, "AS", cJSON_CreateBool(model.AS));
+    cJSON_AddItemToObject(root, "AS", cJSON_CreateBool(${tickdata_name}.AS));
     // Send AVI_counter
-    cJSON_AddItemToObject(root, "AVI_counter", cJSON_CreateNumber(model.AVI_counter));
+    cJSON_AddItemToObject(root, "AVI_counter", cJSON_CreateNumber(${tickdata_name}.AVI_counter));
     // Send LRI_counter
-    cJSON_AddItemToObject(root, "LRI_counter", cJSON_CreateNumber(model.LRI_counter));
+    cJSON_AddItemToObject(root, "LRI_counter", cJSON_CreateNumber(${tickdata_name}.LRI_counter));
     // Send PVARP_counter
-    cJSON_AddItemToObject(root, "PVARP_counter", cJSON_CreateNumber(model.PVARP_counter));
+    cJSON_AddItemToObject(root, "PVARP_counter", cJSON_CreateNumber(${tickdata_name}.PVARP_counter));
     // Send URI_counter
-    cJSON_AddItemToObject(root, "URI_counter", cJSON_CreateNumber(model.URI_counter));
+    cJSON_AddItemToObject(root, "URI_counter", cJSON_CreateNumber(${tickdata_name}.URI_counter));
     // Send VRP_counter
-    cJSON_AddItemToObject(root, "VRP_counter", cJSON_CreateNumber(model.VRP_counter));
+    cJSON_AddItemToObject(root, "VRP_counter", cJSON_CreateNumber(${tickdata_name}.VRP_counter));
     // Send VS
-    cJSON_AddItemToObject(root, "VS", cJSON_CreateBool(model.VS));
+    cJSON_AddItemToObject(root, "VS", cJSON_CreateBool(${tickdata_name}.VS));
     // Send AP
-    cJSON_AddItemToObject(root, "AP", cJSON_CreateBool(model.AP));
+    cJSON_AddItemToObject(root, "AP", cJSON_CreateBool(${tickdata_name}.AP));
     // Send VP
-    cJSON_AddItemToObject(root, "VP", cJSON_CreateBool(model.VP));
+    cJSON_AddItemToObject(root, "VP", cJSON_CreateBool(${tickdata_name}.VP));
     // Send #ticktime
     cJSON_AddItemToObject(root, "#ticktime", cJSON_CreateNumber(_ticktime));
     // Send _DDDpacemaker_local_AEI_start
-    cJSON_AddItemToObject(root, "_DDDpacemaker_local_AEI_start", cJSON_CreateBool(model._DDDpacemaker_local_AEI_start));
+    cJSON_AddItemToObject(root, "_DDDpacemaker_local_AEI_start", cJSON_CreateBool(${tickdata_name}._DDDpacemaker_local_AEI_start));
     // Send _DDDpacemaker_local_AEI_stop
-    cJSON_AddItemToObject(root, "_DDDpacemaker_local_AEI_stop", cJSON_CreateBool(model._DDDpacemaker_local_AEI_stop));
+    cJSON_AddItemToObject(root, "_DDDpacemaker_local_AEI_stop", cJSON_CreateBool(${tickdata_name}._DDDpacemaker_local_AEI_stop));
     // Send _DDDpacemaker_local_AVI_extend
-    cJSON_AddItemToObject(root, "_DDDpacemaker_local_AVI_extend", cJSON_CreateBool(model._DDDpacemaker_local_AVI_extend));
+    cJSON_AddItemToObject(root, "_DDDpacemaker_local_AVI_extend", cJSON_CreateBool(${tickdata_name}._DDDpacemaker_local_AVI_extend));
     // Send _DDDpacemaker_local_AVI_start
-    cJSON_AddItemToObject(root, "_DDDpacemaker_local_AVI_start", cJSON_CreateBool(model._DDDpacemaker_local_AVI_start));
+    cJSON_AddItemToObject(root, "_DDDpacemaker_local_AVI_start", cJSON_CreateBool(${tickdata_name}._DDDpacemaker_local_AVI_start));
     // Send _DDDpacemaker_local_AVI_stop
-    cJSON_AddItemToObject(root, "_DDDpacemaker_local_AVI_stop", cJSON_CreateBool(model._DDDpacemaker_local_AVI_stop));
+    cJSON_AddItemToObject(root, "_DDDpacemaker_local_AVI_stop", cJSON_CreateBool(${tickdata_name}._DDDpacemaker_local_AVI_stop));
     // Send _DDDpacemaker_local_LRI_reset
-    cJSON_AddItemToObject(root, "_DDDpacemaker_local_LRI_reset", cJSON_CreateBool(model._DDDpacemaker_local_LRI_reset));
+    cJSON_AddItemToObject(root, "_DDDpacemaker_local_LRI_reset", cJSON_CreateBool(${tickdata_name}._DDDpacemaker_local_LRI_reset));
     // Send _DDDpacemaker_local_LRI_start
-    cJSON_AddItemToObject(root, "_DDDpacemaker_local_LRI_start", cJSON_CreateBool(model._DDDpacemaker_local_LRI_start));
+    cJSON_AddItemToObject(root, "_DDDpacemaker_local_LRI_start", cJSON_CreateBool(${tickdata_name}._DDDpacemaker_local_LRI_start));
     // Send _DDDpacemaker_local_LRI_stop
-    cJSON_AddItemToObject(root, "_DDDpacemaker_local_LRI_stop", cJSON_CreateBool(model._DDDpacemaker_local_LRI_stop));
+    cJSON_AddItemToObject(root, "_DDDpacemaker_local_LRI_stop", cJSON_CreateBool(${tickdata_name}._DDDpacemaker_local_LRI_stop));
     // Send _DDDpacemaker_local_PVARP_start
-    cJSON_AddItemToObject(root, "_DDDpacemaker_local_PVARP_start", cJSON_CreateBool(model._DDDpacemaker_local_PVARP_start));
+    cJSON_AddItemToObject(root, "_DDDpacemaker_local_PVARP_start", cJSON_CreateBool(${tickdata_name}._DDDpacemaker_local_PVARP_start));
     // Send _DDDpacemaker_local_PVARP_stop
-    cJSON_AddItemToObject(root, "_DDDpacemaker_local_PVARP_stop", cJSON_CreateBool(model._DDDpacemaker_local_PVARP_stop));
+    cJSON_AddItemToObject(root, "_DDDpacemaker_local_PVARP_stop", cJSON_CreateBool(${tickdata_name}._DDDpacemaker_local_PVARP_stop));
     // Send _DDDpacemaker_local_URI_start
-    cJSON_AddItemToObject(root, "_DDDpacemaker_local_URI_start", cJSON_CreateBool(model._DDDpacemaker_local_URI_start));
+    cJSON_AddItemToObject(root, "_DDDpacemaker_local_URI_start", cJSON_CreateBool(${tickdata_name}._DDDpacemaker_local_URI_start));
     // Send _DDDpacemaker_local_URI_stop
-    cJSON_AddItemToObject(root, "_DDDpacemaker_local_URI_stop", cJSON_CreateBool(model._DDDpacemaker_local_URI_stop));
+    cJSON_AddItemToObject(root, "_DDDpacemaker_local_URI_stop", cJSON_CreateBool(${tickdata_name}._DDDpacemaker_local_URI_stop));
     // Send _DDDpacemaker_local_VRP_start
-    cJSON_AddItemToObject(root, "_DDDpacemaker_local_VRP_start", cJSON_CreateBool(model._DDDpacemaker_local_VRP_start));
+    cJSON_AddItemToObject(root, "_DDDpacemaker_local_VRP_start", cJSON_CreateBool(${tickdata_name}._DDDpacemaker_local_VRP_start));
     // Send _DDDpacemaker_local_VRP_stop
-    cJSON_AddItemToObject(root, "_DDDpacemaker_local_VRP_stop", cJSON_CreateBool(model._DDDpacemaker_local_VRP_stop));
+    cJSON_AddItemToObject(root, "_DDDpacemaker_local_VRP_stop", cJSON_CreateBool(${tickdata_name}._DDDpacemaker_local_VRP_stop));
+    // Send _DDDpacemaker_local_doneAS
+    cJSON_AddItemToObject(root, "_DDDpacemaker_local_doneAS", cJSON_CreateBool(${tickdata_name}._DDDpacemaker_local_doneAS));
+    // Send _DDDpacemaker_local_doneAVI
+    cJSON_AddItemToObject(root, "_DDDpacemaker_local_doneAVI", cJSON_CreateBool(${tickdata_name}._DDDpacemaker_local_doneAVI));
+    // Send _DDDpacemaker_local_doneVS
+    cJSON_AddItemToObject(root, "_DDDpacemaker_local_doneVS", cJSON_CreateBool(${tickdata_name}._DDDpacemaker_local_doneVS));
     // Send _GO
-    cJSON_AddItemToObject(root, "_GO", cJSON_CreateBool(model._GO));
+    cJSON_AddItemToObject(root, "_GO", cJSON_CreateBool(${tickdata_name}._GO));
     // Send _TERM
-    cJSON_AddItemToObject(root, "_TERM", cJSON_CreateBool(model._TERM));
-    // Send _cg12
-    cJSON_AddItemToObject(root, "_cg12", cJSON_CreateBool(model._cg12));
-    // Send _cg14
-    cJSON_AddItemToObject(root, "_cg14", cJSON_CreateBool(model._cg14));
-    // Send _cg17
-    cJSON_AddItemToObject(root, "_cg17", cJSON_CreateBool(model._cg17));
-    // Send _cg22
-    cJSON_AddItemToObject(root, "_cg22", cJSON_CreateBool(model._cg22));
-    // Send _cg25
-    cJSON_AddItemToObject(root, "_cg25", cJSON_CreateBool(model._cg25));
-    // Send _cg27
-    cJSON_AddItemToObject(root, "_cg27", cJSON_CreateBool(model._cg27));
+    cJSON_AddItemToObject(root, "_TERM", cJSON_CreateBool(${tickdata_name}._TERM));
+    // Send _cg13
+    cJSON_AddItemToObject(root, "_cg13", cJSON_CreateBool(${tickdata_name}._cg13));
+    // Send _cg16
+    cJSON_AddItemToObject(root, "_cg16", cJSON_CreateBool(${tickdata_name}._cg16));
+    // Send _cg18
+    cJSON_AddItemToObject(root, "_cg18", cJSON_CreateBool(${tickdata_name}._cg18));
+    // Send _cg23
+    cJSON_AddItemToObject(root, "_cg23", cJSON_CreateBool(${tickdata_name}._cg23));
+    // Send _cg26
+    cJSON_AddItemToObject(root, "_cg26", cJSON_CreateBool(${tickdata_name}._cg26));
+    // Send _cg28
+    cJSON_AddItemToObject(root, "_cg28", cJSON_CreateBool(${tickdata_name}._cg28));
     // Send _cg3
-    cJSON_AddItemToObject(root, "_cg3", cJSON_CreateBool(model._cg3));
-    // Send _cg32
-    cJSON_AddItemToObject(root, "_cg32", cJSON_CreateBool(model._cg32));
-    // Send _cg35
-    cJSON_AddItemToObject(root, "_cg35", cJSON_CreateBool(model._cg35));
-    // Send _cg37
-    cJSON_AddItemToObject(root, "_cg37", cJSON_CreateBool(model._cg37));
-    // Send _cg42
-    cJSON_AddItemToObject(root, "_cg42", cJSON_CreateBool(model._cg42));
-    // Send _cg45
-    cJSON_AddItemToObject(root, "_cg45", cJSON_CreateBool(model._cg45));
+    cJSON_AddItemToObject(root, "_cg3", cJSON_CreateBool(${tickdata_name}._cg3));
     // Send _cg6
-    cJSON_AddItemToObject(root, "_cg6", cJSON_CreateBool(model._cg6));
-    // Send _cg9
-    cJSON_AddItemToObject(root, "_cg9", cJSON_CreateBool(model._cg9));
-    // Send _g11
-    cJSON_AddItemToObject(root, "_g11", cJSON_CreateBool(model._g11));
+    cJSON_AddItemToObject(root, "_cg6", cJSON_CreateBool(${tickdata_name}._cg6));
+    // Send _cg8
+    cJSON_AddItemToObject(root, "_cg8", cJSON_CreateBool(${tickdata_name}._cg8));
     // Send _g12
-    cJSON_AddItemToObject(root, "_g12", cJSON_CreateBool(model._g12));
+    cJSON_AddItemToObject(root, "_g12", cJSON_CreateBool(${tickdata_name}._g12));
     // Send _g13
-    cJSON_AddItemToObject(root, "_g13", cJSON_CreateBool(model._g13));
+    cJSON_AddItemToObject(root, "_g13", cJSON_CreateBool(${tickdata_name}._g13));
     // Send _g14
-    cJSON_AddItemToObject(root, "_g14", cJSON_CreateBool(model._g14));
-    // Send _g15
-    cJSON_AddItemToObject(root, "_g15", cJSON_CreateBool(model._g15));
+    cJSON_AddItemToObject(root, "_g14", cJSON_CreateBool(${tickdata_name}._g14));
     // Send _g2
-    cJSON_AddItemToObject(root, "_g2", cJSON_CreateBool(model._g2));
-    // Send _g21
-    cJSON_AddItemToObject(root, "_g21", cJSON_CreateBool(model._g21));
+    cJSON_AddItemToObject(root, "_g2", cJSON_CreateBool(${tickdata_name}._g2));
     // Send _g22
-    cJSON_AddItemToObject(root, "_g22", cJSON_CreateBool(model._g22));
+    cJSON_AddItemToObject(root, "_g22", cJSON_CreateBool(${tickdata_name}._g22));
     // Send _g23
-    cJSON_AddItemToObject(root, "_g23", cJSON_CreateBool(model._g23));
+    cJSON_AddItemToObject(root, "_g23", cJSON_CreateBool(${tickdata_name}._g23));
+    // Send _g24
+    cJSON_AddItemToObject(root, "_g24", cJSON_CreateBool(${tickdata_name}._g24));
+    // Send _g25
+    cJSON_AddItemToObject(root, "_g25", cJSON_CreateBool(${tickdata_name}._g25));
+    // Send _g26
+    cJSON_AddItemToObject(root, "_g26", cJSON_CreateBool(${tickdata_name}._g26));
+    // Send _g27
+    cJSON_AddItemToObject(root, "_g27", cJSON_CreateBool(${tickdata_name}._g27));
     // Send _g3
-    cJSON_AddItemToObject(root, "_g3", cJSON_CreateBool(model._g3));
-    // Send _g32
-    cJSON_AddItemToObject(root, "_g32", cJSON_CreateBool(model._g32));
+    cJSON_AddItemToObject(root, "_g3", cJSON_CreateBool(${tickdata_name}._g3));
     // Send _g33
-    cJSON_AddItemToObject(root, "_g33", cJSON_CreateBool(model._g33));
-    // Send _g35
-    cJSON_AddItemToObject(root, "_g35", cJSON_CreateBool(model._g35));
-    // Send _g36
-    cJSON_AddItemToObject(root, "_g36", cJSON_CreateBool(model._g36));
-    // Send _g37
-    cJSON_AddItemToObject(root, "_g37", cJSON_CreateBool(model._g37));
-    // Send _g38
-    cJSON_AddItemToObject(root, "_g38", cJSON_CreateBool(model._g38));
+    cJSON_AddItemToObject(root, "_g33", cJSON_CreateBool(${tickdata_name}._g33));
     // Send _g4
-    cJSON_AddItemToObject(root, "_g4", cJSON_CreateBool(model._g4));
-    // Send _g41
-    cJSON_AddItemToObject(root, "_g41", cJSON_CreateBool(model._g41));
+    cJSON_AddItemToObject(root, "_g4", cJSON_CreateBool(${tickdata_name}._g4));
     // Send _g5
-    cJSON_AddItemToObject(root, "_g5", cJSON_CreateBool(model._g5));
+    cJSON_AddItemToObject(root, "_g5", cJSON_CreateBool(${tickdata_name}._g5));
     // Send _g6
-    cJSON_AddItemToObject(root, "_g6", cJSON_CreateBool(model._g6));
+    cJSON_AddItemToObject(root, "_g6", cJSON_CreateBool(${tickdata_name}._g6));
     // Send _g7
-    cJSON_AddItemToObject(root, "_g7", cJSON_CreateBool(model._g7));
-    // Send _g8
-    cJSON_AddItemToObject(root, "_g8", cJSON_CreateBool(model._g8));
-    // Send _pg11
-    cJSON_AddItemToObject(root, "_pg11", cJSON_CreateBool(model._pg11));
+    cJSON_AddItemToObject(root, "_g7", cJSON_CreateBool(${tickdata_name}._g7));
+    // Send _pg12
+    cJSON_AddItemToObject(root, "_pg12", cJSON_CreateBool(${tickdata_name}._pg12));
     // Send _pg2
-    cJSON_AddItemToObject(root, "_pg2", cJSON_CreateBool(model._pg2));
-    // Send _pg21
-    cJSON_AddItemToObject(root, "_pg21", cJSON_CreateBool(model._pg21));
-    // Send _pg32
-    cJSON_AddItemToObject(root, "_pg32", cJSON_CreateBool(model._pg32));
-    // Send _pg38
-    cJSON_AddItemToObject(root, "_pg38", cJSON_CreateBool(model._pg38));
-    // Send _pg41
-    cJSON_AddItemToObject(root, "_pg41", cJSON_CreateBool(model._pg41));
+    cJSON_AddItemToObject(root, "_pg2", cJSON_CreateBool(${tickdata_name}._pg2));
+    // Send _pg22
+    cJSON_AddItemToObject(root, "_pg22", cJSON_CreateBool(${tickdata_name}._pg22));
+    // Send _pg25
+    cJSON_AddItemToObject(root, "_pg25", cJSON_CreateBool(${tickdata_name}._pg25));
+    // Send _pg33
+    cJSON_AddItemToObject(root, "_pg33", cJSON_CreateBool(${tickdata_name}._pg33));
     // Send _pg5
-    cJSON_AddItemToObject(root, "_pg5", cJSON_CreateBool(model._pg5));
+    cJSON_AddItemToObject(root, "_pg5", cJSON_CreateBool(${tickdata_name}._pg5));
     // Send _taken_transitions
     array = cJSON_CreateArray();
-    for (int i0 = 0; i0 < 20; i0++) {
-        cJSON *item0 = cJSON_CreateNumber(model._taken_transitions[i0]);
+    for (int i0 = 0; i0 < 15; i0++) {
+        cJSON *item0 = cJSON_CreateNumber(${tickdata_name}._taken_transitions[i0]);
         cJSON_AddItemToArray(array, item0);
     }
     cJSON_AddItemToObject(root, "_taken_transitions", array);
@@ -696,6 +637,24 @@ void sendVariables(int send_interface) {
         cJSON_AddItemToObject(interface, "_DDDpacemaker_local_VRP_stop", info);
         info = cJSON_CreateObject();
         properties = cJSON_CreateArray();
+        cJSON_AddItemToArray(properties, cJSON_CreateString("signal"));
+        cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
+        cJSON_AddItemToObject(info, "properties", properties);
+        cJSON_AddItemToObject(interface, "_DDDpacemaker_local_doneAS", info);
+        info = cJSON_CreateObject();
+        properties = cJSON_CreateArray();
+        cJSON_AddItemToArray(properties, cJSON_CreateString("signal"));
+        cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
+        cJSON_AddItemToObject(info, "properties", properties);
+        cJSON_AddItemToObject(interface, "_DDDpacemaker_local_doneAVI", info);
+        info = cJSON_CreateObject();
+        properties = cJSON_CreateArray();
+        cJSON_AddItemToArray(properties, cJSON_CreateString("signal"));
+        cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
+        cJSON_AddItemToObject(info, "properties", properties);
+        cJSON_AddItemToObject(interface, "_DDDpacemaker_local_doneVS", info);
+        info = cJSON_CreateObject();
+        properties = cJSON_CreateArray();
         cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
         cJSON_AddItemToArray(properties, cJSON_CreateString("goGuard"));
         cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
@@ -713,42 +672,42 @@ void sendVariables(int send_interface) {
         cJSON_AddItemToArray(properties, cJSON_CreateString("conditionalGuard"));
         cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
         cJSON_AddItemToObject(info, "properties", properties);
-        cJSON_AddItemToObject(interface, "_cg12", info);
+        cJSON_AddItemToObject(interface, "_cg13", info);
         info = cJSON_CreateObject();
         properties = cJSON_CreateArray();
         cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
         cJSON_AddItemToArray(properties, cJSON_CreateString("conditionalGuard"));
         cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
         cJSON_AddItemToObject(info, "properties", properties);
-        cJSON_AddItemToObject(interface, "_cg14", info);
+        cJSON_AddItemToObject(interface, "_cg16", info);
         info = cJSON_CreateObject();
         properties = cJSON_CreateArray();
         cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
         cJSON_AddItemToArray(properties, cJSON_CreateString("conditionalGuard"));
         cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
         cJSON_AddItemToObject(info, "properties", properties);
-        cJSON_AddItemToObject(interface, "_cg17", info);
+        cJSON_AddItemToObject(interface, "_cg18", info);
         info = cJSON_CreateObject();
         properties = cJSON_CreateArray();
         cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
         cJSON_AddItemToArray(properties, cJSON_CreateString("conditionalGuard"));
         cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
         cJSON_AddItemToObject(info, "properties", properties);
-        cJSON_AddItemToObject(interface, "_cg22", info);
+        cJSON_AddItemToObject(interface, "_cg23", info);
         info = cJSON_CreateObject();
         properties = cJSON_CreateArray();
         cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
         cJSON_AddItemToArray(properties, cJSON_CreateString("conditionalGuard"));
         cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
         cJSON_AddItemToObject(info, "properties", properties);
-        cJSON_AddItemToObject(interface, "_cg25", info);
+        cJSON_AddItemToObject(interface, "_cg26", info);
         info = cJSON_CreateObject();
         properties = cJSON_CreateArray();
         cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
         cJSON_AddItemToArray(properties, cJSON_CreateString("conditionalGuard"));
         cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
         cJSON_AddItemToObject(info, "properties", properties);
-        cJSON_AddItemToObject(interface, "_cg27", info);
+        cJSON_AddItemToObject(interface, "_cg28", info);
         info = cJSON_CreateObject();
         properties = cJSON_CreateArray();
         cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
@@ -762,41 +721,6 @@ void sendVariables(int send_interface) {
         cJSON_AddItemToArray(properties, cJSON_CreateString("conditionalGuard"));
         cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
         cJSON_AddItemToObject(info, "properties", properties);
-        cJSON_AddItemToObject(interface, "_cg32", info);
-        info = cJSON_CreateObject();
-        properties = cJSON_CreateArray();
-        cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
-        cJSON_AddItemToArray(properties, cJSON_CreateString("conditionalGuard"));
-        cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
-        cJSON_AddItemToObject(info, "properties", properties);
-        cJSON_AddItemToObject(interface, "_cg35", info);
-        info = cJSON_CreateObject();
-        properties = cJSON_CreateArray();
-        cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
-        cJSON_AddItemToArray(properties, cJSON_CreateString("conditionalGuard"));
-        cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
-        cJSON_AddItemToObject(info, "properties", properties);
-        cJSON_AddItemToObject(interface, "_cg37", info);
-        info = cJSON_CreateObject();
-        properties = cJSON_CreateArray();
-        cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
-        cJSON_AddItemToArray(properties, cJSON_CreateString("conditionalGuard"));
-        cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
-        cJSON_AddItemToObject(info, "properties", properties);
-        cJSON_AddItemToObject(interface, "_cg42", info);
-        info = cJSON_CreateObject();
-        properties = cJSON_CreateArray();
-        cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
-        cJSON_AddItemToArray(properties, cJSON_CreateString("conditionalGuard"));
-        cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
-        cJSON_AddItemToObject(info, "properties", properties);
-        cJSON_AddItemToObject(interface, "_cg45", info);
-        info = cJSON_CreateObject();
-        properties = cJSON_CreateArray();
-        cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
-        cJSON_AddItemToArray(properties, cJSON_CreateString("conditionalGuard"));
-        cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
-        cJSON_AddItemToObject(info, "properties", properties);
         cJSON_AddItemToObject(interface, "_cg6", info);
         info = cJSON_CreateObject();
         properties = cJSON_CreateArray();
@@ -804,13 +728,7 @@ void sendVariables(int send_interface) {
         cJSON_AddItemToArray(properties, cJSON_CreateString("conditionalGuard"));
         cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
         cJSON_AddItemToObject(info, "properties", properties);
-        cJSON_AddItemToObject(interface, "_cg9", info);
-        info = cJSON_CreateObject();
-        properties = cJSON_CreateArray();
-        cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
-        cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
-        cJSON_AddItemToObject(info, "properties", properties);
-        cJSON_AddItemToObject(interface, "_g11", info);
+        cJSON_AddItemToObject(interface, "_cg8", info);
         info = cJSON_CreateObject();
         properties = cJSON_CreateArray();
         cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
@@ -834,19 +752,7 @@ void sendVariables(int send_interface) {
         cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
         cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
         cJSON_AddItemToObject(info, "properties", properties);
-        cJSON_AddItemToObject(interface, "_g15", info);
-        info = cJSON_CreateObject();
-        properties = cJSON_CreateArray();
-        cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
-        cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
-        cJSON_AddItemToObject(info, "properties", properties);
         cJSON_AddItemToObject(interface, "_g2", info);
-        info = cJSON_CreateObject();
-        properties = cJSON_CreateArray();
-        cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
-        cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
-        cJSON_AddItemToObject(info, "properties", properties);
-        cJSON_AddItemToObject(interface, "_g21", info);
         info = cJSON_CreateObject();
         properties = cJSON_CreateArray();
         cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
@@ -864,13 +770,31 @@ void sendVariables(int send_interface) {
         cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
         cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
         cJSON_AddItemToObject(info, "properties", properties);
-        cJSON_AddItemToObject(interface, "_g3", info);
+        cJSON_AddItemToObject(interface, "_g24", info);
         info = cJSON_CreateObject();
         properties = cJSON_CreateArray();
         cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
         cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
         cJSON_AddItemToObject(info, "properties", properties);
-        cJSON_AddItemToObject(interface, "_g32", info);
+        cJSON_AddItemToObject(interface, "_g25", info);
+        info = cJSON_CreateObject();
+        properties = cJSON_CreateArray();
+        cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
+        cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
+        cJSON_AddItemToObject(info, "properties", properties);
+        cJSON_AddItemToObject(interface, "_g26", info);
+        info = cJSON_CreateObject();
+        properties = cJSON_CreateArray();
+        cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
+        cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
+        cJSON_AddItemToObject(info, "properties", properties);
+        cJSON_AddItemToObject(interface, "_g27", info);
+        info = cJSON_CreateObject();
+        properties = cJSON_CreateArray();
+        cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
+        cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
+        cJSON_AddItemToObject(info, "properties", properties);
+        cJSON_AddItemToObject(interface, "_g3", info);
         info = cJSON_CreateObject();
         properties = cJSON_CreateArray();
         cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
@@ -882,37 +806,7 @@ void sendVariables(int send_interface) {
         cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
         cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
         cJSON_AddItemToObject(info, "properties", properties);
-        cJSON_AddItemToObject(interface, "_g35", info);
-        info = cJSON_CreateObject();
-        properties = cJSON_CreateArray();
-        cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
-        cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
-        cJSON_AddItemToObject(info, "properties", properties);
-        cJSON_AddItemToObject(interface, "_g36", info);
-        info = cJSON_CreateObject();
-        properties = cJSON_CreateArray();
-        cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
-        cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
-        cJSON_AddItemToObject(info, "properties", properties);
-        cJSON_AddItemToObject(interface, "_g37", info);
-        info = cJSON_CreateObject();
-        properties = cJSON_CreateArray();
-        cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
-        cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
-        cJSON_AddItemToObject(info, "properties", properties);
-        cJSON_AddItemToObject(interface, "_g38", info);
-        info = cJSON_CreateObject();
-        properties = cJSON_CreateArray();
-        cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
-        cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
-        cJSON_AddItemToObject(info, "properties", properties);
         cJSON_AddItemToObject(interface, "_g4", info);
-        info = cJSON_CreateObject();
-        properties = cJSON_CreateArray();
-        cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
-        cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
-        cJSON_AddItemToObject(info, "properties", properties);
-        cJSON_AddItemToObject(interface, "_g41", info);
         info = cJSON_CreateObject();
         properties = cJSON_CreateArray();
         cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
@@ -933,17 +827,11 @@ void sendVariables(int send_interface) {
         cJSON_AddItemToObject(interface, "_g7", info);
         info = cJSON_CreateObject();
         properties = cJSON_CreateArray();
-        cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
-        cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
-        cJSON_AddItemToObject(info, "properties", properties);
-        cJSON_AddItemToObject(interface, "_g8", info);
-        info = cJSON_CreateObject();
-        properties = cJSON_CreateArray();
         cJSON_AddItemToArray(properties, cJSON_CreateString("preGuard"));
         cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
         cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
         cJSON_AddItemToObject(info, "properties", properties);
-        cJSON_AddItemToObject(interface, "_pg11", info);
+        cJSON_AddItemToObject(interface, "_pg12", info);
         info = cJSON_CreateObject();
         properties = cJSON_CreateArray();
         cJSON_AddItemToArray(properties, cJSON_CreateString("preGuard"));
@@ -957,28 +845,21 @@ void sendVariables(int send_interface) {
         cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
         cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
         cJSON_AddItemToObject(info, "properties", properties);
-        cJSON_AddItemToObject(interface, "_pg21", info);
+        cJSON_AddItemToObject(interface, "_pg22", info);
         info = cJSON_CreateObject();
         properties = cJSON_CreateArray();
         cJSON_AddItemToArray(properties, cJSON_CreateString("preGuard"));
         cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
         cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
         cJSON_AddItemToObject(info, "properties", properties);
-        cJSON_AddItemToObject(interface, "_pg32", info);
+        cJSON_AddItemToObject(interface, "_pg25", info);
         info = cJSON_CreateObject();
         properties = cJSON_CreateArray();
         cJSON_AddItemToArray(properties, cJSON_CreateString("preGuard"));
         cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
         cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
         cJSON_AddItemToObject(info, "properties", properties);
-        cJSON_AddItemToObject(interface, "_pg38", info);
-        info = cJSON_CreateObject();
-        properties = cJSON_CreateArray();
-        cJSON_AddItemToArray(properties, cJSON_CreateString("preGuard"));
-        cJSON_AddItemToArray(properties, cJSON_CreateString("guard"));
-        cJSON_AddItemToObject(info, "type", cJSON_CreateString("bool"));
-        cJSON_AddItemToObject(info, "properties", properties);
-        cJSON_AddItemToObject(interface, "_pg41", info);
+        cJSON_AddItemToObject(interface, "_pg33", info);
         info = cJSON_CreateObject();
         properties = cJSON_CreateArray();
         cJSON_AddItemToArray(properties, cJSON_CreateString("preGuard"));
@@ -1007,38 +888,4 @@ void sendVariables(int send_interface) {
     cJSON_Delete(root);
     free(outString);
 }
-
-int main(int argc, const char* argv[]) {
-    
-
-    // Initialize 
-    reset(&model);
-    
-    sendVariables(1);
-
-    
-    // Tick loop
-    while (1) {
-        
-    
-        // Read inputs
-        receiveVariables();
-
-        
-        resetticktime();
-
-  
-        // Reaction of model
-        tick(&model);
-        
-        _ticktime = getticktime();
-
-         
-        // Send outputs
-        sendVariables(0);
-
-        
-        
-    }
-    
-}
+</#macro>
