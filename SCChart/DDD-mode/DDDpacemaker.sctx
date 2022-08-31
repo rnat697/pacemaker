@@ -5,9 +5,8 @@ scchart DDDpacemaker {
   output bool AP, VP
 
   region Main  {
-    initial state AS{
     entry do AP = false
-    initial state WaitAVI{ //Atrial and ventricular event
+    initial state AVI_event{ //Atrial and ventricular event
      region AtrialEvent{
       initial state wAS
       if AS go to dAS
@@ -22,15 +21,30 @@ scchart DDDpacemaker {
     }
     do 0 = true join to done
     final state done
+    
+    entry do AP = false
+    initial state PVARP_Event{ //Atrial and ventricular event
+     region AtrialEvent{
+      initial state wAS
+      if AS go to dAS
+      final state dAS  
+      }
+      
+    region VentricleEvent{
+      initial state wVS
+      if VS go to dVS // go to done VS
+      final state dVS
+      }
+    
+    do 0 = true join to done
+    final state done
      }
-     if R abort to AS
-    }
+    
+    
+    
+     } 
   
-  }
-  
-  
-  
-  region PVARP{
+  region Ad{
     initial state A
   }  
   
