@@ -1,0 +1,399 @@
+!SESSION 2022-09-01 15:58:36.169 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.11
+java.vendor=Amazon.com Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_NZ
+Framework arguments:  --launcher.XXPermSize 128m
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 --launcher.XXPermSize 128m
+
+!ENTRY org.eclipse.egit.ui 2 0 2022-09-01 15:59:03.673
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\smiy200'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.ui 4 0 2022-09-01 16:02:46.823
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.core.runtime.Path.<init>(Path.java:231)
+	at org.eclipse.core.runtime.Path.<init>(Path.java:189)
+	at de.cau.cs.kieler.klighd.ui.view.controllers.XtextSelectionHighlighter.highlightSelection(XtextSelectionHighlighter.java:83)
+	at de.cau.cs.kieler.klighd.ui.view.controllers.XtextSelectionHighlighter.highlightSelection(XtextSelectionHighlighter.java:59)
+	at de.cau.cs.kieler.kicool.ui.klighd.KiCoModelUpdateController.selectionChanged(KiCoModelUpdateController.java:400)
+	at de.cau.cs.kieler.klighd.ui.view.DiagramView.selectionChanged(DiagramView.java:953)
+	at de.cau.cs.kieler.klighd.viewers.ContextViewer.notifySelectionListeners(ContextViewer.java:993)
+	at de.cau.cs.kieler.klighd.viewers.ContextViewer.createSelection(ContextViewer.java:948)
+	at de.cau.cs.kieler.klighd.viewers.ContextViewer.updateSelection(ContextViewer.java:936)
+	at de.cau.cs.kieler.klighd.viewers.ContextViewer.resetSelectionToDiagramElements(ContextViewer.java:885)
+	at de.cau.cs.kieler.klighd.piccolo.internal.events.KlighdSelectionEventHandler.performSelection(KlighdSelectionEventHandler.java:324)
+	at de.cau.cs.kieler.klighd.piccolo.internal.events.KlighdSelectionEventHandler.mouseReleased(KlighdSelectionEventHandler.java:167)
+	at de.cau.cs.kieler.klighd.piccolo.internal.events.KlighdBasicInputEventHandler.processEvent(KlighdBasicInputEventHandler.java:167)
+	at edu.umd.cs.piccolo.util.PPickPath.processEvent(PPickPath.java:372)
+	at edu.umd.cs.piccolo.PInputManager.dispatchEventToListener(PInputManager.java:403)
+	at de.cau.cs.kieler.klighd.piccolo.internal.events.KlighdInputManager.mouseReleased(KlighdInputManager.java:194)
+	at de.cau.cs.kieler.klighd.piccolo.internal.events.KlighdBasicInputEventHandler.processEvent(KlighdBasicInputEventHandler.java:167)
+	at de.cau.cs.kieler.klighd.piccolo.internal.events.KlighdInputManager.processEvent(KlighdInputManager.java:152)
+	at edu.umd.cs.piccolo.PInputManager.processInput(PInputManager.java:350)
+	at edu.umd.cs.piccolo.PRoot.processInputs(PRoot.java:328)
+	at edu.umd.cs.piccolo.PInputManager.processEventFromCamera(PInputManager.java:387)
+	at de.cau.cs.kieler.klighd.piccolo.internal.KlighdCanvas.sendInputEventToInputManager(KlighdCanvas.java:302)
+	at de.cau.cs.kieler.klighd.piccolo.internal.events.KlighdMouseEventListener.mouseUp(KlighdMouseEventListener.java:135)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:224)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4209)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1043)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4026)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3626)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1157)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:654)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:591)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1462)
+
+!ENTRY de.cau.cs.kieler.simulation.ui 4 0 2022-09-01 16:02:52.378
+!MESSAGE Error(s) in compilation for simulation
+!STACK 0
+java.lang.Throwable: Can't schedule from _g16 to _g25b
+Can't schedule from _g25b to _cg25
+Can't schedule from _g25b to _g27
+Can't schedule from _g27 to _cg27
+Can't schedule from _g27 to _g28
+Can't schedule from _g28 to _g9
+Can't schedule from _g9 to _cg9
+Can't schedule from _g9 to _g17
+Can't schedule from _g17 to _cg17
+Can't schedule from _g17 to _g18
+Can't schedule from _g18 to _g16
+Can't schedule from _g16 to _g2
+Can't schedule from _g17 to _g5
+Can't schedule from _g9 to _g10
+Can't schedule from _g10 to _g11
+Can't schedule from _g25b to _g26
+Can't schedule from _g26 to _g21
+Can't schedule from _g27 to _g24
+Can't schedule from _g16 to _g45b
+Can't schedule from _g45b to _cg45
+Can't schedule from _g45b to _g46
+Can't schedule from _g46 to _g41
+Can't schedule from _g45b to _g44
+The SCG is NOT asc-schedulable!
+Error while invoking command
+Compiler did not return success (exit value != 0)
+Either the source code cannot be compiled or the gcc command is not available on PATH.
+Please check the KiCo log for further details.
+	at de.cau.cs.kieler.simulation.ide.CentralSimulation$1.run(CentralSimulation.java:142)
+	at org.eclipse.core.runtime.jobs.Job$1.run(Job.java:166)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY de.cau.cs.kieler.simulation.ui 4 0 2022-09-01 16:02:52.412
+!MESSAGE Cannot run program "\\FILES.AUCKLAND.AC.NZ\myhome\Documents\GitHub\ddd-mode-pacemaker-303-group-10\kieler\KIELER-Temp\DDDpacemaker-sctx\kieler-gen\bin\simulation.exe" (in directory "\\FILES.AUCKLAND.AC.NZ\myhome\Documents\GitHub\ddd-mode-pacemaker-303-group-10\kieler\KIELER-Temp\DDDpacemaker-sctx\kieler-gen"): CreateProcess error=2, The system cannot find the file specified
+!STACK 0
+java.io.IOException: CreateProcess error=2, The system cannot find the file specified
+	at java.base/java.lang.ProcessImpl.create(Native Method)
+	at java.base/java.lang.ProcessImpl.<init>(ProcessImpl.java:487)
+	at java.base/java.lang.ProcessImpl.start(ProcessImpl.java:154)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1107)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1071)
+	at de.cau.cs.kieler.simulation.SimulationModelWrapper.initialize(SimulationModelWrapper.java:110)
+	at de.cau.cs.kieler.simulation.SimulationController.lambda$0(SimulationController.java:116)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at java.base/java.util.Collections$UnmodifiableCollection.forEach(Collections.java:1085)
+	at de.cau.cs.kieler.simulation.SimulationController.start(SimulationController.java:118)
+	at de.cau.cs.kieler.simulation.SimulationContext.start(SimulationContext.java:281)
+	at de.cau.cs.kieler.simulation.ide.CentralSimulation.startSimulation(CentralSimulation.java:99)
+	at de.cau.cs.kieler.simulation.ide.CentralSimulation$1.run(CentralSimulation.java:152)
+	at org.eclipse.core.runtime.jobs.Job$1.run(Job.java:166)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY de.cau.cs.kieler.simulation.ui 4 0 2022-09-01 16:08:27.740
+!MESSAGE Error(s) in compilation for simulation
+!STACK 0
+java.lang.Throwable: Can't schedule from _g16 to _g25b
+Can't schedule from _g25b to _cg25
+Can't schedule from _g25b to _g27
+Can't schedule from _g27 to _cg27
+Can't schedule from _g27 to _g28
+Can't schedule from _g28 to _g9
+Can't schedule from _g9 to _cg9
+Can't schedule from _g9 to _g17
+Can't schedule from _g17 to _cg17
+Can't schedule from _g17 to _g18
+Can't schedule from _g18 to _g16
+Can't schedule from _g16 to _g2
+Can't schedule from _g17 to _g5
+Can't schedule from _g9 to _g10
+Can't schedule from _g10 to _g11
+Can't schedule from _g25b to _g26
+Can't schedule from _g26 to _g21
+Can't schedule from _g27 to _g24
+Can't schedule from _g16 to _g45b
+Can't schedule from _g45b to _cg45
+Can't schedule from _g45b to _g46
+Can't schedule from _g46 to _g41
+Can't schedule from _g45b to _g44
+The SCG is NOT asc-schedulable!
+Error while invoking command
+Compiler did not return success (exit value != 0)
+Either the source code cannot be compiled or the gcc command is not available on PATH.
+Please check the KiCo log for further details.
+	at de.cau.cs.kieler.simulation.ide.CentralSimulation$1.run(CentralSimulation.java:142)
+	at org.eclipse.core.runtime.jobs.Job$1.run(Job.java:166)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY de.cau.cs.kieler.simulation.ui 4 0 2022-09-01 16:08:27.745
+!MESSAGE Cannot run program "\\FILES.AUCKLAND.AC.NZ\myhome\Documents\GitHub\ddd-mode-pacemaker-303-group-10\kieler\KIELER-Temp\DDDpacemaker-sctx\kieler-gen\bin\simulation.exe" (in directory "\\FILES.AUCKLAND.AC.NZ\myhome\Documents\GitHub\ddd-mode-pacemaker-303-group-10\kieler\KIELER-Temp\DDDpacemaker-sctx\kieler-gen"): CreateProcess error=2, The system cannot find the file specified
+!STACK 0
+java.io.IOException: CreateProcess error=2, The system cannot find the file specified
+	at java.base/java.lang.ProcessImpl.create(Native Method)
+	at java.base/java.lang.ProcessImpl.<init>(ProcessImpl.java:487)
+	at java.base/java.lang.ProcessImpl.start(ProcessImpl.java:154)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1107)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1071)
+	at de.cau.cs.kieler.simulation.SimulationModelWrapper.initialize(SimulationModelWrapper.java:110)
+	at de.cau.cs.kieler.simulation.SimulationController.lambda$0(SimulationController.java:116)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at java.base/java.util.Collections$UnmodifiableCollection.forEach(Collections.java:1085)
+	at de.cau.cs.kieler.simulation.SimulationController.start(SimulationController.java:118)
+	at de.cau.cs.kieler.simulation.SimulationContext.start(SimulationContext.java:281)
+	at de.cau.cs.kieler.simulation.ide.CentralSimulation.startSimulation(CentralSimulation.java:99)
+	at de.cau.cs.kieler.simulation.ide.CentralSimulation$1.run(CentralSimulation.java:152)
+	at org.eclipse.core.runtime.jobs.Job$1.run(Job.java:166)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.ui 4 0 2022-09-01 16:40:57.779
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.core.runtime.Path.<init>(Path.java:231)
+	at org.eclipse.core.runtime.Path.<init>(Path.java:189)
+	at de.cau.cs.kieler.klighd.ui.view.controllers.XtextSelectionHighlighter.highlightSelection(XtextSelectionHighlighter.java:83)
+	at de.cau.cs.kieler.klighd.ui.view.controllers.XtextSelectionHighlighter.highlightSelection(XtextSelectionHighlighter.java:59)
+	at de.cau.cs.kieler.kicool.ui.klighd.KiCoModelUpdateController.selectionChanged(KiCoModelUpdateController.java:400)
+	at de.cau.cs.kieler.klighd.ui.view.DiagramView.selectionChanged(DiagramView.java:953)
+	at de.cau.cs.kieler.klighd.viewers.ContextViewer.notifySelectionListeners(ContextViewer.java:993)
+	at de.cau.cs.kieler.klighd.viewers.ContextViewer.createSelection(ContextViewer.java:948)
+	at de.cau.cs.kieler.klighd.viewers.ContextViewer.updateSelection(ContextViewer.java:936)
+	at de.cau.cs.kieler.klighd.viewers.ContextViewer.resetSelectionToDiagramElements(ContextViewer.java:885)
+	at de.cau.cs.kieler.klighd.piccolo.internal.events.KlighdSelectionEventHandler.performSelection(KlighdSelectionEventHandler.java:324)
+	at de.cau.cs.kieler.klighd.piccolo.internal.events.KlighdSelectionEventHandler.mouseReleased(KlighdSelectionEventHandler.java:167)
+	at de.cau.cs.kieler.klighd.piccolo.internal.events.KlighdBasicInputEventHandler.processEvent(KlighdBasicInputEventHandler.java:167)
+	at edu.umd.cs.piccolo.util.PPickPath.processEvent(PPickPath.java:372)
+	at edu.umd.cs.piccolo.PInputManager.dispatchEventToListener(PInputManager.java:403)
+	at de.cau.cs.kieler.klighd.piccolo.internal.events.KlighdInputManager.mouseReleased(KlighdInputManager.java:194)
+	at de.cau.cs.kieler.klighd.piccolo.internal.events.KlighdBasicInputEventHandler.processEvent(KlighdBasicInputEventHandler.java:167)
+	at de.cau.cs.kieler.klighd.piccolo.internal.events.KlighdInputManager.processEvent(KlighdInputManager.java:152)
+	at edu.umd.cs.piccolo.PInputManager.processInput(PInputManager.java:350)
+	at edu.umd.cs.piccolo.PRoot.processInputs(PRoot.java:328)
+	at edu.umd.cs.piccolo.PInputManager.processEventFromCamera(PInputManager.java:387)
+	at de.cau.cs.kieler.klighd.piccolo.internal.KlighdCanvas.sendInputEventToInputManager(KlighdCanvas.java:302)
+	at de.cau.cs.kieler.klighd.piccolo.internal.events.KlighdMouseEventListener.mouseUp(KlighdMouseEventListener.java:135)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:224)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4209)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1043)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4026)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3626)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1157)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:654)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:591)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1462)
+
+!ENTRY org.eclipse.ui 4 0 2022-09-01 16:41:02.083
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.core.runtime.Path.<init>(Path.java:231)
+	at org.eclipse.core.runtime.Path.<init>(Path.java:189)
+	at de.cau.cs.kieler.klighd.ui.view.controllers.XtextSelectionHighlighter.highlightSelection(XtextSelectionHighlighter.java:83)
+	at de.cau.cs.kieler.klighd.ui.view.controllers.XtextSelectionHighlighter.highlightSelection(XtextSelectionHighlighter.java:59)
+	at de.cau.cs.kieler.kicool.ui.klighd.KiCoModelUpdateController.selectionChanged(KiCoModelUpdateController.java:400)
+	at de.cau.cs.kieler.klighd.ui.view.DiagramView.selectionChanged(DiagramView.java:953)
+	at de.cau.cs.kieler.klighd.viewers.ContextViewer.notifySelectionListeners(ContextViewer.java:993)
+	at de.cau.cs.kieler.klighd.viewers.ContextViewer.createSelection(ContextViewer.java:948)
+	at de.cau.cs.kieler.klighd.viewers.ContextViewer.updateSelection(ContextViewer.java:936)
+	at de.cau.cs.kieler.klighd.viewers.ContextViewer.resetSelectionToDiagramElements(ContextViewer.java:885)
+	at de.cau.cs.kieler.klighd.piccolo.internal.events.KlighdSelectionEventHandler.performSelection(KlighdSelectionEventHandler.java:324)
+	at de.cau.cs.kieler.klighd.piccolo.internal.events.KlighdSelectionEventHandler.mousePressed(KlighdSelectionEventHandler.java:139)
+	at de.cau.cs.kieler.klighd.piccolo.internal.events.KlighdBasicInputEventHandler.processEvent(KlighdBasicInputEventHandler.java:159)
+	at edu.umd.cs.piccolo.util.PPickPath.processEvent(PPickPath.java:372)
+	at edu.umd.cs.piccolo.PInputManager.dispatchEventToListener(PInputManager.java:403)
+	at de.cau.cs.kieler.klighd.piccolo.internal.events.KlighdInputManager.mousePressed(KlighdInputManager.java:186)
+	at de.cau.cs.kieler.klighd.piccolo.internal.events.KlighdBasicInputEventHandler.processEvent(KlighdBasicInputEventHandler.java:159)
+	at de.cau.cs.kieler.klighd.piccolo.internal.events.KlighdInputManager.processEvent(KlighdInputManager.java:152)
+	at edu.umd.cs.piccolo.PInputManager.processInput(PInputManager.java:350)
+	at edu.umd.cs.piccolo.PRoot.processInputs(PRoot.java:328)
+	at edu.umd.cs.piccolo.PInputManager.processEventFromCamera(PInputManager.java:387)
+	at de.cau.cs.kieler.klighd.piccolo.internal.KlighdCanvas.sendInputEventToInputManager(KlighdCanvas.java:302)
+	at de.cau.cs.kieler.klighd.piccolo.internal.events.KlighdMouseEventListener.mouseDown(KlighdMouseEventListener.java:124)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:196)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4209)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1043)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4026)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3626)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1157)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:654)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:591)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1462)
+
+!ENTRY org.eclipse.ui 4 0 2022-09-01 16:47:58.493
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.core.runtime.Path.<init>(Path.java:231)
+	at org.eclipse.core.runtime.Path.<init>(Path.java:189)
+	at de.cau.cs.kieler.klighd.ui.view.controllers.XtextSelectionHighlighter.highlightSelection(XtextSelectionHighlighter.java:83)
+	at de.cau.cs.kieler.klighd.ui.view.controllers.XtextSelectionHighlighter.highlightSelection(XtextSelectionHighlighter.java:59)
+	at de.cau.cs.kieler.kicool.ui.klighd.KiCoModelUpdateController.selectionChanged(KiCoModelUpdateController.java:400)
+	at de.cau.cs.kieler.klighd.ui.view.DiagramView.selectionChanged(DiagramView.java:953)
+	at de.cau.cs.kieler.klighd.viewers.ContextViewer.notifySelectionListeners(ContextViewer.java:993)
+	at de.cau.cs.kieler.klighd.viewers.ContextViewer.createSelection(ContextViewer.java:948)
+	at de.cau.cs.kieler.klighd.viewers.ContextViewer.updateSelection(ContextViewer.java:936)
+	at de.cau.cs.kieler.klighd.viewers.ContextViewer.resetSelectionToDiagramElements(ContextViewer.java:885)
+	at de.cau.cs.kieler.klighd.piccolo.internal.events.KlighdSelectionEventHandler.performSelection(KlighdSelectionEventHandler.java:324)
+	at de.cau.cs.kieler.klighd.piccolo.internal.events.KlighdSelectionEventHandler.mouseReleased(KlighdSelectionEventHandler.java:167)
+	at de.cau.cs.kieler.klighd.piccolo.internal.events.KlighdBasicInputEventHandler.processEvent(KlighdBasicInputEventHandler.java:167)
+	at edu.umd.cs.piccolo.util.PPickPath.processEvent(PPickPath.java:372)
+	at edu.umd.cs.piccolo.PInputManager.dispatchEventToListener(PInputManager.java:403)
+	at de.cau.cs.kieler.klighd.piccolo.internal.events.KlighdInputManager.mouseReleased(KlighdInputManager.java:194)
+	at de.cau.cs.kieler.klighd.piccolo.internal.events.KlighdBasicInputEventHandler.processEvent(KlighdBasicInputEventHandler.java:167)
+	at de.cau.cs.kieler.klighd.piccolo.internal.events.KlighdInputManager.processEvent(KlighdInputManager.java:152)
+	at edu.umd.cs.piccolo.PInputManager.processInput(PInputManager.java:350)
+	at edu.umd.cs.piccolo.PRoot.processInputs(PRoot.java:328)
+	at edu.umd.cs.piccolo.PInputManager.processEventFromCamera(PInputManager.java:387)
+	at de.cau.cs.kieler.klighd.piccolo.internal.KlighdCanvas.sendInputEventToInputManager(KlighdCanvas.java:302)
+	at de.cau.cs.kieler.klighd.piccolo.internal.events.KlighdMouseEventListener.mouseUp(KlighdMouseEventListener.java:135)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:224)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4209)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1043)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4026)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3626)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1157)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:654)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:591)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1462)
+
+!ENTRY org.eclipse.ui 4 0 2022-09-01 16:51:08.057
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.core.runtime.Path.<init>(Path.java:231)
+	at org.eclipse.core.runtime.Path.<init>(Path.java:189)
+	at de.cau.cs.kieler.klighd.ui.view.controllers.XtextSelectionHighlighter.highlightSelection(XtextSelectionHighlighter.java:83)
+	at de.cau.cs.kieler.klighd.ui.view.controllers.XtextSelectionHighlighter.highlightSelection(XtextSelectionHighlighter.java:59)
+	at de.cau.cs.kieler.kicool.ui.klighd.KiCoModelUpdateController.selectionChanged(KiCoModelUpdateController.java:400)
+	at de.cau.cs.kieler.klighd.ui.view.DiagramView.selectionChanged(DiagramView.java:953)
+	at de.cau.cs.kieler.klighd.viewers.ContextViewer.notifySelectionListeners(ContextViewer.java:993)
+	at de.cau.cs.kieler.klighd.viewers.ContextViewer.createSelection(ContextViewer.java:948)
+	at de.cau.cs.kieler.klighd.viewers.ContextViewer.updateSelection(ContextViewer.java:936)
+	at de.cau.cs.kieler.klighd.viewers.ContextViewer.resetSelectionToDiagramElements(ContextViewer.java:885)
+	at de.cau.cs.kieler.klighd.piccolo.internal.events.KlighdSelectionEventHandler.performSelection(KlighdSelectionEventHandler.java:324)
+	at de.cau.cs.kieler.klighd.piccolo.internal.events.KlighdSelectionEventHandler.mouseReleased(KlighdSelectionEventHandler.java:167)
+	at de.cau.cs.kieler.klighd.piccolo.internal.events.KlighdBasicInputEventHandler.processEvent(KlighdBasicInputEventHandler.java:167)
+	at edu.umd.cs.piccolo.util.PPickPath.processEvent(PPickPath.java:372)
+	at edu.umd.cs.piccolo.PInputManager.dispatchEventToListener(PInputManager.java:403)
+	at de.cau.cs.kieler.klighd.piccolo.internal.events.KlighdInputManager.mouseReleased(KlighdInputManager.java:194)
+	at de.cau.cs.kieler.klighd.piccolo.internal.events.KlighdBasicInputEventHandler.processEvent(KlighdBasicInputEventHandler.java:167)
+	at de.cau.cs.kieler.klighd.piccolo.internal.events.KlighdInputManager.processEvent(KlighdInputManager.java:152)
+	at edu.umd.cs.piccolo.PInputManager.processInput(PInputManager.java:350)
+	at edu.umd.cs.piccolo.PRoot.processInputs(PRoot.java:328)
+	at edu.umd.cs.piccolo.PInputManager.processEventFromCamera(PInputManager.java:387)
+	at de.cau.cs.kieler.klighd.piccolo.internal.KlighdCanvas.sendInputEventToInputManager(KlighdCanvas.java:302)
+	at de.cau.cs.kieler.klighd.piccolo.internal.events.KlighdMouseEventListener.mouseUp(KlighdMouseEventListener.java:135)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:224)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4209)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1043)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4026)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3626)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1157)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:654)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:591)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1462)

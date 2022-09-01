@@ -1,7 +1,7 @@
 scchart DDDpacemaker {
   
   // atrial sense atrial pace, ventricular sense and pace.
-  input signal AS,VS
+  input signal AS,VS,VI
   output signal AP, VP
 
 @layout[elk.direction] LEFT

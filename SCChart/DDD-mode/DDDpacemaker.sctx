@@ -3,6 +3,18 @@
 scchart DDDpacemaker {
   
   // atrial sense atrial pace, ventricular sense and pace.
+  
+    // the reason why its throwing all these errors is because they are both trying to access the same variable?
+    //pre()//use value from previosu tick 
+    
+    
+    
+    //to debug eitehr have a mac, or use the artifical heart from the board or use NIOSII
+    // or write a C test bench in order to catch certain variables from it ,(Araon has some test stuff written up)
+    
+    
+  
+  
   input bool AS,VS
   input int AVI_counter, AEI_counter, PVARP_counter,VRP_counter, LRI_counter, URI_counter
   
@@ -22,6 +34,8 @@ scchart DDDpacemaker {
       connector state commit1
       immediate do AVI_start = true go to waitAVI
 
+  
+  
 
       state waitAVI
       if VS go to commit2
