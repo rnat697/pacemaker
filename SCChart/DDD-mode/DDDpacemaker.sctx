@@ -26,6 +26,7 @@ scchart DDDpacemaker {
     bool PVARP_start, PVARP_stop
     bool VRP_start, VRP_stop
     bool URI_start, URI_stop
+    bool AR, VR
     
      region AVI{
       initial state init_AVI
@@ -85,16 +86,26 @@ scchart DDDpacemaker {
 
       state timer
       if AEI_stop go to idle_AEI
-      if AEI_counter <`URI_VALUE` do AVI_extend = true go to idle_AVI 
+       
  
    }
    
-   region PVARP{
-     initial state PVARP
+    region PVARP{
+     initial state init_PVARP
+     if VS go to start_PVARP
+     
+     state start_PVARP
+     immediate do PVARP_start = true; go to wait_PVARP
+     
+     state wait_PVARP
+     if AS go to ignore_AS
+     
+     state ignore_AS
+     immediate do AR = true;
      
      }
      
-    region PVARP_Timer{
+   region PVARP_Timer{
      initial state idle_PVARP
       if PVARP_start go to timer
 
