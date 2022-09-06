@@ -1,0 +1,12 @@
+ region VRP{
+     initial state init_VRP
+     if VP go to comit1
+     connector state comit1
+     immediate do VRP_start = true go to waitVRP
+
+    state waitVRP
+    if VR 
+    immediate do VRP_stop = true; AP=false go to init_VRP
+
+     
+   }
