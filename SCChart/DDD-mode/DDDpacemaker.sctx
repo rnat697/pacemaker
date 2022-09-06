@@ -84,12 +84,56 @@ scchart DDDpacemaker {
      if AEI_start go to timer
 
       state timer
-      if AVI_stop go to idle_AEI
+      if AEI_stop go to idle_AEI
+      if AEI_counter <`URI_VALUE` do AVI_extend = true go to idle_AVI 
  
    }
    
    region PVARP{
+     initial state PVARP
+     
+     }
+     
+    region PVARP_Timer{
      initial state idle_PVARP
+      if PVARP_start go to timer
+
+      state timer
+      if AVI_stop go to idle_PVARP
+      if AVI_counter <`URI_VALUE` do AVI_extend = true go to idle_AVI
+     }
+     
+   region VRP{
+     initial state VRP
+     
+     
+   }
+   region VRP_Timer{
+     initial state idle_VRP
+     
+     
+   }
+   
+      region LRI{
+     initial state LRI
+     
+     
+   }
+   
+     region LRI_Timer{
+     initial state idle_LRI
+     
+     
+   }
+   
+      region LRI{
+     initial state LRI
+     
+     
+   }
+   
+         region LRI{
+     initial state idle_LRI
      
      
    }
