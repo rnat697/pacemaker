@@ -92,27 +92,31 @@ scchart DDDpacemaker {
    
     region PVARP{
      initial state init_PVARP
-     if VS go to start_PVARP
+     if VS go to start_PVARP_state
      
-     state start_PVARP
-     immediate do PVARP_start = true; go to wait_PVARP
+     
+     state start_PVARP_state
+     immediate do PVARP_start = true go to wait_PVARP
      
      state wait_PVARP
      if AS go to ignore_AS
+     if PVARP_counter >=`PVARP_VALUE` go to stop_PVARP_state
      
      state ignore_AS
-     immediate do AR = true;
+     immediate do AR = true go to wait_PVARP
      
-     }
+     state stop_PVARP_state
+     immediate do PVARP_stop = true; AR = false go to init_PVARP
+     
+   }
      
    region PVARP_Timer{
      initial state idle_PVARP
       if PVARP_start go to timer
 
       state timer
-      if AVI_stop go to idle_PVARP
-      if AVI_counter <`URI_VALUE` do AVI_extend = true go to idle_AVI
-     }
+      if PVARP_stop go to idle_PVARP
+   }
      
    region VRP{
      initial state VRP
