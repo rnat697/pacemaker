@@ -32,17 +32,16 @@ scchart DDDpacemaker {
      region AVI{
       initial state init_AVI
       if real_AS || AP  immediate do AVI_start = true; AVI_stop = false go to waitAVI
-      if   do AVI_extend = true go to waitAVIExtend
 
       state waitAVI
       if VS go to immediate do AVI_stop = true; AVI_start = false; VP = false go to init_AVI //vs occurs
-      //if AVI_extend go to waitAVIExtend
-      if AVI_counter >= `AVI_VALUE` && AVI_extend = false immediate do VP = true; AVI_stop = true, AVI_start = false go to init_AVI
+      if AVI_counter >= `AVI_VALUE` && URI_start = true go to waitAVIExtend
+      if AVI_counter >= `AVI_VALUE` && URI_stop = true immediate do VP = true; AVI_stop = true, AVI_start = false go to init_AVI
    
       
       state waitAVIExtend // If AVI finishes before URI extend the deadline to end of URI time
       if VS go to immediate do AVI_stop = true; VP=false; AVI_start = false; AVI_extend= false go to init_AVI
-      if AVI_counter >= `URI_VALUE` immediate do VP = true; AVI_stop = true, AVI_start = false; AVI_extend= false go to init_AVI
+      if URI_stop = true immediate do VP = true; AVI_stop = true, AVI_start = false; AVI_extend= false go to init_AVI
       
       
     }
@@ -96,7 +95,7 @@ scchart DDDpacemaker {
    region VRP{
      initial state init_VRP
      if PVARP_start immediate do VRP_start = true; VRP_stop = false go to waitVRP
-     if VS do realVS = true go to init_VRP
+     if VS do real_VS = true go to init_VRP
 
     state wait_VRP
     if VS do VR = true go to wait_VRP
@@ -106,38 +105,44 @@ scchart DDDpacemaker {
    }
    region VRP_Timer{
      initial state idle_VRP
+     if VRP_start go to timer
      
+     state timer
+     if VRP_stop go to idle_VRP
      
    }
    
       region LRI{
      initial state init_LRI
-      if VS | VR go to commit1
-      if VR go to commit1
+      if VS || VP do LRI_start = true; LRI_stop = false go to wait_LRI
 
-      connector state commit1
-      immediate do AVI_start = true go to waitAVI
+     state wait_LRI
+     if VS || VP immediate do LRI_stop = true; LRI_start=false; go to init_LRI    //again signify  the end
+     if LRI_counter >= `LRI_VALUE` immediate do LRI_stop = true; LRI_start=false; go to init_LRI
+     
      
      
    }
    
      region LRI_Timer{
      initial state idle_LRI
+     if LRI_start go to timer
      
-     
+     state timer
+     if LRI_stop go to idle_LRI
    }
    
       region URI{
      initial state init_URI
-     if VS do URI_start = true; URI_stop = false go to wait_URI
+     if VS || VP do URI_start = true; URI_stop = false go to wait_URI
      
      state wait_URI
-     if URI_counter >= `URI_VALUE` immediate do URI_stop = true; URI_start=false; go to init_URI
+     if URI_counter >= `URI_VALUE` immediate do URI_stop = true; URI_start=false go to init_URI
      
      
    }
    
-    region URI{
+    region URI_Timer{
      initial state idle_URI
      if URI_start go to timer
      
