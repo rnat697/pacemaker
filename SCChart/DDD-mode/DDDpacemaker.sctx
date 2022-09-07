@@ -56,7 +56,7 @@ scchart DDDpacemaker {
    
    region AEI{
      initial state init_AEI
-     if VS  || VP immediate do AEI_start = true; AEI_stop = false go to waitAEI
+     if real_VS  || VP immediate do AEI_start = true; AEI_stop = false go to waitAEI
 
     state waitAEI
     if AS immediate do AEI_stop = true; AEI_start= false; AP=false go to init_AEI
