@@ -27,31 +27,23 @@ scchart DDDpacemaker {
     bool VRP_start, VRP_stop
     bool URI_start, URI_stop
     bool AR, VR
+    signal real_AS, real_VP
     
      region AVI{
       initial state init_AVI
-      if AS go to commit1
-
-      connector state commit1
-      immediate do AVI_start = true go to waitAVI
-
-  
-  
+      if real_AS || AP  immediate do AVI_start = true; AVI_stop = false go to waitAVI
+      if   do AVI_extend = true go to waitAVIExtend
 
       state waitAVI
-      if VS go to commit2
-      if AVI_extend go to waitAVIExtend
-      if AVI_counter >= `AVI_VALUE` go to commit3
+      if VS go to immediate do AVI_stop = true; AVI_start = false; VP = false go to init_AVI //vs occurs
+      //if AVI_extend go to waitAVIExtend
+      if AVI_counter >= `AVI_VALUE` && AVI_extend = false immediate do VP = true; AVI_stop = true, AVI_start = false go to init_AVI
+   
       
-      state waitAVIExtend
-      if VS go to commit2
-      if AVI_counter >= `URI_VALUE` go to commit3
+      state waitAVIExtend // If AVI finishes before URI extend the deadline to end of URI time
+      if VS go to immediate do AVI_stop = true; VP=false; AVI_start = false; AVI_extend= false go to init_AVI
+      if AVI_counter >= `URI_VALUE` immediate do VP = true; AVI_stop = true, AVI_start = false; AVI_extend= false go to init_AVI
       
-      connector state commit2
-      immediate do AVI_stop = true; VP=false go to init_AVI
-
-      connector state commit3
-      immediate do VP = true; AVI_stop = true go to init_AVI
       
     }
      region AVI_timer {
@@ -60,24 +52,16 @@ scchart DDDpacemaker {
 
       state timer
       if AVI_stop go to idle_AVI
-      if AVI_counter <`URI_VALUE` do AVI_extend = true go to idle_AVI // avi timing deadline extension
+     // if  AVI_counter<`URI_VALUE` do AVI_extend = true go to idle_AVI // avi timing deadline extension
     }
    
    region AEI{
      initial state init_AEI
-     if VS go to comit1
-     connector state comit1
-     immediate do AEI_start = true go to waitAEI
+     if VS  || VP immediate do AEI_start = true; AEI_stop = false go to waitAEI
 
     state waitAEI
-    if AS go to comit2
-    if AEI_counter >= `AEI_VALUE` go to comit3
-
-    connector state comit2
-    immediate do AEI_stop = true; AP=false go to init_AEI
-
-    connector state comit3
-    immediate do AP = true; AEI_stop = true go to init_AEI
+    if AS immediate do AEI_stop = true; AEI_start= false; AP=false go to init_AEI
+    if AEI_counter >= `AEI_VALUE` immediate do AP = true; AEI_stop = true; AEI_start= false go to init_AEI
    }
    
    region AEI_Timer{
@@ -92,21 +76,12 @@ scchart DDDpacemaker {
    
     region PVARP{
      initial state init_PVARP
-     if VS go to start_PVARP_state
-     
-     
-     state start_PVARP_state
-     immediate do PVARP_start = true go to wait_PVARP
+     if VS || VP do PVARP_start = true go to wait_PVARP
+     if AS do real_AS = true go to init_PVARP
      
      state wait_PVARP
-     if AS go to ignore_AS
-     if PVARP_counter >=`PVARP_VALUE` go to stop_PVARP_state
-     
-     state ignore_AS
-     immediate do AR = true go to wait_PVARP
-     
-     state stop_PVARP_state
-     immediate do PVARP_stop = true; AR = false go to init_PVARP
+     if AS  do AR = true go to wait_PVARP
+     if PVARP_counter >=`PVARP_VALUE` immediate do PVARP_stop = true; AR = false go to init_PVARP
      
    }
      
@@ -120,13 +95,12 @@ scchart DDDpacemaker {
      
    region VRP{
      initial state init_VRP
-     if VP go to comit1
-     connector state comit1
-     immediate do VRP_start = true go to waitVRP
+     if PVARP_start immediate do VRP_start = true; VRP_stop = false go to waitVRP
+     if VS do realVS = true go to init_VRP
 
-    state waitVRP
-    if VR 
-    immediate do VRP_stop = true; AP=false go to init_VRP
+    state wait_VRP
+    if VS do VR = true go to wait_VRP
+    if VRP_counter >= `VRP_VALUE` immediate do VRP_stop = true; AP=false; VRP_start = false go to init_VRP
 
      
    }
@@ -137,7 +111,12 @@ scchart DDDpacemaker {
    }
    
       region LRI{
-     initial state LRI
+     initial state init_LRI
+      if VS | VR go to commit1
+      if VR go to commit1
+
+      connector state commit1
+      immediate do AVI_start = true go to waitAVI
      
      
    }
@@ -148,15 +127,22 @@ scchart DDDpacemaker {
      
    }
    
-      region LRI{
-     initial state LRI
+      region URI{
+     initial state init_URI
+     if VS do URI_start = true; URI_stop = false go to wait_URI
+     
+     state wait_URI
+     if URI_counter >= `URI_VALUE` immediate do URI_stop = true; URI_start=false; go to init_URI
      
      
    }
    
-         region LRI{
-     initial state idle_LRI
+    region URI{
+     initial state idle_URI
+     if URI_start go to timer
      
+     state timer
+     if URI_stop go to idle_URI
      
    }
   }
