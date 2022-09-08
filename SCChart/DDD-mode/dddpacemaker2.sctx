@@ -25,33 +25,50 @@ scchart DDDpacemaker {
     
 
     bool AVI_start,AVI_stop
-    bool AVI_state
-    bool URI_state = 1
+    bool AVI_state = 0
+    bool URI_state=false
     signal real_AS, real_VS 
+    signal AP_out
+    signal VP_out=false
     @ClockUseSD
-    clock AVI_counter=0
+    
+    clock AVI_counter=0, URI_counter=0
+    
+    //let uri start first
     region AVI{
       initial state AVI_init
-      if AS do AVI_state=1; AVI_counter=0 go to waitAVI
+      if AS do AVI_state=1; AVI_counter=0 go to checkURI
       
-      
+      state checkURI
+      if VS do  VP =0; VP_out = false go to AVI_init
       state waitAVI
+      
       if(( AVI_counter >= `AVI_VALUE`) && (URI_state==true)) go to waitAVIExtend 
+ 
        // if uri is still on but counter exceeds extend
-       
-       
-      if (( AVI_counter >= `AVI_VALUE`) && (URI_state==false)) do VP= 1 go to AVI_init
+
+      if (( AVI_counter >= `AVI_VALUE`) && (URI_state==false)) do VP= 1; VP_out = true go to AVI_init
       //if avi counter exceeds limit but uri is 0 pulse
       
       
       state waitAVIExtend
-      if AVI_counter >= `AVI_VALUE` && URI_state==0 && VS go to AVI_init
-      if AVI_counter >= `AVI_VALUE` && URI_state==0 do VP= 1 go to AVI_init
-
+      if VS do VP= 0; VP_out = false go to AVI_init
+      if URI_state==false do VP= 1; VP_out = true go to AVI_init
+   
+  
       
     }
    
-
+     region URI{
+     initial state init_URI
+     if VS do URI_state = true;URI_counter=0 go to wait_URI
+     if pre(VP_out) do URI_state = true; URI_counter =0 go to wait_URI
+    
+     state wait_URI
+     if URI_counter >= `URI_VALUE` do URI_state = false go to init_URI
+     
+     
+   }
    
   }
 

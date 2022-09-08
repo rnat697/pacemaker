@@ -1,63 +1,84 @@
-#resource "timing.h"
-#hostcode-c "#include \"timing.h\""
-scchart DDDpacemake2 {
-  
-  // atrial sense atrial pace, ventricular sense and pace.
-  
-    // the reason why its throwing all these errors is because they are both trying to access the same variable?
-    //pre()//use value from previosu tick 
-    
-    
-    
-    //to debug eitehr have a mac, or use the artifical heart from the board or use NIOSII
-    // or write a C test bench in order to catch certain variables from it ,(Araon has some test stuff written up)
-    
-    // https://rtsys.informatik.uni-kiel.de/confluence/display/KIELER/SCCharts
-    
+scchart UpDownPar {
+  input signal first, second, start, R
+  output signal done
   
   
-  input bool AS,VS
-  input int AVI_counter, AEI_counter, PVARP_counter,VRP_counter, LRI_counter, URI_counter
-  
-  output bool AP, VP
-  initial state top {
-    bool AVI_start, AVI_stop
-    bool AEI_start, AEI_stop
-    bool LRI_start, LRI_reset, LRI_stop
-    bool PVARP_start, PVARP_stop
-    bool VRP_start, VRP_stop
-    bool URI_start, URI_stop
-    bool AR, VR
-    
-    signal real_AS, real_VS
-    
-     region AVI{
-      initial state init_AVI
-      if pre(real_AS) ||pre(AP) do AVI_start = true; AVI_stop = false go to waitAVI
 
-      state waitAVI
-      if VS do AVI_stop = true; AVI_start = false; VP = false go to init_AVI //vs occurs
-      if AVI_counter >= `AVI_VALUE` && pre(URI_start) go to waitAVIExtend
-      if AVI_counter >= `AVI_VALUE` && pre(URI_stop) do VP = true; AVI_stop = true; AVI_start = false go to init_AVI
+  region main {
+    
+
+    initial state NotCounting
+    if start go to Counting
+
+    state Counting {
+      
+      
+      region CountingUp {
+        signal end
+        
+        initial state First{
+          signal B
+        
+          
+          region bit1 {
+            clock c1
+            initial state A0
+            if first do c1=0 go to A1
+      
+            state A1
+            if c1 >= 40 do B go to A0
+          }
+      
+          region bit2 {
+            initial state B0
+            if B go to B1
    
+            state B1
+            if B do end go to B2
+            
+            state B2
+            }
+          }
+        
+        if pre(end) go to FirstDone
+        final state FirstDone
+        
+       }
+       
+       region CountingDown {
+        signal end2
+        
+        
+        
+        initial state Second{
+          signal B
+          region bit1 {
+            clock c2
+            initial state A1
+            if second && c2>= 10 do c2 = 0go to A0
       
-      state waitAVIExtend // If AVI finishes before URI extend the deadline to end of URI time
-      if VS do AVI_stop = true; VP=false; AVI_start = false go to init_AVI
-      if pre(URI_stop) do VP = true; AVI_stop = true; AVI_start = false go to init_AVI
+            state A0
+            if c2 >= 30 do B go to A1
+          }
       
+          region bit2 {
+            initial state B1
+            if B go to B0
+      
+            state B0
+            if B do end2 go to B1
+          }
+        }
+        if pre(end2) go to SecondDone
+        final state SecondDone
+        
+       }
+        
+      }
+      
+      if R abort to NotCounting
+      do done join to NotCounting
       
     }
-     region AVI_timer {
-      initial state idle_AVI
-      if pre(AVI_start) go to timer
-
-      state timer
-      if pre(AVI_stop) go to idle_AVI
-     
-    }
-   
-
-   
-  }
-
+    
 }
