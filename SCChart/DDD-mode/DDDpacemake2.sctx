@@ -30,10 +30,10 @@ scchart DDDpacemaker {
   initial state top {
     bool AVI_state
     bool AEI_state
-    bool LRI_start, LRI_reset, LRI_stop
+    bool LRI_state
     bool PVARP_state
     bool VRP_state
-    bool URI_start, URI_stop
+    bool URI_state
     bool AR, VR
     signal AP_temp, VP_temp
     
@@ -41,17 +41,18 @@ scchart DDDpacemaker {
     
      region AVI{
       initial state init_AVI
+      if !real_AS && !pre(AP_temp) do VP=false go to init_AVI
       if real_AS || pre(AP_temp) do AVI_state = true; AVI_counter =0 go to waitAVI
 
       state waitAVI
       if real_VS do  AVI_state = false; VP = false go to init_AVI //vs occurs
-      if AVI_counter >= AVI_DEADLINE && URI_start go to waitAVIExtend
-      if AVI_counter >= AVI_DEADLINE && URI_stop do VP = true; VP_temp; AVI_state = false go to init_AVI
+      if ((AVI_counter >= AVI_DEADLINE) && (URI_state == true)) go to waitAVIExtend
+      if ((AVI_counter >= AVI_DEADLINE) && (URI_state == false)) do VP = true; VP_temp; AVI_state = false go to init_AVI
    
       
       state waitAVIExtend // If AVI finishes before URI extend the deadline to end of URI time
       if real_VS do  VP=false; AVI_state = false go to init_AVI
-      if URI_stop do VP = true; VP_temp;  AVI_state = false go to init_AVI
+      if URI_state == false do VP = true; VP_temp;  AVI_state = false go to init_AVI
       
       
     }
@@ -66,6 +67,7 @@ scchart DDDpacemaker {
    
    region AEI{
      initial state init_AEI
+     if !real_VS && !AP_temp do AP=false go to init_AEI
      if real_VS || VP_temp do AEI_state = true; AEI_counter =0 go to waitAEI
 
     state waitAEI
@@ -122,17 +124,17 @@ scchart DDDpacemaker {
 //     
 //   }
    
-//      region LRI{
-//     initial state init_LRI
-//      if VS || pre(VP) do LRI_start = true; LRI_stop = false go to wait_LRI
-//
-//     state wait_LRI
-//     if VS || pre(VP) do LRI_stop = true; LRI_start=false go to init_LRI    //again signify  the end
-//     if LRI_counter >= LRI_DEADLINE do LRI_stop = true; LRI_start=false go to init_LRI
-//     
-//     
-//     
-//   }
+      region LRI{
+     initial state init_LRI
+      if VS || pre(VP_temp) do LRI_state = true; LRI_counter = 0 go to wait_LRI
+
+     state wait_LRI
+     if VS || pre(VP_temp) do LRI_state=false go to init_LRI    //again signify  the end
+     if LRI_counter >= LRI_DEADLINE do  LRI_state=false go to init_LRI
+     
+     
+     
+   }
    
 //     region LRI_Timer{
 //     initial state idle_LRI
@@ -144,10 +146,10 @@ scchart DDDpacemaker {
    
       region URI{
      initial state init_URI
-     if real_VS || pre(VP_temp) do URI_start = true; URI_stop = false; URI_counter = 0 go to wait_URI
+     if real_VS || pre(VP_temp) do URI_state = true; URI_counter = 0 go to wait_URI
      
      state wait_URI
-     if URI_counter >= URI_DEADLINE do URI_stop = true; URI_start=false go to init_URI
+     if URI_counter >= URI_DEADLINE do URI_state=false go to init_URI
      
      
    }
