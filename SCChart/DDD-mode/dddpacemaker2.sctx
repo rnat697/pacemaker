@@ -1,3 +1,5 @@
+#resource "timing.h"
+#hostcode-c "#include \"timing.h\""
 @ClockUseSD
 scchart DDDpacemaker {
   
@@ -17,8 +19,8 @@ scchart DDDpacemaker {
   
   input bool AS,VS
 //  input int AVI_counter
-  const int AVI_VALUE = 100
-  const int URI_VALUE = 200
+  host "int" AVI_DEADLINE = `AVI_VALUE`
+  host "int" URI_DEADLINE = `URI_VALUE`
   
   output bool AP, VP
   initial state top {
@@ -44,10 +46,10 @@ scchart DDDpacemaker {
       if VS do  AVI_state = false; VP =false go to AVI_init
       
       
-      if AVI_counter >= AVI_VALUE go to checkState
+      if AVI_counter >= AVI_DEADLINE go to checkState
       
       
-      connector state checkState
+      state checkState
       if URI_state == false go to AVIpulse
       if VS do AVI_state = false; VP= false go to AVI_init
 
@@ -62,7 +64,7 @@ scchart DDDpacemaker {
      if pre(VP_out) do URI_state = true; URI_counter =0 go to wait_URI
     
      state wait_URI
-     if URI_counter >= URI_VALUE do URI_state = false go to init_URI
+     if URI_counter >= URI_DEADLINE do URI_state = false go to init_URI
 //     
      
    }

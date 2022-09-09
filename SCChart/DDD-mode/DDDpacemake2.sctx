@@ -1,84 +1,162 @@
-scchart UpDownPar {
-  input signal first, second, start, R
-  output signal done
+#resource "timing.h"
+#hostcode-c "#include \"timing.h\""
+scchart DDDpacemaker {
   
+  // atrial sense atrial pace, ventricular sense and pace.
   
-
-  region main {
+    // the reason why its throwing all these errors is because they are both trying to access the same variable?
+    //pre()//use value from previosu tick 
     
+    
+    
+    //to debug eitehr have a mac, or use the artifical heart from the board or use NIOSII
+    // or write a C test bench in order to catch certain variables from it ,(Araon has some test stuff written up)
+    
+    // https://rtsys.informatik.uni-kiel.de/confluence/display/KIELER/SCCharts
+    
+  host "int" AVI_DEADLINE = `AVI_VALUE`
+  host "int" URI_DEADLINE = `URI_VALUE`
+  host "int" AEI_DEADLINE = `AEI_VALUE`
+  host "int" LRI_DEADLINE = `LRI_VALUE`
+  host "int" PVARP_DEADLINE = `PVARP_VALUE`
+  host "int" VRP_DEADLINE = `VRP_VALUE`
+  
+  input bool AS,VS
+  input int AVI_counter, AEI_counter, PVARP_counter,VRP_counter, LRI_counter, URI_counter
+  
+  output bool AP, VP
+  initial state top {
+    bool AVI_start, AVI_stop
+    bool AEI_start, AEI_stop
+    bool LRI_start, LRI_reset, LRI_stop
+    bool PVARP_start, PVARP_stop
+    bool VRP_start, VRP_stop
+    bool URI_start, URI_stop
+    bool AR, VR
+    
+    signal real_AS, real_VS
+    
+     region AVI{
+      initial state init_AVI
+      if pre(real_AS) ||pre(AP) do AVI_start = true; AVI_stop = false go to waitAVI
 
-    initial state NotCounting
-    if start go to Counting
-
-    state Counting {
-      
-      
-      region CountingUp {
-        signal end
-        
-        initial state First{
-          signal B
-        
-          
-          region bit1 {
-            clock c1
-            initial state A0
-            if first do c1=0 go to A1
-      
-            state A1
-            if c1 >= 40 do B go to A0
-          }
-      
-          region bit2 {
-            initial state B0
-            if B go to B1
+      state waitAVI
+      if VS do AVI_stop = true; AVI_start = false; VP = false go to init_AVI //vs occurs
+      if AVI_counter >= AVI_DEADLINE && pre(URI_start) go to waitAVIExtend
+      if AVI_counter >= AVI_DEADLINE && pre(URI_stop) do VP = true; AVI_stop = true; AVI_start = false go to init_AVI
    
-            state B1
-            if B do end go to B2
-            
-            state B2
-            }
-          }
-        
-        if pre(end) go to FirstDone
-        final state FirstDone
-        
-       }
-       
-       region CountingDown {
-        signal end2
-        
-        
-        
-        initial state Second{
-          signal B
-          region bit1 {
-            clock c2
-            initial state A1
-            if second && c2>= 10 do c2 = 0go to A0
       
-            state A0
-            if c2 >= 30 do B go to A1
-          }
+      state waitAVIExtend // If AVI finishes before URI extend the deadline to end of URI time
+      if VS do AVI_stop = true; VP=false; AVI_start = false go to init_AVI
+      if pre(URI_stop) do VP = true; AVI_stop = true; AVI_start = false go to init_AVI
       
-          region bit2 {
-            initial state B1
-            if B go to B0
-      
-            state B0
-            if B do end2 go to B1
-          }
-        }
-        if pre(end2) go to SecondDone
-        final state SecondDone
-        
-       }
-        
-      }
-      
-      if R abort to NotCounting
-      do done join to NotCounting
       
     }
-    
+//     region AVI_timer {
+//      initial state idle_AVI
+//      if pre(AVI_start) go to timer
+//
+//      state timer
+//      if pre(AVI_stop) go to idle_AVI
+//     
+//    }
+   
+   region AEI{
+     initial state init_AEI
+     if pre(real_VS)|| pre(VP) do AEI_start = true; AEI_stop = false go to waitAEI
+
+    state waitAEI
+    if AS  do AEI_stop = true; AEI_start= false; AP=false go to init_AEI
+    if AEI_counter >= AEI_DEADLINE  do AP = true; AEI_stop = true; AEI_start= false go to init_AEI
+   }
+   
+//   region AEI_Timer{
+//     initial state idle_AEI
+//     if pre(AEI_start) go to timer
+//
+//     state timer
+//     if pre(AEI_stop) go to idle_AEI
+//       
+// 
+//   }
+   
+    region PVARP{
+     initial state init_PVARP
+     if VS || pre(VP) do PVARP_start = true; PVARP_stop = false go to wait_PVARP
+     if AS do real_AS go to init_PVARP
+     
+     state wait_PVARP
+     if AS  do AR = true go to wait_PVARP
+     if PVARP_counter >=PVARP_DEADLINE do PVARP_stop = true; AR = false go to init_PVARP
+     
+   }
+     
+//   region PVARP_Timer{
+//     initial state idle_PVARP
+//      if pre(PVARP_start) go to timer
+//
+//      state timer
+//      if pre(PVARP_stop) go to idle_PVARP
+//   }
+     
+   region VRP{
+     initial state init_VRP
+     if pre(PVARP_start) do VRP_start = true; VRP_stop = false go to wait_VRP
+     if VS do real_VS go to init_VRP
+
+    state wait_VRP
+    if VS do VR = true go to wait_VRP
+    if VRP_counter >= VRP_DEADLINE do VRP_stop = true; AP=false; VRP_start = false go to init_VRP
+
+     
+   }
+//   region VRP_Timer{
+//     initial state idle_VRP
+//     if pre(VRP_start) go to timer
+//     
+//     state timer
+//     if pre(VRP_stop) go to idle_VRP
+//     
+//   }
+   
+      region LRI{
+     initial state init_LRI
+      if VS || pre(VP) do LRI_start = true; LRI_stop = false go to wait_LRI
+
+     state wait_LRI
+     if VS || pre(VP) do LRI_stop = true; LRI_start=false go to init_LRI    //again signify  the end
+     if LRI_counter >= LRI_DEADLINE do LRI_stop = true; LRI_start=false go to init_LRI
+     
+     
+     
+   }
+   
+//     region LRI_Timer{
+//     initial state idle_LRI
+//     if pre(LRI_start) go to timer
+//     
+//     state timer
+//     if pre(LRI_stop) go to idle_LRI
+//   }
+   
+      region URI{
+     initial state init_URI
+     if VS || pre(VP) do URI_start = true; URI_stop = false go to wait_URI
+     
+     state wait_URI
+     if URI_counter >= URI_DEADLINE do URI_stop = true; URI_start=false go to init_URI
+     
+     
+   }
+   
+//    region URI_Timer{
+//     initial state idle_URI
+//     if pre(URI_start) go to timer
+//     
+//     state timer
+//     if pre(URI_stop) go to idle_URI
+//     
+//   }
+  }
+
 }
