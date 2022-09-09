@@ -238,61 +238,57 @@ sendVariables();
             if (json.has("_cg124")) {
                 ${tickdata_name}._cg124 = json.getBoolean("_cg124");
             }
-            // Receive _cg127
-            if (json.has("_cg127")) {
-                ${tickdata_name}._cg127 = json.getBoolean("_cg127");
+            // Receive _cg130
+            if (json.has("_cg130")) {
+                ${tickdata_name}._cg130 = json.getBoolean("_cg130");
             }
-            // Receive _cg132
-            if (json.has("_cg132")) {
-                ${tickdata_name}._cg132 = json.getBoolean("_cg132");
+            // Receive _cg133
+            if (json.has("_cg133")) {
+                ${tickdata_name}._cg133 = json.getBoolean("_cg133");
             }
-            // Receive _cg135
-            if (json.has("_cg135")) {
-                ${tickdata_name}._cg135 = json.getBoolean("_cg135");
+            // Receive _cg134
+            if (json.has("_cg134")) {
+                ${tickdata_name}._cg134 = json.getBoolean("_cg134");
             }
-            // Receive _cg136
-            if (json.has("_cg136")) {
-                ${tickdata_name}._cg136 = json.getBoolean("_cg136");
+            // Receive _cg138
+            if (json.has("_cg138")) {
+                ${tickdata_name}._cg138 = json.getBoolean("_cg138");
             }
             // Receive _cg14
             if (json.has("_cg14")) {
                 ${tickdata_name}._cg14 = json.getBoolean("_cg14");
             }
-            // Receive _cg140
-            if (json.has("_cg140")) {
-                ${tickdata_name}._cg140 = json.getBoolean("_cg140");
+            // Receive _cg143
+            if (json.has("_cg143")) {
+                ${tickdata_name}._cg143 = json.getBoolean("_cg143");
             }
-            // Receive _cg145
-            if (json.has("_cg145")) {
-                ${tickdata_name}._cg145 = json.getBoolean("_cg145");
+            // Receive _cg146
+            if (json.has("_cg146")) {
+                ${tickdata_name}._cg146 = json.getBoolean("_cg146");
             }
             // Receive _cg148
             if (json.has("_cg148")) {
                 ${tickdata_name}._cg148 = json.getBoolean("_cg148");
             }
-            // Receive _cg150
-            if (json.has("_cg150")) {
-                ${tickdata_name}._cg150 = json.getBoolean("_cg150");
+            // Receive _cg154
+            if (json.has("_cg154")) {
+                ${tickdata_name}._cg154 = json.getBoolean("_cg154");
             }
-            // Receive _cg156
-            if (json.has("_cg156")) {
-                ${tickdata_name}._cg156 = json.getBoolean("_cg156");
+            // Receive _cg157
+            if (json.has("_cg157")) {
+                ${tickdata_name}._cg157 = json.getBoolean("_cg157");
             }
-            // Receive _cg159
-            if (json.has("_cg159")) {
-                ${tickdata_name}._cg159 = json.getBoolean("_cg159");
+            // Receive _cg158
+            if (json.has("_cg158")) {
+                ${tickdata_name}._cg158 = json.getBoolean("_cg158");
             }
-            // Receive _cg160
-            if (json.has("_cg160")) {
-                ${tickdata_name}._cg160 = json.getBoolean("_cg160");
+            // Receive _cg162
+            if (json.has("_cg162")) {
+                ${tickdata_name}._cg162 = json.getBoolean("_cg162");
             }
-            // Receive _cg164
-            if (json.has("_cg164")) {
-                ${tickdata_name}._cg164 = json.getBoolean("_cg164");
-            }
-            // Receive _cg169
-            if (json.has("_cg169")) {
-                ${tickdata_name}._cg169 = json.getBoolean("_cg169");
+            // Receive _cg167
+            if (json.has("_cg167")) {
+                ${tickdata_name}._cg167 = json.getBoolean("_cg167");
             }
             // Receive _cg18
             if (json.has("_cg18")) {
@@ -522,29 +518,33 @@ sendVariables();
             if (json.has("_g126")) {
                 ${tickdata_name}._g126 = json.getBoolean("_g126");
             }
-            // Receive _g127
-            if (json.has("_g127")) {
-                ${tickdata_name}._g127 = json.getBoolean("_g127");
-            }
-            // Receive _g128
-            if (json.has("_g128")) {
-                ${tickdata_name}._g128 = json.getBoolean("_g128");
-            }
             // Receive _g13
             if (json.has("_g13")) {
                 ${tickdata_name}._g13 = json.getBoolean("_g13");
             }
-            // Receive _g132
-            if (json.has("_g132")) {
-                ${tickdata_name}._g132 = json.getBoolean("_g132");
+            // Receive _g130
+            if (json.has("_g130")) {
+                ${tickdata_name}._g130 = json.getBoolean("_g130");
+            }
+            // Receive _g131
+            if (json.has("_g131")) {
+                ${tickdata_name}._g131 = json.getBoolean("_g131");
             }
             // Receive _g133
             if (json.has("_g133")) {
                 ${tickdata_name}._g133 = json.getBoolean("_g133");
             }
+            // Receive _g134
+            if (json.has("_g134")) {
+                ${tickdata_name}._g134 = json.getBoolean("_g134");
+            }
             // Receive _g135
             if (json.has("_g135")) {
                 ${tickdata_name}._g135 = json.getBoolean("_g135");
+            }
+            // Receive _g135_e1
+            if (json.has("_g135_e1")) {
+                ${tickdata_name}._g135_e1 = json.getBoolean("_g135_e1");
             }
             // Receive _g136
             if (json.has("_g136")) {
@@ -553,10 +553,6 @@ sendVariables();
             // Receive _g137
             if (json.has("_g137")) {
                 ${tickdata_name}._g137 = json.getBoolean("_g137");
-            }
-            // Receive _g137_e1
-            if (json.has("_g137_e1")) {
-                ${tickdata_name}._g137_e1 = json.getBoolean("_g137_e1");
             }
             // Receive _g138
             if (json.has("_g138")) {
@@ -574,17 +570,21 @@ sendVariables();
             if (json.has("_g140")) {
                 ${tickdata_name}._g140 = json.getBoolean("_g140");
             }
-            // Receive _g141
-            if (json.has("_g141")) {
-                ${tickdata_name}._g141 = json.getBoolean("_g141");
+            // Receive _g143
+            if (json.has("_g143")) {
+                ${tickdata_name}._g143 = json.getBoolean("_g143");
             }
-            // Receive _g142
-            if (json.has("_g142")) {
-                ${tickdata_name}._g142 = json.getBoolean("_g142");
+            // Receive _g144
+            if (json.has("_g144")) {
+                ${tickdata_name}._g144 = json.getBoolean("_g144");
             }
             // Receive _g145
             if (json.has("_g145")) {
                 ${tickdata_name}._g145 = json.getBoolean("_g145");
+            }
+            // Receive _g145_e2
+            if (json.has("_g145_e2")) {
+                ${tickdata_name}._g145_e2 = json.getBoolean("_g145_e2");
             }
             // Receive _g146
             if (json.has("_g146")) {
@@ -593,10 +593,6 @@ sendVariables();
             // Receive _g147
             if (json.has("_g147")) {
                 ${tickdata_name}._g147 = json.getBoolean("_g147");
-            }
-            // Receive _g147_e2
-            if (json.has("_g147_e2")) {
-                ${tickdata_name}._g147_e2 = json.getBoolean("_g147_e2");
             }
             // Receive _g148
             if (json.has("_g148")) {
@@ -614,25 +610,29 @@ sendVariables();
             if (json.has("_g150")) {
                 ${tickdata_name}._g150 = json.getBoolean("_g150");
             }
-            // Receive _g151
-            if (json.has("_g151")) {
-                ${tickdata_name}._g151 = json.getBoolean("_g151");
+            // Receive _g154
+            if (json.has("_g154")) {
+                ${tickdata_name}._g154 = json.getBoolean("_g154");
             }
-            // Receive _g152
-            if (json.has("_g152")) {
-                ${tickdata_name}._g152 = json.getBoolean("_g152");
-            }
-            // Receive _g156
-            if (json.has("_g156")) {
-                ${tickdata_name}._g156 = json.getBoolean("_g156");
+            // Receive _g155
+            if (json.has("_g155")) {
+                ${tickdata_name}._g155 = json.getBoolean("_g155");
             }
             // Receive _g157
             if (json.has("_g157")) {
                 ${tickdata_name}._g157 = json.getBoolean("_g157");
             }
+            // Receive _g158
+            if (json.has("_g158")) {
+                ${tickdata_name}._g158 = json.getBoolean("_g158");
+            }
             // Receive _g159
             if (json.has("_g159")) {
                 ${tickdata_name}._g159 = json.getBoolean("_g159");
+            }
+            // Receive _g159_e1
+            if (json.has("_g159_e1")) {
+                ${tickdata_name}._g159_e1 = json.getBoolean("_g159_e1");
             }
             // Receive _g16
             if (json.has("_g16")) {
@@ -646,10 +646,6 @@ sendVariables();
             if (json.has("_g161")) {
                 ${tickdata_name}._g161 = json.getBoolean("_g161");
             }
-            // Receive _g161_e1
-            if (json.has("_g161_e1")) {
-                ${tickdata_name}._g161_e1 = json.getBoolean("_g161_e1");
-            }
             // Receive _g162
             if (json.has("_g162")) {
                 ${tickdata_name}._g162 = json.getBoolean("_g162");
@@ -662,25 +658,21 @@ sendVariables();
             if (json.has("_g164")) {
                 ${tickdata_name}._g164 = json.getBoolean("_g164");
             }
-            // Receive _g165
-            if (json.has("_g165")) {
-                ${tickdata_name}._g165 = json.getBoolean("_g165");
+            // Receive _g167
+            if (json.has("_g167")) {
+                ${tickdata_name}._g167 = json.getBoolean("_g167");
             }
-            // Receive _g166
-            if (json.has("_g166")) {
-                ${tickdata_name}._g166 = json.getBoolean("_g166");
+            // Receive _g168
+            if (json.has("_g168")) {
+                ${tickdata_name}._g168 = json.getBoolean("_g168");
+            }
+            // Receive _g168_e2
+            if (json.has("_g168_e2")) {
+                ${tickdata_name}._g168_e2 = json.getBoolean("_g168_e2");
             }
             // Receive _g169
             if (json.has("_g169")) {
                 ${tickdata_name}._g169 = json.getBoolean("_g169");
-            }
-            // Receive _g170
-            if (json.has("_g170")) {
-                ${tickdata_name}._g170 = json.getBoolean("_g170");
-            }
-            // Receive _g170_e2
-            if (json.has("_g170_e2")) {
-                ${tickdata_name}._g170_e2 = json.getBoolean("_g170_e2");
             }
             // Receive _g18
             if (json.has("_g18")) {
@@ -702,9 +694,9 @@ sendVariables();
             if (json.has("_g21")) {
                 ${tickdata_name}._g21 = json.getBoolean("_g21");
             }
-            // Receive _g215
-            if (json.has("_g215")) {
-                ${tickdata_name}._g215 = json.getBoolean("_g215");
+            // Receive _g213
+            if (json.has("_g213")) {
+                ${tickdata_name}._g213 = json.getBoolean("_g213");
             }
             // Receive _g22
             if (json.has("_g22")) {
@@ -990,6 +982,10 @@ sendVariables();
             if (json.has("_g99")) {
                 ${tickdata_name}._g99 = json.getBoolean("_g99");
             }
+            // Receive _pg104
+            if (json.has("_pg104")) {
+                ${tickdata_name}._pg104 = json.getBoolean("_pg104");
+            }
             // Receive _pg112
             if (json.has("_pg112")) {
                 ${tickdata_name}._pg112 = json.getBoolean("_pg112");
@@ -1002,10 +998,6 @@ sendVariables();
             if (json.has("_pg12")) {
                 ${tickdata_name}._pg12 = json.getBoolean("_pg12");
             }
-            // Receive _pg124
-            if (json.has("_pg124")) {
-                ${tickdata_name}._pg124 = json.getBoolean("_pg124");
-            }
             // Receive _pg125
             if (json.has("_pg125")) {
                 ${tickdata_name}._pg125 = json.getBoolean("_pg125");
@@ -1014,33 +1006,41 @@ sendVariables();
             if (json.has("_pg126")) {
                 ${tickdata_name}._pg126 = json.getBoolean("_pg126");
             }
-            // Receive _pg132
-            if (json.has("_pg132")) {
-                ${tickdata_name}._pg132 = json.getBoolean("_pg132");
+            // Receive _pg130
+            if (json.has("_pg130")) {
+                ${tickdata_name}._pg130 = json.getBoolean("_pg130");
             }
-            // Receive _pg137
-            if (json.has("_pg137")) {
-                ${tickdata_name}._pg137 = json.getBoolean("_pg137");
+            // Receive _pg135
+            if (json.has("_pg135")) {
+                ${tickdata_name}._pg135 = json.getBoolean("_pg135");
+            }
+            // Receive _pg135_e1
+            if (json.has("_pg135_e1")) {
+                ${tickdata_name}._pg135_e1 = json.getBoolean("_pg135_e1");
+            }
+            // Receive _pg136
+            if (json.has("_pg136")) {
+                ${tickdata_name}._pg136 = json.getBoolean("_pg136");
             }
             // Receive _pg138
             if (json.has("_pg138")) {
                 ${tickdata_name}._pg138 = json.getBoolean("_pg138");
             }
-            // Receive _pg140
-            if (json.has("_pg140")) {
-                ${tickdata_name}._pg140 = json.getBoolean("_pg140");
+            // Receive _pg139
+            if (json.has("_pg139")) {
+                ${tickdata_name}._pg139 = json.getBoolean("_pg139");
             }
-            // Receive _pg141
-            if (json.has("_pg141")) {
-                ${tickdata_name}._pg141 = json.getBoolean("_pg141");
+            // Receive _pg145_e2
+            if (json.has("_pg145_e2")) {
+                ${tickdata_name}._pg145_e2 = json.getBoolean("_pg145_e2");
             }
-            // Receive _pg147
-            if (json.has("_pg147")) {
-                ${tickdata_name}._pg147 = json.getBoolean("_pg147");
+            // Receive _pg148
+            if (json.has("_pg148")) {
+                ${tickdata_name}._pg148 = json.getBoolean("_pg148");
             }
-            // Receive _pg147_e2
-            if (json.has("_pg147_e2")) {
-                ${tickdata_name}._pg147_e2 = json.getBoolean("_pg147_e2");
+            // Receive _pg149
+            if (json.has("_pg149")) {
+                ${tickdata_name}._pg149 = json.getBoolean("_pg149");
             }
             // Receive _pg15
             if (json.has("_pg15")) {
@@ -1050,29 +1050,21 @@ sendVariables();
             if (json.has("_pg150")) {
                 ${tickdata_name}._pg150 = json.getBoolean("_pg150");
             }
-            // Receive _pg151
-            if (json.has("_pg151")) {
-                ${tickdata_name}._pg151 = json.getBoolean("_pg151");
-            }
-            // Receive _pg152
-            if (json.has("_pg152")) {
-                ${tickdata_name}._pg152 = json.getBoolean("_pg152");
-            }
-            // Receive _pg156
-            if (json.has("_pg156")) {
-                ${tickdata_name}._pg156 = json.getBoolean("_pg156");
+            // Receive _pg160
+            if (json.has("_pg160")) {
+                ${tickdata_name}._pg160 = json.getBoolean("_pg160");
             }
             // Receive _pg162
             if (json.has("_pg162")) {
                 ${tickdata_name}._pg162 = json.getBoolean("_pg162");
             }
-            // Receive _pg164
-            if (json.has("_pg164")) {
-                ${tickdata_name}._pg164 = json.getBoolean("_pg164");
+            // Receive _pg163
+            if (json.has("_pg163")) {
+                ${tickdata_name}._pg163 = json.getBoolean("_pg163");
             }
-            // Receive _pg165
-            if (json.has("_pg165")) {
-                ${tickdata_name}._pg165 = json.getBoolean("_pg165");
+            // Receive _pg169
+            if (json.has("_pg169")) {
+                ${tickdata_name}._pg169 = json.getBoolean("_pg169");
             }
             // Receive _pg21
             if (json.has("_pg21")) {
@@ -1247,34 +1239,32 @@ sendVariables();
         json.put("_cg122", JSONObject.wrap(${tickdata_name}._cg122));
         // Send _cg124
         json.put("_cg124", JSONObject.wrap(${tickdata_name}._cg124));
-        // Send _cg127
-        json.put("_cg127", JSONObject.wrap(${tickdata_name}._cg127));
-        // Send _cg132
-        json.put("_cg132", JSONObject.wrap(${tickdata_name}._cg132));
-        // Send _cg135
-        json.put("_cg135", JSONObject.wrap(${tickdata_name}._cg135));
-        // Send _cg136
-        json.put("_cg136", JSONObject.wrap(${tickdata_name}._cg136));
+        // Send _cg130
+        json.put("_cg130", JSONObject.wrap(${tickdata_name}._cg130));
+        // Send _cg133
+        json.put("_cg133", JSONObject.wrap(${tickdata_name}._cg133));
+        // Send _cg134
+        json.put("_cg134", JSONObject.wrap(${tickdata_name}._cg134));
+        // Send _cg138
+        json.put("_cg138", JSONObject.wrap(${tickdata_name}._cg138));
         // Send _cg14
         json.put("_cg14", JSONObject.wrap(${tickdata_name}._cg14));
-        // Send _cg140
-        json.put("_cg140", JSONObject.wrap(${tickdata_name}._cg140));
-        // Send _cg145
-        json.put("_cg145", JSONObject.wrap(${tickdata_name}._cg145));
+        // Send _cg143
+        json.put("_cg143", JSONObject.wrap(${tickdata_name}._cg143));
+        // Send _cg146
+        json.put("_cg146", JSONObject.wrap(${tickdata_name}._cg146));
         // Send _cg148
         json.put("_cg148", JSONObject.wrap(${tickdata_name}._cg148));
-        // Send _cg150
-        json.put("_cg150", JSONObject.wrap(${tickdata_name}._cg150));
-        // Send _cg156
-        json.put("_cg156", JSONObject.wrap(${tickdata_name}._cg156));
-        // Send _cg159
-        json.put("_cg159", JSONObject.wrap(${tickdata_name}._cg159));
-        // Send _cg160
-        json.put("_cg160", JSONObject.wrap(${tickdata_name}._cg160));
-        // Send _cg164
-        json.put("_cg164", JSONObject.wrap(${tickdata_name}._cg164));
-        // Send _cg169
-        json.put("_cg169", JSONObject.wrap(${tickdata_name}._cg169));
+        // Send _cg154
+        json.put("_cg154", JSONObject.wrap(${tickdata_name}._cg154));
+        // Send _cg157
+        json.put("_cg157", JSONObject.wrap(${tickdata_name}._cg157));
+        // Send _cg158
+        json.put("_cg158", JSONObject.wrap(${tickdata_name}._cg158));
+        // Send _cg162
+        json.put("_cg162", JSONObject.wrap(${tickdata_name}._cg162));
+        // Send _cg167
+        json.put("_cg167", JSONObject.wrap(${tickdata_name}._cg167));
         // Send _cg18
         json.put("_cg18", JSONObject.wrap(${tickdata_name}._cg18));
         // Send _cg19
@@ -1389,24 +1379,24 @@ sendVariables();
         json.put("_g125", JSONObject.wrap(${tickdata_name}._g125));
         // Send _g126
         json.put("_g126", JSONObject.wrap(${tickdata_name}._g126));
-        // Send _g127
-        json.put("_g127", JSONObject.wrap(${tickdata_name}._g127));
-        // Send _g128
-        json.put("_g128", JSONObject.wrap(${tickdata_name}._g128));
         // Send _g13
         json.put("_g13", JSONObject.wrap(${tickdata_name}._g13));
-        // Send _g132
-        json.put("_g132", JSONObject.wrap(${tickdata_name}._g132));
+        // Send _g130
+        json.put("_g130", JSONObject.wrap(${tickdata_name}._g130));
+        // Send _g131
+        json.put("_g131", JSONObject.wrap(${tickdata_name}._g131));
         // Send _g133
         json.put("_g133", JSONObject.wrap(${tickdata_name}._g133));
+        // Send _g134
+        json.put("_g134", JSONObject.wrap(${tickdata_name}._g134));
         // Send _g135
         json.put("_g135", JSONObject.wrap(${tickdata_name}._g135));
+        // Send _g135_e1
+        json.put("_g135_e1", JSONObject.wrap(${tickdata_name}._g135_e1));
         // Send _g136
         json.put("_g136", JSONObject.wrap(${tickdata_name}._g136));
         // Send _g137
         json.put("_g137", JSONObject.wrap(${tickdata_name}._g137));
-        // Send _g137_e1
-        json.put("_g137_e1", JSONObject.wrap(${tickdata_name}._g137_e1));
         // Send _g138
         json.put("_g138", JSONObject.wrap(${tickdata_name}._g138));
         // Send _g139
@@ -1415,18 +1405,18 @@ sendVariables();
         json.put("_g14", JSONObject.wrap(${tickdata_name}._g14));
         // Send _g140
         json.put("_g140", JSONObject.wrap(${tickdata_name}._g140));
-        // Send _g141
-        json.put("_g141", JSONObject.wrap(${tickdata_name}._g141));
-        // Send _g142
-        json.put("_g142", JSONObject.wrap(${tickdata_name}._g142));
+        // Send _g143
+        json.put("_g143", JSONObject.wrap(${tickdata_name}._g143));
+        // Send _g144
+        json.put("_g144", JSONObject.wrap(${tickdata_name}._g144));
         // Send _g145
         json.put("_g145", JSONObject.wrap(${tickdata_name}._g145));
+        // Send _g145_e2
+        json.put("_g145_e2", JSONObject.wrap(${tickdata_name}._g145_e2));
         // Send _g146
         json.put("_g146", JSONObject.wrap(${tickdata_name}._g146));
         // Send _g147
         json.put("_g147", JSONObject.wrap(${tickdata_name}._g147));
-        // Send _g147_e2
-        json.put("_g147_e2", JSONObject.wrap(${tickdata_name}._g147_e2));
         // Send _g148
         json.put("_g148", JSONObject.wrap(${tickdata_name}._g148));
         // Send _g149
@@ -1435,40 +1425,38 @@ sendVariables();
         json.put("_g15", JSONObject.wrap(${tickdata_name}._g15));
         // Send _g150
         json.put("_g150", JSONObject.wrap(${tickdata_name}._g150));
-        // Send _g151
-        json.put("_g151", JSONObject.wrap(${tickdata_name}._g151));
-        // Send _g152
-        json.put("_g152", JSONObject.wrap(${tickdata_name}._g152));
-        // Send _g156
-        json.put("_g156", JSONObject.wrap(${tickdata_name}._g156));
+        // Send _g154
+        json.put("_g154", JSONObject.wrap(${tickdata_name}._g154));
+        // Send _g155
+        json.put("_g155", JSONObject.wrap(${tickdata_name}._g155));
         // Send _g157
         json.put("_g157", JSONObject.wrap(${tickdata_name}._g157));
+        // Send _g158
+        json.put("_g158", JSONObject.wrap(${tickdata_name}._g158));
         // Send _g159
         json.put("_g159", JSONObject.wrap(${tickdata_name}._g159));
+        // Send _g159_e1
+        json.put("_g159_e1", JSONObject.wrap(${tickdata_name}._g159_e1));
         // Send _g16
         json.put("_g16", JSONObject.wrap(${tickdata_name}._g16));
         // Send _g160
         json.put("_g160", JSONObject.wrap(${tickdata_name}._g160));
         // Send _g161
         json.put("_g161", JSONObject.wrap(${tickdata_name}._g161));
-        // Send _g161_e1
-        json.put("_g161_e1", JSONObject.wrap(${tickdata_name}._g161_e1));
         // Send _g162
         json.put("_g162", JSONObject.wrap(${tickdata_name}._g162));
         // Send _g163
         json.put("_g163", JSONObject.wrap(${tickdata_name}._g163));
         // Send _g164
         json.put("_g164", JSONObject.wrap(${tickdata_name}._g164));
-        // Send _g165
-        json.put("_g165", JSONObject.wrap(${tickdata_name}._g165));
-        // Send _g166
-        json.put("_g166", JSONObject.wrap(${tickdata_name}._g166));
+        // Send _g167
+        json.put("_g167", JSONObject.wrap(${tickdata_name}._g167));
+        // Send _g168
+        json.put("_g168", JSONObject.wrap(${tickdata_name}._g168));
+        // Send _g168_e2
+        json.put("_g168_e2", JSONObject.wrap(${tickdata_name}._g168_e2));
         // Send _g169
         json.put("_g169", JSONObject.wrap(${tickdata_name}._g169));
-        // Send _g170
-        json.put("_g170", JSONObject.wrap(${tickdata_name}._g170));
-        // Send _g170_e2
-        json.put("_g170_e2", JSONObject.wrap(${tickdata_name}._g170_e2));
         // Send _g18
         json.put("_g18", JSONObject.wrap(${tickdata_name}._g18));
         // Send _g19
@@ -1479,8 +1467,8 @@ sendVariables();
         json.put("_g20_e2", JSONObject.wrap(${tickdata_name}._g20_e2));
         // Send _g21
         json.put("_g21", JSONObject.wrap(${tickdata_name}._g21));
-        // Send _g215
-        json.put("_g215", JSONObject.wrap(${tickdata_name}._g215));
+        // Send _g213
+        json.put("_g213", JSONObject.wrap(${tickdata_name}._g213));
         // Send _g22
         json.put("_g22", JSONObject.wrap(${tickdata_name}._g22));
         // Send _g23
@@ -1623,48 +1611,48 @@ sendVariables();
         json.put("_g98", JSONObject.wrap(${tickdata_name}._g98));
         // Send _g99
         json.put("_g99", JSONObject.wrap(${tickdata_name}._g99));
+        // Send _pg104
+        json.put("_pg104", JSONObject.wrap(${tickdata_name}._pg104));
         // Send _pg112
         json.put("_pg112", JSONObject.wrap(${tickdata_name}._pg112));
         // Send _pg11_e1
         json.put("_pg11_e1", JSONObject.wrap(${tickdata_name}._pg11_e1));
         // Send _pg12
         json.put("_pg12", JSONObject.wrap(${tickdata_name}._pg12));
-        // Send _pg124
-        json.put("_pg124", JSONObject.wrap(${tickdata_name}._pg124));
         // Send _pg125
         json.put("_pg125", JSONObject.wrap(${tickdata_name}._pg125));
         // Send _pg126
         json.put("_pg126", JSONObject.wrap(${tickdata_name}._pg126));
-        // Send _pg132
-        json.put("_pg132", JSONObject.wrap(${tickdata_name}._pg132));
-        // Send _pg137
-        json.put("_pg137", JSONObject.wrap(${tickdata_name}._pg137));
+        // Send _pg130
+        json.put("_pg130", JSONObject.wrap(${tickdata_name}._pg130));
+        // Send _pg135
+        json.put("_pg135", JSONObject.wrap(${tickdata_name}._pg135));
+        // Send _pg135_e1
+        json.put("_pg135_e1", JSONObject.wrap(${tickdata_name}._pg135_e1));
+        // Send _pg136
+        json.put("_pg136", JSONObject.wrap(${tickdata_name}._pg136));
         // Send _pg138
         json.put("_pg138", JSONObject.wrap(${tickdata_name}._pg138));
-        // Send _pg140
-        json.put("_pg140", JSONObject.wrap(${tickdata_name}._pg140));
-        // Send _pg141
-        json.put("_pg141", JSONObject.wrap(${tickdata_name}._pg141));
-        // Send _pg147
-        json.put("_pg147", JSONObject.wrap(${tickdata_name}._pg147));
-        // Send _pg147_e2
-        json.put("_pg147_e2", JSONObject.wrap(${tickdata_name}._pg147_e2));
+        // Send _pg139
+        json.put("_pg139", JSONObject.wrap(${tickdata_name}._pg139));
+        // Send _pg145_e2
+        json.put("_pg145_e2", JSONObject.wrap(${tickdata_name}._pg145_e2));
+        // Send _pg148
+        json.put("_pg148", JSONObject.wrap(${tickdata_name}._pg148));
+        // Send _pg149
+        json.put("_pg149", JSONObject.wrap(${tickdata_name}._pg149));
         // Send _pg15
         json.put("_pg15", JSONObject.wrap(${tickdata_name}._pg15));
         // Send _pg150
         json.put("_pg150", JSONObject.wrap(${tickdata_name}._pg150));
-        // Send _pg151
-        json.put("_pg151", JSONObject.wrap(${tickdata_name}._pg151));
-        // Send _pg152
-        json.put("_pg152", JSONObject.wrap(${tickdata_name}._pg152));
-        // Send _pg156
-        json.put("_pg156", JSONObject.wrap(${tickdata_name}._pg156));
+        // Send _pg160
+        json.put("_pg160", JSONObject.wrap(${tickdata_name}._pg160));
         // Send _pg162
         json.put("_pg162", JSONObject.wrap(${tickdata_name}._pg162));
-        // Send _pg164
-        json.put("_pg164", JSONObject.wrap(${tickdata_name}._pg164));
-        // Send _pg165
-        json.put("_pg165", JSONObject.wrap(${tickdata_name}._pg165));
+        // Send _pg163
+        json.put("_pg163", JSONObject.wrap(${tickdata_name}._pg163));
+        // Send _pg169
+        json.put("_pg169", JSONObject.wrap(${tickdata_name}._pg169));
         // Send _pg21
         json.put("_pg21", JSONObject.wrap(${tickdata_name}._pg21));
         // Send _pg23

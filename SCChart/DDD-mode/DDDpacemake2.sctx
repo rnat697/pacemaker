@@ -106,8 +106,8 @@ scchart DDDpacemaker {
      
    region VRP{
      initial state init_VRP
-     if VS || pre(VP_temp) do VRP_state = true; VRP_counter = 0 go to wait_VRP
-     if VS do real_VS go to init_VRP
+     if VS || pre(VP_temp) do real_VS; VRP_state = true; VRP_counter = 0 go to wait_VRP
+     //if VS do real_VS go to init_VRP
 
     state wait_VRP
     if VS do VR = true go to wait_VRP

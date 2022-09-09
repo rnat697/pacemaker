@@ -150,39 +150,38 @@ public class DDDpacemaker {
   public boolean _g124;
   public boolean _g125;
   public boolean _g126;
-  public boolean _g127;
-  public boolean _g128;
-  public boolean _g132;
+  public boolean _g130;
+  public boolean _g131;
   public boolean _g133;
+  public boolean _g134;
   public boolean _g135;
   public boolean _g136;
   public boolean _g137;
   public boolean _g138;
   public boolean _g139;
   public boolean _g140;
-  public boolean _g141;
-  public boolean _g142;
+  public boolean _g143;
+  public boolean _g144;
   public boolean _g145;
   public boolean _g146;
   public boolean _g147;
   public boolean _g148;
   public boolean _g149;
   public boolean _g150;
-  public boolean _g151;
-  public boolean _g152;
-  public boolean _g156;
+  public boolean _g154;
+  public boolean _g155;
   public boolean _g157;
+  public boolean _g158;
   public boolean _g159;
   public boolean _g160;
   public boolean _g161;
   public boolean _g162;
   public boolean _g163;
   public boolean _g164;
-  public boolean _g165;
-  public boolean _g166;
+  public boolean _g167;
+  public boolean _g168;
   public boolean _g169;
-  public boolean _g170;
-  public boolean _g215;
+  public boolean _g213;
   public boolean _GO;
   public boolean _cg6;
   public boolean _cg4;
@@ -218,7 +217,6 @@ public class DDDpacemaker {
   public boolean _cg93;
   public boolean _cg90;
   public boolean _cg95;
-  public boolean _cg127;
   public boolean _cg103;
   public boolean _cg106;
   public boolean _cg107;
@@ -229,18 +227,18 @@ public class DDDpacemaker {
   public boolean _cg122;
   public boolean _cg119;
   public boolean _cg124;
-  public boolean _cg132;
-  public boolean _cg135;
-  public boolean _cg136;
-  public boolean _cg140;
+  public boolean _cg130;
+  public boolean _cg133;
+  public boolean _cg134;
+  public boolean _cg138;
+  public boolean _cg146;
+  public boolean _cg143;
   public boolean _cg148;
-  public boolean _cg145;
-  public boolean _cg150;
-  public boolean _cg156;
-  public boolean _cg159;
-  public boolean _cg160;
-  public boolean _cg164;
-  public boolean _cg169;
+  public boolean _cg154;
+  public boolean _cg157;
+  public boolean _cg158;
+  public boolean _cg162;
+  public boolean _cg167;
   public boolean _g11_e1;
   public boolean _g20_e2;
   public boolean _g30_e3;
@@ -250,25 +248,25 @@ public class DDDpacemaker {
   public boolean _g92_e2;
   public boolean _g112_e1;
   public boolean _g121_e2;
-  public boolean _g137_e1;
-  public boolean _g147_e2;
-  public boolean _g161_e1;
-  public boolean _g170_e2;
+  public boolean _g135_e1;
+  public boolean _g145_e2;
+  public boolean _g159_e1;
+  public boolean _g168_e2;
   public boolean _TERM;
 
   public DDDpacemaker() {
-    _taken_transitions = new int[24];
+    _taken_transitions = new int[23];
   }
   public boolean _pg92_e2;
   public boolean _pg11_e1;
   public boolean _pg112;
   public boolean _pg23;
-  public boolean _pg147;
-  public boolean _pg156;
-  public boolean _pg164;
+  public boolean _pg135_e1;
+  public boolean _pg169;
   public boolean _pg162;
-  public boolean _pg165;
-  public boolean _pg137;
+  public boolean _pg160;
+  public boolean _pg163;
+  public boolean _pg145_e2;
   public boolean _pg12;
   public boolean _pg15;
   public boolean _pg21;
@@ -276,22 +274,22 @@ public class DDDpacemaker {
   public boolean _pg35;
   public boolean _pg65;
   public boolean _pg54;
-  public boolean _pg150;
+  public boolean _pg148;
   public boolean _pg56;
   public boolean _pg59;
   public boolean _pg95;
   public boolean _pg98;
   public boolean _pg96;
-  public boolean _pg152;
-  public boolean _pg124;
-  public boolean _pg126;
+  public boolean _pg130;
   public boolean _pg125;
-  public boolean _pg132;
-  public boolean _pg140;
-  public boolean _pg151;
-  public boolean _pg147_e2;
+  public boolean _pg126;
+  public boolean _pg104;
+  public boolean _pg149;
   public boolean _pg138;
-  public boolean _pg141;
+  public boolean _pg150;
+  public boolean _pg135;
+  public boolean _pg136;
+  public boolean _pg139;
 
   public void reset() {
     _GO = true;
@@ -333,19 +331,18 @@ public class DDDpacemaker {
     _taken_transitions[20] = 0;
     _taken_transitions[21] = 0;
     _taken_transitions[22] = 0;
-    _taken_transitions[23] = 0;
     _DDDpacemaker_local__reg_VP_temp = false;
     _DDDpacemaker_local__reg_AP_temp = false;
     _pg92_e2 = false;
     _pg11_e1 = false;
     _pg112 = false;
     _pg23 = false;
-    _pg147 = false;
-    _pg156 = false;
-    _pg164 = false;
+    _pg135_e1 = false;
+    _pg169 = false;
     _pg162 = false;
-    _pg165 = false;
-    _pg137 = false;
+    _pg160 = false;
+    _pg163 = false;
+    _pg145_e2 = false;
     _pg12 = false;
     _pg15 = false;
     _pg21 = false;
@@ -353,22 +350,22 @@ public class DDDpacemaker {
     _pg35 = false;
     _pg65 = false;
     _pg54 = false;
-    _pg150 = false;
+    _pg148 = false;
     _pg56 = false;
     _pg59 = false;
     _pg95 = false;
     _pg98 = false;
     _pg96 = false;
-    _pg152 = false;
-    _pg124 = false;
-    _pg126 = false;
+    _pg130 = false;
     _pg125 = false;
-    _pg132 = false;
-    _pg140 = false;
-    _pg151 = false;
-    _pg147_e2 = false;
+    _pg126 = false;
+    _pg104 = false;
+    _pg149 = false;
     _pg138 = false;
-    _pg141 = false;
+    _pg150 = false;
+    _pg135 = false;
+    _pg136 = false;
+    _pg139 = false;
   }
 
   public void logic() {
@@ -395,11 +392,10 @@ public class DDDpacemaker {
     }
     _g103 = _pg112;
     _cg103 = VS || _DDDpacemaker_local__pre_VP_temp;
-    _g127 = _g103 && !_cg103;
-    _g128 = _g127 && VS;
-    if (_g128) {
+    _g104 = _g103 && _cg103;
+    if (_g104) {
       _DDDpacemaker_local_real_VS |= true;
-      _taken_transitions[16] += 1;
+      _DDDpacemaker_local_VRP_state = true;
     }
     _g28 = _pg23;
     _cg28 = _DDDpacemaker_local_real_VS;
@@ -407,63 +403,63 @@ public class DDDpacemaker {
     if (_g29) {
       _DDDpacemaker_local__Atrig = true;
     }
-    _g156 = _pg147;
-    _cg156 = _DDDpacemaker_local_real_VS || _DDDpacemaker_local__pre_VP_temp;
-    _g157 = _g156 && _cg156;
-    if (_g157) {
+    _g154 = _pg135_e1;
+    _cg154 = _DDDpacemaker_local_real_VS || _DDDpacemaker_local__pre_VP_temp;
+    _g155 = _g154 && _cg154;
+    if (_g155) {
       _DDDpacemaker_local_URI_state = true;
     }
-    _g215 = _pg156;
-    if (_g215) {
+    _g213 = _pg169;
+    if (_g213) {
       URI_counter += deltaT;
     }
-    _g169 = _pg164;
-    _cg169 = URI_counter >= URI_DEADLINE;
-    _g170 = _g169 && _cg169;
-    if (_g170) {
+    _g167 = _pg162;
+    _cg167 = URI_counter >= URI_DEADLINE;
+    _g168 = _g167 && _cg167;
+    if (_g168) {
       _DDDpacemaker_local__Atrig11 = true;
     }
-    if (_g157) {
+    if (_g155) {
       URI_counter = 0;
-      _taken_transitions[22] += 1;
+      _taken_transitions[21] += 1;
       _DDDpacemaker_local__Atrig11 = false;
     }
-    _g163 = _pg162;
-    _g166 = _pg165;
-    _g163 = _g157 || _g163 || _g166;
-    _cg159 = URI_counter < URI_DEADLINE;
-    _g166 = _g163 && !_cg159;
-    _cg164 = _DDDpacemaker_local__Atrig11;
-    _g165 = _g166 && !_cg164;
+    _g161 = _pg160;
+    _g164 = _pg163;
+    _g164 = _g155 || _g161 || _g164;
+    _cg157 = URI_counter < URI_DEADLINE;
+    _g161 = _g164 && !_cg157;
+    _cg162 = _DDDpacemaker_local__Atrig11;
+    _g163 = _g161 && !_cg162;
     sleepT = 1000.0;
-    _g159 = _g163 && _cg159;
-    if (_g159) {
+    _g157 = _g164 && _cg157;
+    if (_g157) {
       sleepT = (sleepT < (URI_DEADLINE - URI_counter)) ? sleepT : (URI_DEADLINE - URI_counter);
     }
-    _cg160 = _DDDpacemaker_local__Atrig11;
-    _g162 = _g159 && !_cg160;
-    _g161_e1 = !(_g165 || _g162);
-    _g160 = _g159 && _cg160 || _g166 && _cg164;
-    _g164 = _g157 || _g169 && !_cg169;
-    _g157 = !_g164;
-    _g169 = (_g161_e1 || _g160) && (_g157 || _g170) && (_g160 || _g170);
-    if (_g169) {
+    _cg158 = _DDDpacemaker_local__Atrig11;
+    _g160 = _g157 && !_cg158;
+    _g159_e1 = !(_g163 || _g160);
+    _g158 = _g157 && _cg158 || _g161 && _cg162;
+    _g162 = _g155 || _g167 && !_cg167;
+    _g167 = !_g162;
+    _g155 = (_g159_e1 || _g158) && (_g167 || _g168) && (_g158 || _g168);
+    if (_g155) {
       _DDDpacemaker_local_URI_state = false;
-      _taken_transitions[23] += 1;
+      _taken_transitions[22] += 1;
     }
-    _g161_e1 = _pg137;
-    if (_g161_e1) {
+    _g168 = _pg145_e2;
+    if (_g168) {
       AVI_counter += deltaT;
     }
-    _g170 = _g28 && !_cg28;
+    _g168_e2 = _g28 && !_cg28;
     _cg31 = AVI_counter >= AVI_DEADLINE && _DDDpacemaker_local_URI_state == true;
-    _g161 = _g170 && _cg31;
-    if (_g161) {
+    _g159_e1 = _g168_e2 && _cg31;
+    if (_g159_e1) {
       _DDDpacemaker_local__Atrig1 = true;
     }
-    _g170_e2 = _g170 && !_cg31;
+    _g159 = _g168_e2 && !_cg31;
     _cg33 = AVI_counter >= AVI_DEADLINE && _DDDpacemaker_local_URI_state == false;
-    _g28 = _g170_e2 && _cg33;
+    _g28 = _g159 && _cg33;
     if (_g28) {
       _DDDpacemaker_local__Atrig2 = true;
     }
@@ -508,9 +504,9 @@ public class DDDpacemaker {
     _g21 = _g18 && !_cg19;
     _g20_e2 = !(_g24 || _g21);
     _g19 = _g18 && _cg19 || _g25 && _cg23;
-    _g23 = _g4 || _g170_e2 && !_cg33;
+    _g23 = _g4 || _g159 && !_cg33;
     _g33 = !_g23;
-    _g7 = _g29 || _g161 || _g28;
+    _g7 = _g29 || _g159_e1 || _g28;
     _g34 = (_g11_e1 || _g14) && (_g20_e2 || _g19) && (_g33 || _g7) && (_g14 || _g19 || _g7);
     _cg35 = _DDDpacemaker_local__Atrig;
     _g29 = _g34 && _cg35;
@@ -564,7 +560,7 @@ public class DDDpacemaker {
     if (_g5) {
       _DDDpacemaker_local__Atrig3 = true;
     }
-    _g6 = _pg150;
+    _g6 = _pg148;
     if (_g6) {
       AEI_counter += deltaT;
     }
@@ -626,7 +622,7 @@ public class DDDpacemaker {
     if (_g70) {
       _DDDpacemaker_local__Atrig5 = true;
     }
-    _g69 = _pg152;
+    _g69 = _pg130;
     if (_g69) {
       PVARP_counter += deltaT;
     }
@@ -684,15 +680,15 @@ public class DDDpacemaker {
     _cg87 = _DDDpacemaker_local__Atrig5 || _DDDpacemaker_local__Atrig6;
     _g95 = _g81 && !_cg84 || _g74 && !_cg87;
     _g96 = _g99 || _g50 && !_cg93;
-    _g75 = _pg124;
+    _g75 = _pg125;
     _g78 = _pg126;
     _g82 = !(_g75 || _g78);
-    _g84 = _pg125;
+    _g84 = _pg104;
     _g87 = _g84 && VS;
     if (_g87) {
       _DDDpacemaker_local__Atrig7 = true;
     }
-    _g93 = _pg132;
+    _g93 = _pg149;
     if (_g93) {
       VRP_counter += deltaT;
     }
@@ -720,102 +716,100 @@ public class DDDpacemaker {
     if (_g112_e1) {
       _DDDpacemaker_local_VR = false;
       _DDDpacemaker_local_VRP_state = false;
-      _taken_transitions[18] += 1;
+      _taken_transitions[17] += 1;
     }
-    _g112 = _GO || _g112_e1 || _g128 || _g127 && !VS;
-    _g121 = _g103 && _cg103;
-    if (_g121) {
-      _DDDpacemaker_local_VRP_state = true;
+    _g112 = _GO || _g112_e1 || _g103 && !_cg103;
+    if (_g104) {
       VRP_counter = 0;
       _taken_transitions[15] += 1;
     }
-    _g121_e2 = _g120 && _cg124;
-    if (_g121_e2) {
+    _g121 = _g120 && _cg124;
+    if (_g121) {
       _DDDpacemaker_local_VR = true;
-      _taken_transitions[17] += 1;
+      _taken_transitions[16] += 1;
     }
-    _g127 = _g121 || _g121_e2;
-    if (_g127) {
+    _g121_e2 = _g104 || _g121;
+    if (_g121_e2) {
       _DDDpacemaker_local__Atrig7 = false;
       _DDDpacemaker_local__Atrig8 = false;
     }
     _cg106 = VRP_counter < VRP_DEADLINE;
-    _g128 = _g127 && _cg106;
-    if (_g128) {
+    _g103 = _g121_e2 && _cg106;
+    if (_g103) {
       sleepT = (sleepT < (VRP_DEADLINE - VRP_counter)) ? sleepT : (VRP_DEADLINE - VRP_counter);
     }
     _cg107 = _DDDpacemaker_local__Atrig7 || _DDDpacemaker_local__Atrig8;
-    _g126 = _g128 && !_cg107 || _g115 && !_cg111;
-    _g103 = _g127 && !_cg106;
+    _g126 = _g103 && !_cg107 || _g115 && !_cg111;
+    _g124 = _g121_e2 && !_cg106;
     _cg116 = _DDDpacemaker_local__Atrig7 || _DDDpacemaker_local__Atrig8;
-    _g124 = _g110 && !_cg113 || _g103 && !_cg116;
-    _g125 = _g127 || _g76 && !_cg122;
-    _g104 = _pg140;
-    _cg145 = VS || _DDDpacemaker_local__pre_VP_temp;
-    _g107 = _g104 && _cg145;
-    if (_g107) {
+    _g125 = _g110 && !_cg113 || _g124 && !_cg116;
+    _g104 = _g121_e2 || _g76 && !_cg122;
+    _g107 = _pg138;
+    _cg143 = VS || _DDDpacemaker_local__pre_VP_temp;
+    _g111 = _g107 && _cg143;
+    if (_g111) {
       _DDDpacemaker_local__Atrig9 = true;
     }
-    _g111 = _pg151;
-    if (_g111) {
+    _g116 = _pg150;
+    if (_g116) {
       LRI_counter += deltaT;
     }
-    _g116 = _g104 && !_cg145;
-    _cg148 = LRI_counter >= LRI_DEADLINE;
-    _g113 = _g116 && _cg148;
-    if (_g113) {
+    _g113 = _g107 && !_cg143;
+    _cg146 = LRI_counter >= LRI_DEADLINE;
+    _g105 = _g113 && _cg146;
+    if (_g105) {
       _DDDpacemaker_local__Atrig10 = true;
     }
-    _g105 = _pg147_e2;
-    _cg132 = VS || _DDDpacemaker_local__pre_VP_temp;
-    _g122 = _g105 && _cg132;
-    if (_g122) {
+    _g122 = _pg135;
+    _cg130 = VS || _DDDpacemaker_local__pre_VP_temp;
+    _g143 = _g122 && _cg130;
+    if (_g143) {
       _DDDpacemaker_local_LRI_state = true;
       LRI_counter = 0;
-      _taken_transitions[19] += 1;
+      _taken_transitions[18] += 1;
       _DDDpacemaker_local__Atrig9 = false;
       _DDDpacemaker_local__Atrig10 = false;
     }
-    _g145 = _pg138;
-    _g142 = _pg141;
-    _g139 = _g122 || _g145 || _g142;
-    _cg135 = LRI_counter < LRI_DEADLINE;
-    _g142 = _g139 && !_cg135;
-    _cg140 = _DDDpacemaker_local__Atrig9 || _DDDpacemaker_local__Atrig10;
-    _g141 = _g142 && !_cg140;
-    _g135 = _g139 && _cg135;
-    if (_g135) {
+    _g137 = _pg136;
+    _g140 = _pg139;
+    _g137 = _g143 || _g137 || _g140;
+    _cg133 = LRI_counter < LRI_DEADLINE;
+    _g140 = _g137 && !_cg133;
+    _cg138 = _DDDpacemaker_local__Atrig9 || _DDDpacemaker_local__Atrig10;
+    _g139 = _g140 && !_cg138;
+    _g133 = _g137 && _cg133;
+    if (_g133) {
       sleepT = (sleepT < (LRI_DEADLINE - LRI_counter)) ? sleepT : (LRI_DEADLINE - LRI_counter);
     }
-    _cg136 = _DDDpacemaker_local__Atrig9 || _DDDpacemaker_local__Atrig10;
-    _g138 = _g135 && !_cg136;
-    _g137_e1 = !(_g141 || _g138);
-    _g136 = _g135 && _cg136 || _g142 && _cg140;
-    _g140 = _g122 || _g116 && !_cg148;
-    _g133 = !_g140;
-    _g148 = _g107 || _g113;
-    _g149 = (_g137_e1 || _g136) && (_g133 || _g148) && (_g136 || _g148);
-    _cg150 = _DDDpacemaker_local__Atrig9;
-    _g146 = _g149 && _cg150;
-    if (_g146) {
+    _cg134 = _DDDpacemaker_local__Atrig9 || _DDDpacemaker_local__Atrig10;
+    _g136 = _g133 && !_cg134;
+    _g135_e1 = !(_g139 || _g136);
+    _g134 = _g133 && _cg134 || _g140 && _cg138;
+    _g138 = _g143 || _g113 && !_cg146;
+    _g131 = !_g138;
+    _g146 = _g111 || _g105;
+    _g147 = (_g135_e1 || _g134) && (_g131 || _g146) && (_g134 || _g146);
+    _cg148 = _DDDpacemaker_local__Atrig9;
+    _g144 = _g147 && _cg148;
+    if (_g144) {
+      _DDDpacemaker_local_LRI_state = false;
+      _taken_transitions[19] += 1;
+    }
+    _g145 = _g147 && !_cg148;
+    if (_g145) {
       _DDDpacemaker_local_LRI_state = false;
       _taken_transitions[20] += 1;
     }
-    _g137_e1 = _g149 && !_cg150;
-    if (_g137_e1) {
-      _DDDpacemaker_local_LRI_state = false;
-      _taken_transitions[21] += 1;
-    }
-    _g147_e2 = _GO || _g146 || _g137_e1 || _g105 && !_cg132;
-    _g147 = _GO || _g169 || _g156 && !_cg156;
+    _g135 = _GO || _g144 || _g145 || _g122 && !_cg130;
+    _g135_e1 = _GO || _g155 || _g154 && !_cg154;
     _DDDpacemaker_local__reg_VP_temp = _DDDpacemaker_local_VP_temp;
     _DDDpacemaker_local__reg_AP_temp = _DDDpacemaker_local_AP_temp;
-    _g137 = _GO || _g161_e1;
-    _g150 = _GO || _g6;
-    _g152 = _GO || _g69;
-    _g132 = _GO || _g93;
-    _g151 = _GO || _g111;
-    _g156 = _GO || _g215;
+    _g145_e2 = _GO || _g168;
+    _g148 = _GO || _g6;
+    _g130 = _GO || _g69;
+    _g149 = _GO || _g93;
+    _g150 = _GO || _g116;
+    _g169 = _GO || _g213;
   }
 
   public void tick() {
@@ -825,12 +819,12 @@ public class DDDpacemaker {
     _pg11_e1 = _g11_e1;
     _pg112 = _g112;
     _pg23 = _g23;
-    _pg147 = _g147;
-    _pg156 = _g156;
-    _pg164 = _g164;
+    _pg135_e1 = _g135_e1;
+    _pg169 = _g169;
     _pg162 = _g162;
-    _pg165 = _g165;
-    _pg137 = _g137;
+    _pg160 = _g160;
+    _pg163 = _g163;
+    _pg145_e2 = _g145_e2;
     _pg12 = _g12;
     _pg15 = _g15;
     _pg21 = _g21;
@@ -838,22 +832,22 @@ public class DDDpacemaker {
     _pg35 = _g35;
     _pg65 = _g65;
     _pg54 = _g54;
-    _pg150 = _g150;
+    _pg148 = _g148;
     _pg56 = _g56;
     _pg59 = _g59;
     _pg95 = _g95;
     _pg98 = _g98;
     _pg96 = _g96;
-    _pg152 = _g152;
-    _pg124 = _g124;
-    _pg126 = _g126;
+    _pg130 = _g130;
     _pg125 = _g125;
-    _pg132 = _g132;
-    _pg140 = _g140;
-    _pg151 = _g151;
-    _pg147_e2 = _g147_e2;
+    _pg126 = _g126;
+    _pg104 = _g104;
+    _pg149 = _g149;
     _pg138 = _g138;
-    _pg141 = _g141;
+    _pg150 = _g150;
+    _pg135 = _g135;
+    _pg136 = _g136;
+    _pg139 = _g139;
     _GO = false;
   }
 }
