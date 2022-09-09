@@ -35,133 +35,87 @@ scchart DDDpacemaker {
     bool VRP_state
     bool URI_state
     bool AR, VR
-    signal AP_temp, VP_temp
+    signal AP_temp, VP_temp // temporary signals to indicate AP or VP has occurred
     
     signal real_AS, real_VS
     
      region AVI{
-      initial state init_AVI
-      if !real_AS && !pre(AP_temp) do VP=false go to init_AVI
-      if real_AS || pre(AP_temp) do AVI_state = true; AVI_counter =0 go to waitAVI
+      initial state init_AVI 
+      // Uses a previous value of AP_temp (1 tick delay)
+      if !real_AS && !pre(AP_temp) do VP=false go to init_AVI // reset VP so its a pulse instead of square wave
+      if real_AS || pre(AP_temp) do AVI_state = true; AVI_counter =0 go to waitAVI // Starts timer on AS or AP signals
 
       state waitAVI
-      if real_VS do  AVI_state = false; VP = false go to init_AVI //vs occurs
-      if ((AVI_counter >= AVI_DEADLINE) && (URI_state == true)) go to waitAVIExtend
-      if ((AVI_counter >= AVI_DEADLINE) && (URI_state == false)) do VP = true; VP_temp; AVI_state = false go to init_AVI
+      if real_VS do  AVI_state = false; VP = false go to init_AVI // Do not pace if VS occurs
+      if ((AVI_counter >= AVI_DEADLINE) && (URI_state == true)) go to waitAVIExtend // extend the deadline if URI has not finished
+      if ((AVI_counter >= AVI_DEADLINE) && (URI_state == false)) do VP = true; VP_temp; AVI_state = false go to init_AVI // pace ventricular
    
       
       state waitAVIExtend // If AVI finishes before URI extend the deadline to end of URI time
-      if real_VS do  VP=false; AVI_state = false go to init_AVI
-      if URI_state == false do VP = true; VP_temp;  AVI_state = false go to init_AVI
+      if real_VS do  VP=false; AVI_state = false go to init_AVI // check for VS signal if there is any between the extended time
+      if URI_state == false do VP = true; VP_temp;  AVI_state = false go to init_AVI // Once URI finishes, pace ventrical
       
       
     }
-//     region AVI_timer {
-//      initial state idle_AVI
-//      if pre(AVI_start) go to timer
-//
-//      state timer
-//      if pre(AVI_stop) go to idle_AVI
-//     
-//    }
    
    region AEI{
      initial state init_AEI
-     if !real_VS && !AP_temp do AP=false go to init_AEI
-     if real_VS || VP_temp do AEI_state = true; AEI_counter =0 go to waitAEI
+     if !real_VS && !AP_temp do AP=false go to init_AEI // reset AP so its a pulse, not a square wave
+     if real_VS || VP_temp do AEI_state = true; AEI_counter =0 go to waitAEI // starts timer on VS or VP signals
 
     state waitAEI
-    if real_AS  do AEI_state= false; AP=false go to init_AEI
-    if AEI_counter >= AEI_DEADLINE  do AP = true; AP_temp; AEI_state= false go to init_AEI
+    if real_AS  do AEI_state= false; AP=false go to init_AEI // do not pace if AS occurs
+    if AEI_counter >= AEI_DEADLINE  do AP = true; AP_temp; AEI_state= false go to init_AEI // pace atiral when AEI finishes
    }
-   
-//   region AEI_Timer{
-//     initial state idle_AEI
-//     if pre(AEI_start) go to timer
-//
-//     state timer
-//     if pre(AEI_stop) go to idle_AEI
-//       
-// 
-//   }
+  
    
     region PVARP{
      initial state init_PVARP
-     if VS || pre(VP_temp) do PVARP_state= true; PVARP_counter = 0 go to wait_PVARP
-     if AS do real_AS go to init_PVARP
+     // Uses previous value of VP_temp (1 tick delay)
+     if VS || pre(VP_temp) do PVARP_state= true; PVARP_counter = 0 go to wait_PVARP // starts timer on VS or VP signal
+     if AS do real_AS go to init_PVARP // sets the real_AS signal if timer hasn't stated yet
      
      state wait_PVARP
-     if AS  do AR = true go to wait_PVARP
-     if PVARP_counter >=PVARP_DEADLINE do PVARP_state = false; AR = false go to init_PVARP
+     if AS  do AR = true go to wait_PVARP // Ignores AS signal when it occurs during the timer's duration
+     if PVARP_counter >=PVARP_DEADLINE do PVARP_state = false; AR = false go to init_PVARP // stops timer
      
    }
-     
-//   region PVARP_Timer{
-//     initial state idle_PVARP
-//      if pre(PVARP_start) go to timer
-//
-//      state timer
-//      if pre(PVARP_stop) go to idle_PVARP
-//   }
      
    region VRP{
      initial state init_VRP
-     if VS || pre(VP_temp) do real_VS; VRP_state = true; VRP_counter = 0 go to wait_VRP
-     //if VS do real_VS go to init_VRP
+     // Uses previous value of VP_temp (1 tick delay)
+     if VS || pre(VP_temp) do real_VS; VRP_state = true; VRP_counter = 0 go to wait_VRP // On timer start, set the real_VS signal
 
     state wait_VRP
-    if VS do VR = true go to wait_VRP
-    if VRP_counter >= VRP_DEADLINE do VR=false; VRP_state = false go to init_VRP
-//
-//     
+    if VS do VR = true go to wait_VRP // ignore any VS signals in the duration of the timer
+    if VRP_counter >= VRP_DEADLINE do VR=false; VRP_state = false go to init_VRP // stops timer
+   
    }
-//   region VRP_Timer{
-//     initial state idle_VRP
-//     if pre(VRP_start) go to timer
-//     
-//     state timer
-//     if pre(VRP_stop) go to idle_VRP
-//     
-//   }
    
       region LRI{
      initial state init_LRI
-      if VS || pre(VP_temp) do LRI_state = true; LRI_counter = 0 go to wait_LRI
+     // Uses previous value of VP_temp (1 tick delay)
+      if VS || pre(VP_temp) do LRI_state = true; LRI_counter = 0 go to wait_LRI // starts timer on VS or VP signals
 
      state wait_LRI
-     if VS || pre(VP_temp) do LRI_state=false go to init_LRI    //again signify  the end
-     if LRI_counter >= LRI_DEADLINE do  LRI_state=false go to init_LRI
+     if VS || pre(VP_temp) do LRI_state=false go to init_LRI    // stops timer on VS or VP signal
+     if LRI_counter >= LRI_DEADLINE do  LRI_state=false go to init_LRI // No VS or VP signal, run timer until the end of its duration
      
      
      
    }
-   
-//     region LRI_Timer{
-//     initial state idle_LRI
-//     if pre(LRI_start) go to timer
-//     
-//     state timer
-//     if pre(LRI_stop) go to idle_LRI
-//   }
    
       region URI{
      initial state init_URI
-     if real_VS || pre(VP_temp) do URI_state = true; URI_counter = 0 go to wait_URI
+     // Uses previous value of VP_temp (1 tick delay)
+     if real_VS || pre(VP_temp) do URI_state = true; URI_counter = 0 go to wait_URI // starts timer on VS or VP signals
      
      state wait_URI
-     if URI_counter >= URI_DEADLINE do URI_state=false go to init_URI
+     if URI_counter >= URI_DEADLINE do URI_state=false go to init_URI // stops timer 
      
      
    }
-   
-//    region URI_Timer{
-//     initial state idle_URI
-//     if pre(URI_start) go to timer
-//     
-//     state timer
-//     if pre(URI_stop) go to idle_URI
-//     
-//   }
+ 
   }
 
 }
