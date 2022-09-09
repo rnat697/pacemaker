@@ -1,18 +1,14 @@
 #resource "timing.h"
 #hostcode-c "#include \"timing.h\""
 @ClocksUseSD
-scchart DDDpacemaker {
+scchart DDDpacemake2 {
+  /* SCCHARTS CLOCK VERSION */
   
   // atrial sense atrial pace, ventricular sense and pace.
-  
     // the reason why its throwing all these errors is because they are both trying to access the same variable?
-    //pre()//use value from previosu tick 
-    
-    
-    
+    //pre()//use value from previosu tick  
     //to debug eitehr have a mac, or use the artifical heart from the board or use NIOSII
     // or write a C test bench in order to catch certain variables from it ,(Araon has some test stuff written up)
-    
     // https://rtsys.informatik.uni-kiel.de/confluence/display/KIELER/SCCharts
     
   host "int" AVI_DEADLINE = `AVI_VALUE`

@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Fri Sep 09 15:06:21 2022
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+Revision Name : DDDpacemacker
+Top-level Entity Name : DDDpacemacker
+Family : Cyclone IV E
+Total logic elements : 5,497
+    Total combinational functions : 4,313
+    Dedicated logic registers : 3,208
+Total registers : 3208
+Total pins : 101
+Total virtual pins : 0
+Total memory bits : 310,656
+Embedded Multiplier 9-bit elements : 6
+Total PLLs : 1
