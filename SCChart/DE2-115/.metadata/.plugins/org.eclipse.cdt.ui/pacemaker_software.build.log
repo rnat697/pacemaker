@@ -1,0 +1,11 @@
+13:35:01 **** Incremental Build of configuration Nios II for project pacemaker_software ****
+make all 
+/usr/bin/sh: line 0: cd: ../pacemaker_software_bsp/: No such file or directory
+/usr/bin/sh: line 0: cd: ../../: No such file or directory
+Info: Building ../pacemaker_software_bsp/
+C:/intelFPGA/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../pacemaker_software_bsp/
+[BSP build complete]
+make: *** No rule to make target `C:/Windows/scchart_pacemacker.c', needed by `obj/default//C/Windows/scchart_pacemacker.o'.  Stop.
+
+13:35:03 Build Finished (took 2s.221ms)
+

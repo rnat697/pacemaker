@@ -1,0 +1,6 @@
+13:37:20 **** Build of configuration Nios II for project software_ddd ****
+make all 
+makefile:233: *** BSP directory does not exist: ../test_bsp/.  Stop.
+
+13:37:20 Build Finished (took 90ms)
+

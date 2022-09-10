@@ -1,0 +1,5 @@
+1662773787708	Rename resource 'test'
+1662773820428	Rename resource 'test_bsp'
+1662773979059	Delete resource 'pacemaker_software'
+1662773984916	Delete resource 'pacemaker_software_bsp'
+1662773990295	Delete 2 resources

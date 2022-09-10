@@ -14,7 +14,7 @@
  *
  */
 
-
+//C:\intelFPGA\18.1\quartus\bin64\cygwin\lib\gcc\x86_64-pc-cygwin\4.8.3\include
 #include <system.h>
 #include <altera_avalon_pio_regs.h>
 #include <stdio.h>

@@ -1,6 +1,6 @@
 |DDDpacemacker
 LCD_RS <= nios2_system:inst.lcd_external_RS
-clock => nios2_system:inst.clk_clk
+CLOCK_50 => nios2_system:inst.clk_clk
 KEY[0] => nios2_system:inst.keys_external_connection_export[0]
 KEY[1] => nios2_system:inst.keys_external_connection_export[1]
 KEY[2] => nios2_system:inst.keys_external_connection_export[2]

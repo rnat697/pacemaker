@@ -1,5 +1,5 @@
 Fitter report for DDDpacemacker
-Fri Sep 09 15:06:59 2022
+Sat Sep 10 14:20:30 2022
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -75,7 +75,7 @@ refer to the applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                       ;
 +------------------------------------+-------------------------------------------------+
-; Fitter Status                      ; Successful - Fri Sep 09 15:06:59 2022           ;
+; Fitter Status                      ; Successful - Sat Sep 10 14:20:30 2022           ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                      ; DDDpacemacker                                   ;
 ; Top-level Entity Name              ; DDDpacemacker                                   ;
@@ -170,8 +170,8 @@ refer to the applicable agreement for further details.
 ;     Processor 2            ;   1.2%      ;
 ;     Processor 3            ;   1.2%      ;
 ;     Processor 4            ;   1.2%      ;
-;     Processor 5            ;   1.2%      ;
-;     Processor 6            ;   1.2%      ;
+;     Processor 5            ;   1.1%      ;
+;     Processor 6            ;   1.1%      ;
 +----------------------------+-------------+
 
 
@@ -488,7 +488,6 @@ refer to the applicable agreement for further details.
 ; Location                    ;                    ;              ; AUD_XCK          ; PIN_E1        ; QSF Assignment             ;
 ; Location                    ;                    ;              ; CLOCK2_50        ; PIN_AG14      ; QSF Assignment             ;
 ; Location                    ;                    ;              ; CLOCK3_50        ; PIN_AG15      ; QSF Assignment             ;
-; Location                    ;                    ;              ; CLOCK_50         ; PIN_Y2        ; QSF Assignment             ;
 ; Location                    ;                    ;              ; DRAM_ADDR[12]    ; PIN_Y7        ; QSF Assignment             ;
 ; Location                    ;                    ;              ; DRAM_DQM[2]      ; PIN_K8        ; QSF Assignment             ;
 ; Location                    ;                    ;              ; DRAM_DQM[3]      ; PIN_N8        ; QSF Assignment             ;
@@ -913,7 +912,6 @@ refer to the applicable agreement for further details.
 ; I/O Standard                ; DDDpacemacker      ;              ; AUD_XCK          ; 3.3-V LVTTL   ; QSF Assignment             ;
 ; I/O Standard                ; DDDpacemacker      ;              ; CLOCK2_50        ; 3.3-V LVTTL   ; QSF Assignment             ;
 ; I/O Standard                ; DDDpacemacker      ;              ; CLOCK3_50        ; 3.3-V LVTTL   ; QSF Assignment             ;
-; I/O Standard                ; DDDpacemacker      ;              ; CLOCK_50         ; 3.3-V LVTTL   ; QSF Assignment             ;
 ; I/O Standard                ; DDDpacemacker      ;              ; DRAM_ADDR[12]    ; 3.3-V LVTTL   ; QSF Assignment             ;
 ; I/O Standard                ; DDDpacemacker      ;              ; DRAM_DQM[2]      ; 3.3-V LVTTL   ; QSF Assignment             ;
 ; I/O Standard                ; DDDpacemacker      ;              ; DRAM_DQM[3]      ; 3.3-V LVTTL   ; QSF Assignment             ;
@@ -1542,6 +1540,7 @@ The pin-out file can be found in /Documents/GitHub/ddd-mode-pacemaker-303-group-
 +----------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
 ; Name     ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination Control Block ; Location assigned by ; Slew Rate ;
 +----------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
+; CLOCK_50 ; Y2    ; 2        ; 0            ; 36           ; 14           ; 1                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 3.3-V LVTTL  ; --                        ; User                 ; no        ;
 ; KEY[0]   ; M23   ; 6        ; 115          ; 40           ; 7            ; 2                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
 ; KEY[1]   ; M21   ; 6        ; 115          ; 53           ; 14           ; 2                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
 ; KEY[2]   ; N21   ; 6        ; 115          ; 42           ; 14           ; 2                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
@@ -1565,7 +1564,6 @@ The pin-out file can be found in /Documents/GitHub/ddd-mode-pacemaker-303-group-
 ; SW[8]    ; AC25  ; 5        ; 115          ; 4            ; 21           ; 1                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
 ; SW[9]    ; AB25  ; 5        ; 115          ; 16           ; 7            ; 1                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
 ; UART_RXD ; G12   ; 8        ; 27           ; 73           ; 7            ; 1                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 3.3-V LVTTL  ; --                        ; User                 ; no        ;
-; clock    ; J1    ; 1        ; 0            ; 36           ; 7            ; 1                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; no        ;
 +----------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
 
 
@@ -1692,8 +1690,8 @@ The pin-out file can be found in /Documents/GitHub/ddd-mode-pacemaker-303-group-
 +----------+------------------+---------------+--------------+
 ; I/O Bank ; Usage            ; VCCIO Voltage ; VREF Voltage ;
 +----------+------------------+---------------+--------------+
-; 1        ; 17 / 56 ( 30 % ) ; 3.3V          ; --           ;
-; 2        ; 36 / 63 ( 57 % ) ; 3.3V          ; --           ;
+; 1        ; 16 / 56 ( 29 % ) ; 3.3V          ; --           ;
+; 2        ; 37 / 63 ( 59 % ) ; 3.3V          ; --           ;
 ; 3        ; 1 / 73 ( 1 % )   ; 3.3V          ; --           ;
 ; 4        ; 0 / 71 ( 0 % )   ; 2.5V          ; --           ;
 ; 5        ; 19 / 65 ( 29 % ) ; 2.5V          ; --           ;
@@ -2152,7 +2150,7 @@ The pin-out file can be found in /Documents/GitHub/ddd-mode-pacemaker-303-group-
 ; H26      ; 376        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; H27      ;            ;          ; GND                                                       ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; H28      ;            ; 6        ; VCCIO6                                                    ; power  ;              ; 2.5V    ; --         ;                 ; --       ; --           ;
-; J1       ; 64         ; 1        ; clock                                                     ; input  ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
+; J1       ; 64         ; 1        ; GND+                                                      ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; J2       ;            ;          ; GND                                                       ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; J3       ; 23         ; 1        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; J4       ; 22         ; 1        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
@@ -2461,7 +2459,7 @@ The pin-out file can be found in /Documents/GitHub/ddd-mode-pacemaker-303-group-
 ; W27      ; 301        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; W28      ; 302        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; Y1       ; 66         ; 2        ; GND+                                                      ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
-; Y2       ; 65         ; 2        ; GND+                                                      ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
+; Y2       ; 65         ; 2        ; CLOCK_50                                                  ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; Y3       ; 92         ; 2        ; DRAM_DQ[8]                                                ; bidir  ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; Y4       ; 91         ; 2        ; DRAM_DQ[9]                                                ; bidir  ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; Y5       ; 114        ; 2        ; DRAM_ADDR[8]                                              ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
@@ -2526,7 +2524,7 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ; Scan chain MIF file           ; --                                                                                                                                          ;
 ; Preserve PLL counter order    ; Off                                                                                                                                         ;
 ; PLL location                  ; PLL_1                                                                                                                                       ;
-; Inclk0 signal                 ; clock                                                                                                                                       ;
+; Inclk0 signal                 ; CLOCK_50                                                                                                                                    ;
 ; Inclk1 signal                 ; --                                                                                                                                          ;
 ; Inclk0 signal type            ; Dedicated Pin                                                                                                                               ;
 ; Inclk1 signal type            ; --                                                                                                                                          ;
@@ -2625,8 +2623,6 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ; DRAM_DQ[2]    ; Missing drive strength               ;
 ; DRAM_DQ[1]    ; Missing drive strength               ;
 ; DRAM_DQ[0]    ; Missing drive strength               ;
-; clock         ; Incomplete set of assignments        ;
-; clock         ; Missing location assignment          ;
 +---------------+--------------------------------------+
 
 
@@ -2896,7 +2892,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; DRAM_DQ[2]    ; Bidir    ; --            ; --            ; (0) 0 ps              ; (0) 0 ps ; (0) 0 ps ;
 ; DRAM_DQ[1]    ; Bidir    ; --            ; --            ; (0) 0 ps              ; (0) 0 ps ; (0) 0 ps ;
 ; DRAM_DQ[0]    ; Bidir    ; --            ; --            ; (0) 0 ps              ; (0) 0 ps ; (0) 0 ps ;
-; clock         ; Input    ; --            ; --            ; --                    ; --       ; --       ;
+; CLOCK_50      ; Input    ; --            ; --            ; --                    ; --       ; --       ;
 ; KEY[2]        ; Input    ; (6) 1314 ps   ; --            ; --                    ; --       ; --       ;
 ; KEY[1]        ; Input    ; (6) 1314 ps   ; --            ; --                    ; --       ; --       ;
 ; KEY[0]        ; Input    ; --            ; (6) 1314 ps   ; --                    ; --       ; --       ;
@@ -2960,7 +2956,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; DRAM_DQ[2]                                                                                                                                                      ;                   ;         ;
 ; DRAM_DQ[1]                                                                                                                                                      ;                   ;         ;
 ; DRAM_DQ[0]                                                                                                                                                      ;                   ;         ;
-; clock                                                                                                                                                           ;                   ;         ;
+; CLOCK_50                                                                                                                                                        ;                   ;         ;
 ; KEY[2]                                                                                                                                                          ;                   ;         ;
 ;      - nios2_system:inst|nios2_system_keys:keys|read_mux_out[2]~6                                                                                               ; 0                 ; 6       ;
 ;      - nios2_system:inst|nios2_system_keys:keys|d1_data_in[2]~feeder                                                                                            ; 0                 ; 6       ;
@@ -3020,10 +3016,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+---------+----------------------------------------------------+--------+----------------------+------------------+---------------------------+
 ; Name                                                                                                                                                                                                                                                                                                                                                        ; Location              ; Fan-Out ; Usage                                              ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+---------+----------------------------------------------------+--------+----------------------+------------------+---------------------------+
+; CLOCK_50                                                                                                                                                                                                                                                                                                                                                    ; PIN_Y2                ; 1       ; Clock                                              ; no     ; --                   ; --               ; --                        ;
 ; KEY[3]                                                                                                                                                                                                                                                                                                                                                      ; PIN_R24               ; 3       ; Async. clear                                       ; no     ; --                   ; --               ; --                        ;
 ; altera_internal_jtag~TCKUTAP                                                                                                                                                                                                                                                                                                                                ; JTAG_X1_Y37_N0        ; 171     ; Clock                                              ; yes    ; Global Clock         ; GCLK1            ; --                        ;
 ; altera_internal_jtag~TMSUTAP                                                                                                                                                                                                                                                                                                                                ; JTAG_X1_Y37_N0        ; 22      ; Sync. clear                                        ; no     ; --                   ; --               ; --                        ;
-; clock                                                                                                                                                                                                                                                                                                                                                       ; PIN_J1                ; 1       ; Clock                                              ; no     ; --                   ; --               ; --                        ;
 ; nios2_system:inst|altera_reset_controller:rst_controller|r_early_rst                                                                                                                                                                                                                                                                                        ; FF_X59_Y32_N1         ; 34      ; Clock enable                                       ; no     ; --                   ; --               ; --                        ;
 ; nios2_system:inst|altera_reset_controller:rst_controller|r_sync_rst                                                                                                                                                                                                                                                                                         ; FF_X59_Y32_N9         ; 9       ; Clock enable                                       ; no     ; --                   ; --               ; --                        ;
 ; nios2_system:inst|altera_reset_controller:rst_controller|r_sync_rst                                                                                                                                                                                                                                                                                         ; FF_X59_Y32_N9         ; 2498    ; Async. clear, Async. load                          ; yes    ; Global Clock         ; GCLK15           ; --                        ;
@@ -5452,9 +5448,9 @@ RAM content values are presented in the following format: (Binary) (Octal) (Deci
 +---------------------+--------------+--------------+--------------+--------------+--------------+-----------+--------------+--------------+-----------+-----------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+-----------+--------------+--------------+
 ; Pin/Rules           ; IO_000001    ; IO_000002    ; IO_000003    ; IO_000004    ; IO_000005    ; IO_000006 ; IO_000007    ; IO_000008    ; IO_000009 ; IO_000010 ; IO_000011    ; IO_000012    ; IO_000013    ; IO_000014    ; IO_000015    ; IO_000018    ; IO_000019    ; IO_000020    ; IO_000021    ; IO_000022    ; IO_000023    ; IO_000024    ; IO_000026    ; IO_000027    ; IO_000045    ; IO_000046    ; IO_000047    ; IO_000033 ; IO_000034    ; IO_000042    ;
 +---------------------+--------------+--------------+--------------+--------------+--------------+-----------+--------------+--------------+-----------+-----------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+-----------+--------------+--------------+
-; Total Pass          ; 100          ; 36           ; 100          ; 0            ; 0            ; 105       ; 100          ; 0            ; 105       ; 105       ; 0            ; 27           ; 0            ; 0            ; 48           ; 0            ; 27           ; 48           ; 0            ; 0            ; 0            ; 27           ; 0            ; 0            ; 0            ; 0            ; 0            ; 105       ; 0            ; 0            ;
+; Total Pass          ; 101          ; 36           ; 101          ; 0            ; 0            ; 105       ; 101          ; 0            ; 105       ; 105       ; 0            ; 27           ; 0            ; 0            ; 48           ; 0            ; 27           ; 48           ; 0            ; 0            ; 0            ; 27           ; 0            ; 0            ; 0            ; 0            ; 0            ; 105       ; 0            ; 0            ;
 ; Total Unchecked     ; 0            ; 0            ; 0            ; 0            ; 0            ; 0         ; 0            ; 0            ; 0         ; 0         ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0         ; 0            ; 0            ;
-; Total Inapplicable  ; 5            ; 69           ; 5            ; 105          ; 105          ; 0         ; 5            ; 105          ; 0         ; 0         ; 105          ; 78           ; 105          ; 105          ; 57           ; 105          ; 78           ; 57           ; 105          ; 105          ; 105          ; 78           ; 105          ; 105          ; 105          ; 105          ; 105          ; 0         ; 105          ; 105          ;
+; Total Inapplicable  ; 4            ; 69           ; 4            ; 105          ; 105          ; 0         ; 4            ; 105          ; 0         ; 0         ; 105          ; 78           ; 105          ; 105          ; 57           ; 105          ; 78           ; 57           ; 105          ; 105          ; 105          ; 78           ; 105          ; 105          ; 105          ; 105          ; 105          ; 0         ; 105          ; 105          ;
 ; Total Fail          ; 0            ; 0            ; 0            ; 0            ; 0            ; 0         ; 0            ; 0            ; 0         ; 0         ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0         ; 0            ; 0            ;
 ; LCD_RS              ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; LCD_RW              ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
@@ -5533,7 +5529,7 @@ RAM content values are presented in the following format: (Binary) (Octal) (Deci
 ; DRAM_DQ[2]          ; Pass         ; Pass         ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; DRAM_DQ[1]          ; Pass         ; Pass         ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; DRAM_DQ[0]          ; Pass         ; Pass         ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
-; clock               ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; CLOCK_50            ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; KEY[2]              ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; KEY[1]              ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; KEY[0]              ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
@@ -5630,7 +5626,6 @@ Info (169124): Fitter converted 5 user pins into dedicated programming pins
     Info (169125): Pin ~ALTERA_nCEO~ is reserved at location P28
 Warning (15714): Some pins have incomplete I/O assignments. Refer to the I/O Assignment Warnings report for details
 Info (176045): Design uses memory blocks. Violating setup or hold times of memory block address registers for either read or write operations could cause memory contents to be corrupted. Make sure that all memory block address registers meet the setup and hold time requirements.
-Critical Warning (169085): No exact pin location assignment(s) for 1 pins of 101 total pins. For the list of pins please refer to the I/O Assignment Warnings table in the fitter report.
 Info (332164): Evaluating HDL-embedded SDC commands
     Info (332165): Entity alt_jtag_atlantic
         Info (332166): set_false_path -from [get_registers {*|alt_jtag_atlantic:*|jupdate}] -to [get_registers {*|alt_jtag_atlantic:*|jupdate1*}] 
@@ -5668,8 +5663,8 @@ Info (332104): Reading SDC File: 'DE2-115/nios2_system/synthesis/submodules/alte
 Info (332104): Reading SDC File: 'DE2-115/nios2_system/synthesis/submodules/nios2_system_cpu_cpu.sdc'
 Info (332104): Reading SDC File: '//files.auckland.ac.nz/myhome/documents/github/ddd-mode-pacemaker-303-group-10/scchart/db/ip/nios2_system/submodules/altera_reset_controller.sdc'
 Info (332104): Reading SDC File: '//files.auckland.ac.nz/myhome/documents/github/ddd-mode-pacemaker-303-group-10/scchart/db/ip/nios2_system/submodules/nios2_system_cpu_cpu.sdc'
-Warning (332060): Node: clock was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register nios2_system:inst|nios2_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_translator:lcd_control_slave_translator|wait_latency_counter[5] is being clocked by clock
+Warning (332060): Node: CLOCK_50 was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Register nios2_system:inst|nios2_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_translator:lcd_control_slave_translator|wait_latency_counter[5] is being clocked by CLOCK_50
 Warning (332056): PLL cross checking found inconsistent PLL clock settings:
     Warning (332056): Node: inst|sdram_pll|sys_pll|PLL_for_DE_Series_Boards|auto_generated|pll1|clk[0] was found missing 1 generated clock that corresponds to a base clock with a period of: 20.000
     Warning (332056): Node: inst|sdram_pll|sys_pll|PLL_for_DE_Series_Boards|auto_generated|pll1|clk[1] was found missing 1 generated clock that corresponds to a base clock with a period of: 20.000
@@ -5702,6 +5697,7 @@ Info (176353): Automatically promoted node nios2_system:inst|altera_reset_contro
 Info (176233): Starting register packing
 Warning (176250): Ignoring invalid fast I/O register assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Warning (176251): Ignoring some wildcard destinations of fast I/O register assignments
+    Info (176252): Wildcard assignment "Fast Output Enable Register=ON" to "oe" matches multiple destination nodes -- some destinations are not valid targets for this assignment
     Info (176252): Wildcard assignment "Fast Output Register=ON" to "m_data[9]" matches multiple destination nodes -- some destinations are not valid targets for this assignment
     Info (176252): Wildcard assignment "Fast Output Register=ON" to "m_data[8]" matches multiple destination nodes -- some destinations are not valid targets for this assignment
     Info (176252): Wildcard assignment "Fast Output Register=ON" to "m_data[7]" matches multiple destination nodes -- some destinations are not valid targets for this assignment
@@ -5721,7 +5717,6 @@ Warning (176251): Ignoring some wildcard destinations of fast I/O register assig
     Info (176252): Wildcard assignment "Fast Output Register=ON" to "m_cmd[2]" matches multiple destination nodes -- some destinations are not valid targets for this assignment
     Info (176252): Wildcard assignment "Fast Output Register=ON" to "m_cmd[1]" matches multiple destination nodes -- some destinations are not valid targets for this assignment
     Info (176252): Wildcard assignment "Fast Output Register=ON" to "m_cmd[0]" matches multiple destination nodes -- some destinations are not valid targets for this assignment
-    Info (176252): Wildcard assignment "Fast Output Enable Register=ON" to "oe" matches multiple destination nodes -- some destinations are not valid targets for this assignment
 Info (176235): Finished register packing
     Extra Info (176218): Packed 10 registers into blocks of type Block RAM
     Extra Info (176218): Packed 48 registers into blocks of type Embedded multiplier block
@@ -5738,7 +5733,6 @@ Warning (15705): Ignored locations or region assignments to the following nodes
     Warning (15706): Node "AUD_XCK" is assigned to location or region, but does not exist in design
     Warning (15706): Node "CLOCK2_50" is assigned to location or region, but does not exist in design
     Warning (15706): Node "CLOCK3_50" is assigned to location or region, but does not exist in design
-    Warning (15706): Node "CLOCK_50" is assigned to location or region, but does not exist in design
     Warning (15706): Node "DRAM_ADDR[12]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "DRAM_DQM[2]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "DRAM_DQM[3]" is assigned to location or region, but does not exist in design
@@ -6174,7 +6168,7 @@ Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:02
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:03
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Warning (169177): 26 pins must meet Intel FPGA requirements for 3.3-, 3.0-, and 2.5-V interfaces. For more information, refer to AN 447: Interfacing Cyclone IV E Devices with 3.3/3.0/2.5-V LVTTL/LVCMOS I/O Systems.
     Info (169178): Pin LCD_DATA[7] uses I/O standard 3.3-V LVTTL at M5
@@ -6201,13 +6195,13 @@ Warning (169177): 26 pins must meet Intel FPGA requirements for 3.3-, 3.0-, and 
     Info (169178): Pin DRAM_DQ[2] uses I/O standard 3.3-V LVTTL at V4
     Info (169178): Pin DRAM_DQ[1] uses I/O standard 3.3-V LVTTL at W2
     Info (169178): Pin DRAM_DQ[0] uses I/O standard 3.3-V LVTTL at W3
-    Info (169178): Pin clock uses I/O standard 2.5 V at J1
+    Info (169178): Pin CLOCK_50 uses I/O standard 3.3-V LVTTL at Y2
     Info (169178): Pin UART_RXD uses I/O standard 3.3-V LVTTL at G12
 Info (144001): Generated suppressed messages file /Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/output_files/DDDpacemacker.fit.smsg
-Info: Quartus Prime Fitter was successful. 0 errors, 441 warnings
+Info: Quartus Prime Fitter was successful. 0 errors, 439 warnings
     Info: Peak virtual memory: 5972 megabytes
-    Info: Processing ended: Fri Sep 09 15:07:04 2022
-    Info: Elapsed time: 00:00:31
+    Info: Processing ended: Sat Sep 10 14:20:35 2022
+    Info: Elapsed time: 00:00:32
     Info: Total CPU time (on all processors): 00:00:32
 
 

@@ -21,25 +21,9 @@ refer to the applicable agreement for further details.
 (header "graphic" (version "1.4"))
 (pin
 	(input)
-	(rect 240 104 408 120)
-	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "clock" (rect 5 0 31 12)(font "Arial" ))
-	(pt 168 8)
-	(drawing
-		(line (pt 84 12)(pt 109 12))
-		(line (pt 84 4)(pt 109 4))
-		(line (pt 113 8)(pt 168 8))
-		(line (pt 84 12)(pt 84 4))
-		(line (pt 109 4)(pt 113 8))
-		(line (pt 109 12)(pt 113 8))
-	)
-	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
-)
-(pin
-	(input)
 	(rect 240 144 408 160)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "KEY[2..0]" (rect 5 0 54 12)(font "Arial" ))
+	(text "KEY[2..0]" (rect 5 0 53 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -50,12 +34,13 @@ refer to the applicable agreement for further details.
 		(line (pt 109 12)(pt 113 8))
 	)
 	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect 176 160 240 184))
 )
 (pin
 	(input)
 	(rect 240 352 408 368)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "KEY[3]" (rect 5 0 41 12)(font "Arial" ))
+	(text "KEY[3]" (rect 5 0 40 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -66,12 +51,13 @@ refer to the applicable agreement for further details.
 		(line (pt 109 12)(pt 113 8))
 	)
 	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect 32 368 96 392))
 )
 (pin
 	(input)
 	(rect 240 560 408 576)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "SW[17..0]" (rect 5 0 55 12)(font "Arial" ))
+	(text "SW[17..0]" (rect 5 0 54 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -82,12 +68,13 @@ refer to the applicable agreement for further details.
 		(line (pt 109 12)(pt 113 8))
 	)
 	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect 176 576 240 600))
 )
 (pin
 	(input)
 	(rect 240 600 408 616)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "UART_RXD" (rect 5 0 63 12)(font "Arial" ))
+	(text "UART_RXD" (rect 5 0 62 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -98,12 +85,30 @@ refer to the applicable agreement for further details.
 		(line (pt 109 12)(pt 113 8))
 	)
 	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect 136 640 200 664))
+)
+(pin
+	(input)
+	(rect 240 104 408 120)
+	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
+	(text "CLOCK_50" (rect 5 0 61 12)(font "Arial" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 84 12)(pt 109 12))
+		(line (pt 84 4)(pt 109 4))
+		(line (pt 113 8)(pt 168 8))
+		(line (pt 84 12)(pt 84 4))
+		(line (pt 109 4)(pt 113 8))
+		(line (pt 109 12)(pt 113 8))
+	)
+	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect 184 120 240 144))
 )
 (pin
 	(output)
 	(rect 232 184 408 200)
 	(text "OUTPUT" (rect 137 6 175 16)(font "Arial" (font_size 6)))
-	(text "LCD_RS" (rect 5 4 49 16)(font "Arial" ))
+	(text "LCD_RS" (rect 5 4 48 16)(font "Arial" ))
 	(pt 176 8)
 	(drawing
 		(line (pt 176 8)(pt 124 8))
@@ -115,12 +120,13 @@ refer to the applicable agreement for further details.
 		(line (pt 98 4)(pt 94 8))
 	)
 	(rotate180)
+	(annotation_block (location)(rect 112 200 168 224))
 )
 (pin
 	(output)
 	(rect 232 200 408 216)
 	(text "OUTPUT" (rect 137 6 175 16)(font "Arial" (font_size 6)))
-	(text "LCD_RW" (rect 5 4 53 16)(font "Arial" ))
+	(text "LCD_RW" (rect 5 4 52 16)(font "Arial" ))
 	(pt 176 8)
 	(drawing
 		(line (pt 176 8)(pt 124 8))
@@ -132,12 +138,13 @@ refer to the applicable agreement for further details.
 		(line (pt 98 4)(pt 94 8))
 	)
 	(rotate180)
+	(annotation_block (location)(rect 112 232 168 256))
 )
 (pin
 	(output)
 	(rect 232 232 408 248)
 	(text "OUTPUT" (rect 137 6 175 16)(font "Arial" (font_size 6)))
-	(text "LCD_EN" (rect 5 4 49 16)(font "Arial" ))
+	(text "LCD_EN" (rect 5 4 48 16)(font "Arial" ))
 	(pt 176 8)
 	(drawing
 		(line (pt 176 8)(pt 124 8))
@@ -149,12 +156,13 @@ refer to the applicable agreement for further details.
 		(line (pt 98 4)(pt 94 8))
 	)
 	(rotate180)
+	(annotation_block (location)(rect 88 304 144 328))
 )
 (pin
 	(output)
 	(rect 232 272 408 288)
 	(text "OUTPUT" (rect 137 6 175 16)(font "Arial" (font_size 6)))
-	(text "LEDG[8..0]" (rect 5 4 61 16)(font "Arial" ))
+	(text "LEDG[8..0]" (rect 5 4 60 16)(font "Arial" ))
 	(pt 176 8)
 	(drawing
 		(line (pt 176 8)(pt 124 8))
@@ -166,12 +174,13 @@ refer to the applicable agreement for further details.
 		(line (pt 98 4)(pt 94 8))
 	)
 	(rotate180)
+	(annotation_block (location)(rect 408 288 472 312))
 )
 (pin
 	(output)
 	(rect 232 312 408 328)
 	(text "OUTPUT" (rect 137 6 175 16)(font "Arial" (font_size 6)))
-	(text "LEDR[17..0]" (rect 5 4 67 16)(font "Arial" ))
+	(text "LEDR[17..0]" (rect 5 4 66 16)(font "Arial" ))
 	(pt 176 8)
 	(drawing
 		(line (pt 176 8)(pt 124 8))
@@ -183,12 +192,13 @@ refer to the applicable agreement for further details.
 		(line (pt 98 4)(pt 94 8))
 	)
 	(rotate180)
+	(annotation_block (location)(rect 408 328 472 352))
 )
 (pin
 	(output)
 	(rect 208 392 408 408)
 	(text "OUTPUT" (rect 161 6 199 16)(font "Arial" (font_size 6)))
-	(text "DRAM_ADDR[11..0]" (rect 5 4 107 16)(font "Arial" ))
+	(text "DRAM_ADDR[11..0]" (rect 5 4 106 16)(font "Arial" ))
 	(pt 200 8)
 	(drawing
 		(line (pt 200 8)(pt 148 8))
@@ -200,12 +210,13 @@ refer to the applicable agreement for further details.
 		(line (pt 122 4)(pt 118 8))
 	)
 	(rotate180)
+	(annotation_block (location)(rect 48 408 112 432))
 )
 (pin
 	(output)
 	(rect 232 408 408 424)
 	(text "OUTPUT" (rect 137 6 175 16)(font "Arial" (font_size 6)))
-	(text "DRAM_BA[1..0]" (rect 5 4 83 16)(font "Arial" ))
+	(text "DRAM_BA[1..0]" (rect 5 4 82 16)(font "Arial" ))
 	(pt 176 8)
 	(drawing
 		(line (pt 176 8)(pt 124 8))
@@ -217,12 +228,13 @@ refer to the applicable agreement for further details.
 		(line (pt 98 4)(pt 94 8))
 	)
 	(rotate180)
+	(annotation_block (location)(rect 80 448 136 472))
 )
 (pin
 	(output)
 	(rect 232 424 408 440)
 	(text "OUTPUT" (rect 137 6 175 16)(font "Arial" (font_size 6)))
-	(text "DRAM_CAS_N" (rect 5 4 80 16)(font "Arial" ))
+	(text "DRAM_CAS_N" (rect 5 4 79 16)(font "Arial" ))
 	(pt 176 8)
 	(drawing
 		(line (pt 176 8)(pt 124 8))
@@ -234,12 +246,13 @@ refer to the applicable agreement for further details.
 		(line (pt 98 4)(pt 94 8))
 	)
 	(rotate180)
+	(annotation_block (location)(rect 96 472 152 496))
 )
 (pin
 	(output)
 	(rect 232 440 408 456)
 	(text "OUTPUT" (rect 137 6 175 16)(font "Arial" (font_size 6)))
-	(text "DRAM_CKE" (rect 5 4 66 16)(font "Arial" ))
+	(text "DRAM_CKE" (rect 5 4 65 16)(font "Arial" ))
 	(pt 176 8)
 	(drawing
 		(line (pt 176 8)(pt 124 8))
@@ -251,12 +264,13 @@ refer to the applicable agreement for further details.
 		(line (pt 98 4)(pt 94 8))
 	)
 	(rotate180)
+	(annotation_block (location)(rect 48 456 112 480))
 )
 (pin
 	(output)
 	(rect 232 456 408 472)
 	(text "OUTPUT" (rect 137 6 175 16)(font "Arial" (font_size 6)))
-	(text "DRAM_CS_N" (rect 5 4 73 16)(font "Arial" ))
+	(text "DRAM_CS_N" (rect 5 4 72 16)(font "Arial" ))
 	(pt 176 8)
 	(drawing
 		(line (pt 176 8)(pt 124 8))
@@ -268,12 +282,13 @@ refer to the applicable agreement for further details.
 		(line (pt 98 4)(pt 94 8))
 	)
 	(rotate180)
+	(annotation_block (location)(rect 48 472 104 496))
 )
 (pin
 	(output)
 	(rect 216 488 408 504)
 	(text "OUTPUT" (rect 153 6 191 16)(font "Arial" (font_size 6)))
-	(text "DRAM_DQM[1..0]" (rect 5 4 94 16)(font "Arial" ))
+	(text "DRAM_DQM[1..0]" (rect 5 4 93 16)(font "Arial" ))
 	(pt 192 8)
 	(drawing
 		(line (pt 192 8)(pt 140 8))
@@ -285,12 +300,13 @@ refer to the applicable agreement for further details.
 		(line (pt 114 4)(pt 110 8))
 	)
 	(rotate180)
+	(annotation_block (location)(rect 104 536 160 560))
 )
 (pin
 	(output)
 	(rect 232 504 408 520)
 	(text "OUTPUT" (rect 137 6 175 16)(font "Arial" (font_size 6)))
-	(text "DRAM_RAS_N" (rect 5 4 80 16)(font "Arial" ))
+	(text "DRAM_RAS_N" (rect 5 4 79 16)(font "Arial" ))
 	(pt 176 8)
 	(drawing
 		(line (pt 176 8)(pt 124 8))
@@ -302,12 +318,13 @@ refer to the applicable agreement for further details.
 		(line (pt 98 4)(pt 94 8))
 	)
 	(rotate180)
+	(annotation_block (location)(rect 48 520 104 544))
 )
 (pin
 	(output)
 	(rect 232 520 408 536)
 	(text "OUTPUT" (rect 137 6 175 16)(font "Arial" (font_size 6)))
-	(text "DRAM_WE_N" (rect 5 4 75 16)(font "Arial" ))
+	(text "DRAM_WE_N" (rect 5 4 74 16)(font "Arial" ))
 	(pt 176 8)
 	(drawing
 		(line (pt 176 8)(pt 124 8))
@@ -319,12 +336,13 @@ refer to the applicable agreement for further details.
 		(line (pt 98 4)(pt 94 8))
 	)
 	(rotate180)
+	(annotation_block (location)(rect 48 552 104 576))
 )
 (pin
 	(output)
 	(rect 232 616 408 632)
 	(text "OUTPUT" (rect 137 6 175 16)(font "Arial" (font_size 6)))
-	(text "UART_TXD" (rect 5 4 61 16)(font "Arial" ))
+	(text "UART_TXD" (rect 5 4 60 16)(font "Arial" ))
 	(pt 176 8)
 	(drawing
 		(line (pt 176 8)(pt 124 8))
@@ -336,6 +354,7 @@ refer to the applicable agreement for further details.
 		(line (pt 98 4)(pt 94 8))
 	)
 	(rotate180)
+	(annotation_block (location)(rect 408 632 464 656))
 )
 (pin
 	(output)
@@ -352,12 +371,13 @@ refer to the applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 1128 120 1192 144))
 )
 (pin
 	(bidir)
 	(rect 224 216 408 232)
 	(text "BIDIR" (rect 159 6 183 16)(font "Arial" (font_size 6)))
-	(text "LCD_DATA[7..0]" (rect 5 4 88 16)(font "Arial" ))
+	(text "LCD_DATA[7..0]" (rect 5 4 87 16)(font "Arial" ))
 	(pt 184 8)
 	(drawing
 		(line (pt 128 12)(pt 106 12))
@@ -370,12 +390,13 @@ refer to the applicable agreement for further details.
 	)
 	(rotate180)
 	(text "VCC" (rect 160 -1 180 9)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect 104 264 160 288))
 )
 (pin
 	(bidir)
 	(rect 216 472 408 488)
 	(text "BIDIR" (rect 167 6 191 16)(font "Arial" (font_size 6)))
-	(text "DRAM_DQ[15..0]" (rect 5 4 92 16)(font "Arial" ))
+	(text "DRAM_DQ[15..0]" (rect 5 4 91 16)(font "Arial" ))
 	(pt 192 8)
 	(drawing
 		(line (pt 136 12)(pt 114 12))
@@ -388,6 +409,7 @@ refer to the applicable agreement for further details.
 	)
 	(rotate180)
 	(text "VCC" (rect 168 -1 188 9)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect 48 488 112 512))
 )
 (symbol
 	(rect 408 40 952 656)
@@ -467,7 +489,7 @@ refer to the applicable agreement for further details.
 		(pt 544 72)
 		(output)
 		(text "sdram_pll_sdram_clk_clk" (rect 0 0 141 14)(font "Arial" (font_size 8)))
-		(text "sdram_pll_sdram_clk_clk" (rect 418 61 559 75)(font "Arial" (font_size 8)))
+		(text "sdram_pll_sdram_clk_clk" (rect 418 61 537 75)(font "Arial" (font_size 8)))
 		(line (pt 544 72)(pt 304 72))
 	)
 	(port

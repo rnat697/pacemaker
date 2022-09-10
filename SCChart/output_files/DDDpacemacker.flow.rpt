@@ -1,5 +1,5 @@
 Flow report for DDDpacemacker
-Fri Sep 09 15:07:34 2022
+Sat Sep 10 14:21:02 2022
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -40,7 +40,7 @@ refer to the applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Fri Sep 09 15:07:20 2022           ;
+; Flow Status                        ; Successful - Sat Sep 10 14:20:49 2022           ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                      ; DDDpacemacker                                   ;
 ; Top-level Entity Name              ; DDDpacemacker                                   ;
@@ -64,7 +64,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 09/09/2022 15:04:24 ;
+; Start date & time ; 09/10/2022 14:18:01 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; DDDpacemacker       ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------------------------------+---------------+--------------+------------+
 ; Assignment Name                     ; Value                                                          ; Default Value ; Entity Name  ; Section Id ;
 +-------------------------------------+----------------------------------------------------------------+---------------+--------------+------------+
-; COMPILER_SIGNATURE_ID               ; 251053327368750.166269266307924                                ; --            ; --           ; --         ;
+; COMPILER_SIGNATURE_ID               ; 251053327368750.166277628014224                                ; --            ; --           ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                                             ; --            ; --           ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                                              ; --            ; --           ; --         ;
 ; MISC_FILE                           ; DE2-115/nios2_system/synthesis/../nios2_system.cmp             ; --            ; --           ; --         ;
@@ -89,7 +89,7 @@ refer to the applicable agreement for further details.
 ; PROJECT_OUTPUT_DIRECTORY            ; output_files                                                   ; --            ; --           ; --         ;
 ; SLD_FILE                            ; DE2-115/nios2_system/synthesis/nios2_system.regmap             ; --            ; --           ; --         ;
 ; SLD_FILE                            ; DE2-115/nios2_system/synthesis/nios2_system.debuginfo          ; --            ; --           ; --         ;
-; SLD_INFO                            ; QSYS_NAME nios2_system HAS_SOPCINFO 1 GENERATION_ID 1662691270 ; --            ; nios2_system ; --         ;
+; SLD_INFO                            ; QSYS_NAME nios2_system HAS_SOPCINFO 1 GENERATION_ID 1662776218 ; --            ; nios2_system ; --         ;
 ; SOPCINFO_FILE                       ; DE2-115/nios2_system/synthesis/../../nios2_system.sopcinfo     ; --            ; --           ; --         ;
 ; SYNTHESIS_ONLY_QIP                  ; On                                                             ; --            ; --           ; --         ;
 +-------------------------------------+----------------------------------------------------------------+---------------+--------------+------------+
@@ -100,11 +100,11 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:01:56     ; 1.0                     ; 5018 MB             ; 00:02:00                           ;
-; Fitter               ; 00:00:26     ; 1.1                     ; 5972 MB             ; 00:00:30                           ;
-; Assembler            ; 00:00:08     ; 1.0                     ; 4717 MB             ; 00:00:04                           ;
-; Timing Analyzer      ; 00:00:13     ; 1.1                     ; 4937 MB             ; 00:00:06                           ;
-; Total                ; 00:02:43     ; --                      ; --                  ; 00:02:40                           ;
+; Analysis & Synthesis ; 00:01:50     ; 1.0                     ; 5023 MB             ; 00:01:55                           ;
+; Fitter               ; 00:00:27     ; 1.1                     ; 5972 MB             ; 00:00:30                           ;
+; Assembler            ; 00:00:07     ; 1.0                     ; 4718 MB             ; 00:00:04                           ;
+; Timing Analyzer      ; 00:00:11     ; 1.1                     ; 4935 MB             ; 00:00:05                           ;
+; Total                ; 00:02:35     ; --                      ; --                  ; 00:02:34                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

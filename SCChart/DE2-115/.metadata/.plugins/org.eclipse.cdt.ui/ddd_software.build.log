@@ -1,0 +1,23 @@
+14:22:56 **** Build of configuration Nios II for project ddd_software ****
+make all 
+/usr/bin/sh: line 0: cd: ../ddd_software_bsp/: No such file or directory
+/usr/bin/sh: line 0: cd: ../: No such file or directory
+Info: Building ../ddd_software_bsp/
+C:/intelFPGA/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ddd_software_bsp/
+Makefile not up to date.
+../nios2_system.sopcinfo has been modified since the BSP was generated.
+
+Generate the BSP to update the Makefile, and then build again.
+
+To generate from Eclipse:
+ 1. Right-click the BSP project.
+ 2. In the Nios II Menu, click Generate BSP.
+
+To generate from the command line:
+ nios2-bsp-generate-files --settings=<settings file> --bsp-dir=<target bsp files directory>
+
+make[1]: *** [public.mk] Error 1
+make: *** [../ddd_software_bsp/-recurs-make-lib] Error 2
+
+14:22:58 Build Finished (took 1s.202ms)
+

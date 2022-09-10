@@ -1,5 +1,5 @@
 Timing Analyzer report for DDDpacemacker
-Fri Sep 09 15:07:35 2022
+Sat Sep 10 14:21:02 2022
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -107,14 +107,14 @@ refer to the applicable agreement for further details.
 ; Number detected on machine ; 6           ;
 ; Maximum allowed            ; 6           ;
 ;                            ;             ;
-; Average used               ; 1.11        ;
+; Average used               ; 1.12        ;
 ; Maximum used               ; 6           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   2.3%      ;
-;     Processor 3            ;   2.2%      ;
-;     Processors 4-6         ;   2.2%      ;
+;     Processor 2            ;   2.4%      ;
+;     Processor 3            ;   2.3%      ;
+;     Processors 4-6         ;   2.3%      ;
 +----------------------------+-------------+
 
 
@@ -123,10 +123,10 @@ refer to the applicable agreement for further details.
 +--------------------------------------------------------------------------------------------------------------------------------------------------+--------+--------------------------+
 ; SDC File Path                                                                                                                                    ; Status ; Read at                  ;
 +--------------------------------------------------------------------------------------------------------------------------------------------------+--------+--------------------------+
-; DE2-115/nios2_system/synthesis/submodules/altera_reset_controller.sdc                                                                            ; OK     ; Fri Sep 09 15:07:30 2022 ;
-; DE2-115/nios2_system/synthesis/submodules/nios2_system_cpu_cpu.sdc                                                                               ; OK     ; Fri Sep 09 15:07:30 2022 ;
-; //files.auckland.ac.nz/myhome/documents/github/ddd-mode-pacemaker-303-group-10/scchart/db/ip/nios2_system/submodules/altera_reset_controller.sdc ; OK     ; Fri Sep 09 15:07:30 2022 ;
-; //files.auckland.ac.nz/myhome/documents/github/ddd-mode-pacemaker-303-group-10/scchart/db/ip/nios2_system/submodules/nios2_system_cpu_cpu.sdc    ; OK     ; Fri Sep 09 15:07:30 2022 ;
+; DE2-115/nios2_system/synthesis/submodules/altera_reset_controller.sdc                                                                            ; OK     ; Sat Sep 10 14:20:58 2022 ;
+; DE2-115/nios2_system/synthesis/submodules/nios2_system_cpu_cpu.sdc                                                                               ; OK     ; Sat Sep 10 14:20:58 2022 ;
+; //files.auckland.ac.nz/myhome/documents/github/ddd-mode-pacemaker-303-group-10/scchart/db/ip/nios2_system/submodules/altera_reset_controller.sdc ; OK     ; Sat Sep 10 14:20:58 2022 ;
+; //files.auckland.ac.nz/myhome/documents/github/ddd-mode-pacemaker-303-group-10/scchart/db/ip/nios2_system/submodules/nios2_system_cpu_cpu.sdc    ; OK     ; Sat Sep 10 14:20:58 2022 ;
 +--------------------------------------------------------------------------------------------------------------------------------------------------+--------+--------------------------+
 
 
@@ -1596,7 +1596,7 @@ Typical MTBF values are calculated based on the nominal silicon characteristics,
 ; DRAM_DQ[2]              ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; DRAM_DQ[1]              ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; DRAM_DQ[0]              ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
-; clock                   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; CLOCK_50                ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; KEY[2]                  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; KEY[1]                  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; KEY[0]                  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
@@ -1964,8 +1964,8 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +---------------------+---------------------+------+---------------+
 ; Target              ; Clock               ; Type ; Status        ;
 +---------------------+---------------------+------+---------------+
+; CLOCK_50            ;                     ; Base ; Unconstrained ;
 ; altera_reserved_tck ; altera_reserved_tck ; Base ; Constrained   ;
-; clock               ;                     ; Base ; Unconstrained ;
 +---------------------+---------------------+------+---------------+
 
 
@@ -1974,6 +1974,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +---------------------+--------------------------------------------------------------------------------------+
 ; Input Port          ; Comment                                                                              ;
 +---------------------+--------------------------------------------------------------------------------------+
+; CLOCK_50            ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; DRAM_DQ[0]          ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; DRAM_DQ[1]          ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; DRAM_DQ[2]          ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
@@ -2021,7 +2022,6 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; SW[17]              ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; altera_reserved_tdi ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; altera_reserved_tms ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; clock               ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +---------------------+--------------------------------------------------------------------------------------+
 
 
@@ -2115,6 +2115,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +---------------------+--------------------------------------------------------------------------------------+
 ; Input Port          ; Comment                                                                              ;
 +---------------------+--------------------------------------------------------------------------------------+
+; CLOCK_50            ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; DRAM_DQ[0]          ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; DRAM_DQ[1]          ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; DRAM_DQ[2]          ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
@@ -2162,7 +2163,6 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; SW[17]              ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; altera_reserved_tdi ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; altera_reserved_tms ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; clock               ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +---------------------+--------------------------------------------------------------------------------------+
 
 
@@ -2257,7 +2257,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Fri Sep 09 15:07:21 2022
+    Info: Processing started: Sat Sep 10 14:20:51 2022
 Info: Command: quartus_sta DDDpacemacker -c DDDpacemacker
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -2301,8 +2301,8 @@ Info (332104): Reading SDC File: 'DE2-115/nios2_system/synthesis/submodules/alte
 Info (332104): Reading SDC File: 'DE2-115/nios2_system/synthesis/submodules/nios2_system_cpu_cpu.sdc'
 Info (332104): Reading SDC File: '//files.auckland.ac.nz/myhome/documents/github/ddd-mode-pacemaker-303-group-10/scchart/db/ip/nios2_system/submodules/altera_reset_controller.sdc'
 Info (332104): Reading SDC File: '//files.auckland.ac.nz/myhome/documents/github/ddd-mode-pacemaker-303-group-10/scchart/db/ip/nios2_system/submodules/nios2_system_cpu_cpu.sdc'
-Warning (332060): Node: clock was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register nios2_system:inst|nios2_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_translator:lcd_control_slave_translator|wait_latency_counter[5] is being clocked by clock
+Warning (332060): Node: CLOCK_50 was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Register nios2_system:inst|nios2_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_translator:lcd_control_slave_translator|wait_latency_counter[5] is being clocked by CLOCK_50
 Warning (332056): PLL cross checking found inconsistent PLL clock settings:
     Warning (332056): Node: inst|sdram_pll|sys_pll|PLL_for_DE_Series_Boards|auto_generated|pll1|clk[0] was found missing 1 generated clock that corresponds to a base clock with a period of: 20.000
     Warning (332056): Node: inst|sdram_pll|sys_pll|PLL_for_DE_Series_Boards|auto_generated|pll1|clk[1] was found missing 1 generated clock that corresponds to a base clock with a period of: 20.000
@@ -2345,8 +2345,8 @@ Info (332114): Report Metastability: Found 3 synchronizer chains.
 Info: Analyzing Slow 1200mV 0C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Warning (332060): Node: clock was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register nios2_system:inst|nios2_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_translator:lcd_control_slave_translator|wait_latency_counter[5] is being clocked by clock
+Warning (332060): Node: CLOCK_50 was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Register nios2_system:inst|nios2_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_translator:lcd_control_slave_translator|wait_latency_counter[5] is being clocked by CLOCK_50
 Warning (332056): PLL cross checking found inconsistent PLL clock settings:
     Warning (332056): Node: inst|sdram_pll|sys_pll|PLL_for_DE_Series_Boards|auto_generated|pll1|clk[0] was found missing 1 generated clock that corresponds to a base clock with a period of: 20.000
     Warning (332056): Node: inst|sdram_pll|sys_pll|PLL_for_DE_Series_Boards|auto_generated|pll1|clk[1] was found missing 1 generated clock that corresponds to a base clock with a period of: 20.000
@@ -2385,8 +2385,8 @@ Info (332114): Report Metastability: Found 3 synchronizer chains.
     Info (332114): Typical MTBF values are calculated based on the nominal silicon characteristics, at nominal operating conditions.
     Info (332114):   - Under typical conditions, an increase of 100ps in available settling time will increase MTBF values by a factor of 10.8
 Info: Analyzing Fast 1200mV 0C Model
-Warning (332060): Node: clock was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register nios2_system:inst|nios2_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_translator:lcd_control_slave_translator|wait_latency_counter[5] is being clocked by clock
+Warning (332060): Node: CLOCK_50 was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Register nios2_system:inst|nios2_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_translator:lcd_control_slave_translator|wait_latency_counter[5] is being clocked by CLOCK_50
 Warning (332056): PLL cross checking found inconsistent PLL clock settings:
     Warning (332056): Node: inst|sdram_pll|sys_pll|PLL_for_DE_Series_Boards|auto_generated|pll1|clk[0] was found missing 1 generated clock that corresponds to a base clock with a period of: 20.000
     Warning (332056): Node: inst|sdram_pll|sys_pll|PLL_for_DE_Series_Boards|auto_generated|pll1|clk[1] was found missing 1 generated clock that corresponds to a base clock with a period of: 20.000
@@ -2427,9 +2427,9 @@ Info (332114): Report Metastability: Found 3 synchronizer chains.
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 25 warnings
-    Info: Peak virtual memory: 4937 megabytes
-    Info: Processing ended: Fri Sep 09 15:07:35 2022
-    Info: Elapsed time: 00:00:14
-    Info: Total CPU time (on all processors): 00:00:06
+    Info: Peak virtual memory: 4935 megabytes
+    Info: Processing ended: Sat Sep 10 14:21:02 2022
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:05
 
 

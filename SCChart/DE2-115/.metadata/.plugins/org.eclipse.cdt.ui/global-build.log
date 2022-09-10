@@ -1,0 +1,24 @@
+16:33:30 **** Incremental Build of configuration Nios II for project ddd_pace_software ****
+make all 
+/usr/bin/sh: line 0: cd: ../ddd_pace_software_bsp/: No such file or directory
+/usr/bin/sh: line 0: cd: ../../: No such file or directory
+Info: Building ../ddd_pace_software_bsp/
+C:/intelFPGA/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ddd_pace_software_bsp/
+[BSP build complete]
+[ddd_pace_software build complete]
+16:33:37 **** Build of configuration Nios II for project ddd_pace_software ****
+make all 
+/usr/bin/sh: line 0: cd: ../ddd_pace_software_bsp/: No such file or directory
+/usr/bin/sh: line 0: cd: ../../: No such file or directory
+Info: Building ../ddd_pace_software_bsp/
+C:/intelFPGA/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ddd_pace_software_bsp/
+[BSP build complete]
+[ddd_pace_software build complete]
+16:33:39 **** Incremental Build of configuration Nios II for project ddd_pace_software ****
+make all 
+/usr/bin/sh: line 0: cd: ../ddd_pace_software_bsp/: No such file or directory
+/usr/bin/sh: line 0: cd: ../../: No such file or directory
+Info: Building ../ddd_pace_software_bsp/
+C:/intelFPGA/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ddd_pace_software_bsp/
+[BSP build complete]
+[ddd_pace_software build complete]
