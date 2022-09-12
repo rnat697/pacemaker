@@ -1,24 +1,667 @@
-16:33:30 **** Incremental Build of configuration Nios II for project ddd_pace_software ****
+13:45:40 **** Incremental Build of configuration Nios II for project HeLlOwOrLD ****
 make all 
-/usr/bin/sh: line 0: cd: ../ddd_pace_software_bsp/: No such file or directory
-/usr/bin/sh: line 0: cd: ../../: No such file or directory
-Info: Building ../ddd_pace_software_bsp/
-C:/intelFPGA/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ddd_pace_software_bsp/
+Info: Building ../HeLlOwOrLD_bsp/
+C:/intelFPGA/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../HeLlOwOrLD_bsp/
 [BSP build complete]
-[ddd_pace_software build complete]
-16:33:37 **** Build of configuration Nios II for project ddd_pace_software ****
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../HeLlOwOrLD_bsp//HAL/inc -I../HeLlOwOrLD_bsp/ -I../HeLlOwOrLD_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'button_interrupt_function':
+hello_world.c:37:9: warning: format '%i' expects argument of type 'int', but argument 2 has type 'int *' [-Wformat=]
+  printf("button: %i \n", temp); // delete later
+         ^
+hello_world.c:37:9: warning: format '%i' expects argument of type 'int', but argument 2 has type 'int *' [-Wformat=]
+hello_world.c: In function 'setup_interrupt':
+hello_world.c:71:2: warning: implicit declaration of function 'alt_irq_register' [-Wimplicit-function-declaration]
+  alt_irq_register(KEYS_IRQ,context_to_be_passed,button_interrupt_function);
+  ^
+hello_world.c: In function 'main':
+hello_world.c:127:21: warning: pointer targets in passing argument 1 of 'setup_interrupt' differ in signedness [-Wpointer-sign]
+     setup_interrupt(&uiButtonsValue);
+                     ^
+hello_world.c:64:6: note: expected 'int *' but argument is of type 'unsigned int *'
+ void setup_interrupt(int*val){
+      ^
+Info: Linking HeLlOwOrLD.elf
+nios2-elf-g++  -T'../HeLlOwOrLD_bsp//linker.x' -msys-crt0='../HeLlOwOrLD_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../HeLlOwOrLD_bsp/   -Wl,-Map=HeLlOwOrLD.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o HeLlOwOrLD.elf obj/default/hello_world.o obj/default/pacecharts.o -lm -msys-lib=m
+nios2-elf-insert HeLlOwOrLD.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name nios2_system --quartus_project_dir "H:/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115" --sopcinfo H:/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115/HeLlOwOrLD_bsp/../nios2_system.sopcinfo
+Info: (HeLlOwOrLD.elf) 100 KBytes program size (code + initialized data).
+Info:                  8084 KBytes free for stack + heap.
+Info: Creating HeLlOwOrLD.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source HeLlOwOrLD.elf >HeLlOwOrLD.objdump
+[HeLlOwOrLD build complete]
+13:45:47 **** Incremental Build of configuration Nios II for project HeLlOwOrLD ****
 make all 
-/usr/bin/sh: line 0: cd: ../ddd_pace_software_bsp/: No such file or directory
-/usr/bin/sh: line 0: cd: ../../: No such file or directory
-Info: Building ../ddd_pace_software_bsp/
-C:/intelFPGA/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ddd_pace_software_bsp/
+Info: Building ../HeLlOwOrLD_bsp/
+C:/intelFPGA/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../HeLlOwOrLD_bsp/
 [BSP build complete]
-[ddd_pace_software build complete]
-16:33:39 **** Incremental Build of configuration Nios II for project ddd_pace_software ****
+[HeLlOwOrLD build complete]
+13:45:49 **** Incremental Build of configuration Nios II for project HeLlOwOrLD_bsp ****
 make all 
-/usr/bin/sh: line 0: cd: ../ddd_pace_software_bsp/: No such file or directory
-/usr/bin/sh: line 0: cd: ../../: No such file or directory
-Info: Building ../ddd_pace_software_bsp/
-C:/intelFPGA/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ddd_pace_software_bsp/
 [BSP build complete]
-[ddd_pace_software build complete]
+13:46:29 **** Build of configuration Nios II for project HeLlOwOrLD ****
+make all 
+Info: Building ../HeLlOwOrLD_bsp/
+C:/intelFPGA/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../HeLlOwOrLD_bsp/
+[BSP build complete]
+[HeLlOwOrLD build complete]
+13:46:32 **** Incremental Build of configuration Nios II for project HeLlOwOrLD ****
+make all 
+Info: Building ../HeLlOwOrLD_bsp/
+C:/intelFPGA/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../HeLlOwOrLD_bsp/
+[BSP build complete]
+[HeLlOwOrLD build complete]
+13:52:15 **** Incremental Build of configuration Nios II for project HeLlOwOrLD ****
+make all 
+Info: Building ../HeLlOwOrLD_bsp/
+C:/intelFPGA/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../HeLlOwOrLD_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../HeLlOwOrLD_bsp//HAL/inc -I../HeLlOwOrLD_bsp/ -I../HeLlOwOrLD_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c:31:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'void'
+ void button_interrupt_function(void* context, alt_u32 id){
+ ^
+In file included from ../HeLlOwOrLD_bsp//drivers/inc/altera_avalon_pio_regs.h:34:0,
+                 from hello_world.c:18:
+hello_world.c: In function 'timerLEDISR':
+hello_world.c:67:30: error: 'GREEN_LEDS_BASE' undeclared (first use in this function)
+  IOWR_ALTERA_AVALON_PIO_DATA(GREEN_LEDS_BASE, 0x0);
+                              ^
+../HeLlOwOrLD_bsp//HAL/inc/io.h:70:23: note: in definition of macro '__IO_CALC_ADDRESS_NATIVE'
+   ((void *)(((alt_u8*)BASE) + ((REGNUM) * (SYSTEM_BUS_WIDTH/8))))
+                       ^
+../HeLlOwOrLD_bsp//drivers/inc/altera_avalon_pio_regs.h:38:55: note: in expansion of macro 'IOWR'
+ #define IOWR_ALTERA_AVALON_PIO_DATA(base, data)       IOWR(base, 0, data)
+                                                       ^
+hello_world.c:67:2: note: in expansion of macro 'IOWR_ALTERA_AVALON_PIO_DATA'
+  IOWR_ALTERA_AVALON_PIO_DATA(GREEN_LEDS_BASE, 0x0);
+  ^
+hello_world.c:67:30: note: each undeclared identifier is reported only once for each function it appears in
+  IOWR_ALTERA_AVALON_PIO_DATA(GREEN_LEDS_BASE, 0x0);
+                              ^
+../HeLlOwOrLD_bsp//HAL/inc/io.h:70:23: note: in definition of macro '__IO_CALC_ADDRESS_NATIVE'
+   ((void *)(((alt_u8*)BASE) + ((REGNUM) * (SYSTEM_BUS_WIDTH/8))))
+                       ^
+../HeLlOwOrLD_bsp//drivers/inc/altera_avalon_pio_regs.h:38:55: note: in expansion of macro 'IOWR'
+ #define IOWR_ALTERA_AVALON_PIO_DATA(base, data)       IOWR(base, 0, data)
+                                                       ^
+hello_world.c:67:2: note: in expansion of macro 'IOWR_ALTERA_AVALON_PIO_DATA'
+  IOWR_ALTERA_AVALON_PIO_DATA(GREEN_LEDS_BASE, 0x0);
+  ^
+hello_world.c: In function 'setup_interrupt':
+hello_world.c:78:2: warning: implicit declaration of function 'alt_irq_register' [-Wimplicit-function-declaration]
+  alt_irq_register(KEYS_IRQ,context_to_be_passed,button_interrupt_function);
+  ^
+hello_world.c:78:49: error: 'button_interrupt_function' undeclared (first use in this function)
+  alt_irq_register(KEYS_IRQ,context_to_be_passed,button_interrupt_function);
+                                                 ^
+hello_world.c: In function 'main':
+hello_world.c:134:21: warning: pointer targets in passing argument 1 of 'setup_interrupt' differ in signedness [-Wpointer-sign]
+     setup_interrupt(&uiButtonsValue);
+                     ^
+hello_world.c:71:6: note: expected 'int *' but argument is of type 'unsigned int *'
+ void setup_interrupt(int*val){
+      ^
+hello_world.c:140:8: error: 'turnOffLED' undeclared (first use in this function)
+     if(turnOffLED == 1){
+        ^
+hello_world.c:86:12: warning: unused variable 'ticker_LED' [-Wunused-variable]
+  alt_alarm ticker_LED;
+            ^
+make: *** [obj/default/hello_world.o] Error 1
+13:52:48 **** Incremental Build of configuration Nios II for project HeLlOwOrLD ****
+make all 
+Info: Building ../HeLlOwOrLD_bsp/
+C:/intelFPGA/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../HeLlOwOrLD_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../HeLlOwOrLD_bsp//HAL/inc -I../HeLlOwOrLD_bsp/ -I../HeLlOwOrLD_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c:31:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'void'
+ void button_interrupt_function(void* context, alt_u32 id){
+ ^
+hello_world.c: In function 'setup_interrupt':
+hello_world.c:78:2: warning: implicit declaration of function 'alt_irq_register' [-Wimplicit-function-declaration]
+  alt_irq_register(KEYS_IRQ,context_to_be_passed,button_interrupt_function);
+  ^
+hello_world.c:78:49: error: 'button_interrupt_function' undeclared (first use in this function)
+  alt_irq_register(KEYS_IRQ,context_to_be_passed,button_interrupt_function);
+                                                 ^
+hello_world.c:78:49: note: each undeclared identifier is reported only once for each function it appears in
+hello_world.c: In function 'main':
+hello_world.c:134:21: warning: pointer targets in passing argument 1 of 'setup_interrupt' differ in signedness [-Wpointer-sign]
+     setup_interrupt(&uiButtonsValue);
+                     ^
+hello_world.c:71:6: note: expected 'int *' but argument is of type 'unsigned int *'
+ void setup_interrupt(int*val){
+      ^
+hello_world.c:140:8: error: 'turnOffLED' undeclared (first use in this function)
+     if(turnOffLED == 1){
+        ^
+hello_world.c:86:12: warning: unused variable 'ticker_LED' [-Wunused-variable]
+  alt_alarm ticker_LED;
+            ^
+make: *** [obj/default/hello_world.o] Error 1
+13:53:06 **** Incremental Build of configuration Nios II for project HeLlOwOrLD ****
+make all 
+Info: Building ../HeLlOwOrLD_bsp/
+C:/intelFPGA/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../HeLlOwOrLD_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../HeLlOwOrLD_bsp//HAL/inc -I../HeLlOwOrLD_bsp/ -I../HeLlOwOrLD_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'button_interrupt_function':
+hello_world.c:38:9: warning: format '%i' expects argument of type 'int', but argument 2 has type 'int *' [-Wformat=]
+  printf("button: %i \n", temp); // delete later
+         ^
+hello_world.c:38:9: warning: format '%i' expects argument of type 'int', but argument 2 has type 'int *' [-Wformat=]
+hello_world.c: In function 'setup_interrupt':
+hello_world.c:78:2: warning: implicit declaration of function 'alt_irq_register' [-Wimplicit-function-declaration]
+  alt_irq_register(KEYS_IRQ,context_to_be_passed,button_interrupt_function);
+  ^
+hello_world.c: In function 'main':
+hello_world.c:134:21: warning: pointer targets in passing argument 1 of 'setup_interrupt' differ in signedness [-Wpointer-sign]
+     setup_interrupt(&uiButtonsValue);
+                     ^
+hello_world.c:71:6: note: expected 'int *' but argument is of type 'unsigned int *'
+ void setup_interrupt(int*val){
+      ^
+hello_world.c:86:12: warning: unused variable 'ticker_LED' [-Wunused-variable]
+  alt_alarm ticker_LED;
+            ^
+Info: Linking HeLlOwOrLD.elf
+nios2-elf-g++  -T'../HeLlOwOrLD_bsp//linker.x' -msys-crt0='../HeLlOwOrLD_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../HeLlOwOrLD_bsp/   -Wl,-Map=HeLlOwOrLD.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o HeLlOwOrLD.elf obj/default/hello_world.o obj/default/pacecharts.o -lm -msys-lib=m
+nios2-elf-insert HeLlOwOrLD.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name nios2_system --quartus_project_dir "H:/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115" --sopcinfo H:/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115/HeLlOwOrLD_bsp/../nios2_system.sopcinfo
+Info: (HeLlOwOrLD.elf) 100 KBytes program size (code + initialized data).
+Info:                  8084 KBytes free for stack + heap.
+Info: Creating HeLlOwOrLD.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source HeLlOwOrLD.elf >HeLlOwOrLD.objdump
+[HeLlOwOrLD build complete]
+13:56:41 **** Incremental Build of configuration Nios II for project HeLlOwOrLD ****
+make all 
+Info: Building ../HeLlOwOrLD_bsp/
+C:/intelFPGA/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../HeLlOwOrLD_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../HeLlOwOrLD_bsp//HAL/inc -I../HeLlOwOrLD_bsp/ -I../HeLlOwOrLD_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'button_interrupt_function':
+hello_world.c:38:9: warning: format '%i' expects argument of type 'int', but argument 2 has type 'int *' [-Wformat=]
+  printf("button: %i \n", temp); // delete later
+         ^
+hello_world.c:38:9: warning: format '%i' expects argument of type 'int', but argument 2 has type 'int *' [-Wformat=]
+hello_world.c: In function 'setup_interrupt':
+hello_world.c:88:2: warning: implicit declaration of function 'alt_irq_register' [-Wimplicit-function-declaration]
+  alt_irq_register(KEYS_IRQ,context_to_be_passed,button_interrupt_function);
+  ^
+hello_world.c: In function 'main':
+hello_world.c:143:21: warning: pointer targets in passing argument 1 of 'setup_interrupt' differ in signedness [-Wpointer-sign]
+     setup_interrupt(&uiButtonsValue);
+                     ^
+hello_world.c:81:6: note: expected 'int *' but argument is of type 'unsigned int *'
+ void setup_interrupt(int*val){
+      ^
+hello_world.c:95:12: warning: unused variable 'ticker_LED' [-Wunused-variable]
+  alt_alarm ticker_LED;
+            ^
+Info: Linking HeLlOwOrLD.elf
+nios2-elf-g++  -T'../HeLlOwOrLD_bsp//linker.x' -msys-crt0='../HeLlOwOrLD_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../HeLlOwOrLD_bsp/   -Wl,-Map=HeLlOwOrLD.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o HeLlOwOrLD.elf obj/default/hello_world.o obj/default/pacecharts.o -lm -msys-lib=m
+nios2-elf-insert HeLlOwOrLD.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name nios2_system --quartus_project_dir "H:/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115" --sopcinfo H:/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115/HeLlOwOrLD_bsp/../nios2_system.sopcinfo
+Info: (HeLlOwOrLD.elf) 100 KBytes program size (code + initialized data).
+Info:                  8084 KBytes free for stack + heap.
+Info: Creating HeLlOwOrLD.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source HeLlOwOrLD.elf >HeLlOwOrLD.objdump
+[HeLlOwOrLD build complete]
+13:58:22 **** Incremental Build of configuration Nios II for project HeLlOwOrLD ****
+make all 
+Info: Building ../HeLlOwOrLD_bsp/
+C:/intelFPGA/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../HeLlOwOrLD_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../HeLlOwOrLD_bsp//HAL/inc -I../HeLlOwOrLD_bsp/ -I../HeLlOwOrLD_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'button_interrupt_function':
+hello_world.c:39:9: warning: format '%i' expects argument of type 'int', but argument 2 has type 'int *' [-Wformat=]
+  printf("button: %i \n", temp); // delete later
+         ^
+hello_world.c:39:9: warning: format '%i' expects argument of type 'int', but argument 2 has type 'int *' [-Wformat=]
+hello_world.c: In function 'setup_interrupt':
+hello_world.c:94:2: warning: implicit declaration of function 'alt_irq_register' [-Wimplicit-function-declaration]
+  alt_irq_register(KEYS_IRQ,context_to_be_passed,button_interrupt_function);
+  ^
+hello_world.c: In function 'main':
+hello_world.c:149:21: warning: pointer targets in passing argument 1 of 'setup_interrupt' differ in signedness [-Wpointer-sign]
+     setup_interrupt(&uiButtonsValue);
+                     ^
+hello_world.c:87:6: note: expected 'int *' but argument is of type 'unsigned int *'
+ void setup_interrupt(int*val){
+      ^
+hello_world.c:101:12: warning: unused variable 'ticker_LED' [-Wunused-variable]
+  alt_alarm ticker_LED;
+            ^
+Info: Linking HeLlOwOrLD.elf
+nios2-elf-g++  -T'../HeLlOwOrLD_bsp//linker.x' -msys-crt0='../HeLlOwOrLD_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../HeLlOwOrLD_bsp/   -Wl,-Map=HeLlOwOrLD.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o HeLlOwOrLD.elf obj/default/hello_world.o obj/default/pacecharts.o -lm -msys-lib=m
+nios2-elf-insert HeLlOwOrLD.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name nios2_system --quartus_project_dir "H:/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115" --sopcinfo H:/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115/HeLlOwOrLD_bsp/../nios2_system.sopcinfo
+Info: (HeLlOwOrLD.elf) 100 KBytes program size (code + initialized data).
+Info:                  8084 KBytes free for stack + heap.
+Info: Creating HeLlOwOrLD.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source HeLlOwOrLD.elf >HeLlOwOrLD.objdump
+[HeLlOwOrLD build complete]
+13:59:24 **** Incremental Build of configuration Nios II for project HeLlOwOrLD ****
+make all 
+Info: Building ../HeLlOwOrLD_bsp/
+C:/intelFPGA/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../HeLlOwOrLD_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../HeLlOwOrLD_bsp//HAL/inc -I../HeLlOwOrLD_bsp/ -I../HeLlOwOrLD_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'button_interrupt_function':
+hello_world.c:39:9: warning: format '%i' expects argument of type 'int', but argument 2 has type 'int *' [-Wformat=]
+  printf("button: %i \n", temp); // delete later
+         ^
+hello_world.c:39:9: warning: format '%i' expects argument of type 'int', but argument 2 has type 'int *' [-Wformat=]
+hello_world.c: In function 'setup_interrupt':
+hello_world.c:95:2: warning: implicit declaration of function 'alt_irq_register' [-Wimplicit-function-declaration]
+  alt_irq_register(KEYS_IRQ,context_to_be_passed,button_interrupt_function);
+  ^
+hello_world.c: In function 'main':
+hello_world.c:150:21: warning: pointer targets in passing argument 1 of 'setup_interrupt' differ in signedness [-Wpointer-sign]
+     setup_interrupt(&uiButtonsValue);
+                     ^
+hello_world.c:88:6: note: expected 'int *' but argument is of type 'unsigned int *'
+ void setup_interrupt(int*val){
+      ^
+hello_world.c:102:12: warning: unused variable 'ticker_LED' [-Wunused-variable]
+  alt_alarm ticker_LED;
+            ^
+Info: Linking HeLlOwOrLD.elf
+nios2-elf-g++  -T'../HeLlOwOrLD_bsp//linker.x' -msys-crt0='../HeLlOwOrLD_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../HeLlOwOrLD_bsp/   -Wl,-Map=HeLlOwOrLD.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o HeLlOwOrLD.elf obj/default/hello_world.o obj/default/pacecharts.o -lm -msys-lib=m
+nios2-elf-insert HeLlOwOrLD.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name nios2_system --quartus_project_dir "H:/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115" --sopcinfo H:/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115/HeLlOwOrLD_bsp/../nios2_system.sopcinfo
+Info: (HeLlOwOrLD.elf) 100 KBytes program size (code + initialized data).
+Info:                  8083 KBytes free for stack + heap.
+Info: Creating HeLlOwOrLD.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source HeLlOwOrLD.elf >HeLlOwOrLD.objdump
+[HeLlOwOrLD build complete]
+14:00:00 **** Incremental Build of configuration Nios II for project HeLlOwOrLD ****
+make all 
+Info: Building ../HeLlOwOrLD_bsp/
+C:/intelFPGA/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../HeLlOwOrLD_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../HeLlOwOrLD_bsp//HAL/inc -I../HeLlOwOrLD_bsp/ -I../HeLlOwOrLD_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'button_interrupt_function':
+hello_world.c:39:9: warning: format '%i' expects argument of type 'int', but argument 2 has type 'int *' [-Wformat=]
+  printf("button: %i \n", temp); // delete later
+         ^
+hello_world.c:39:9: warning: format '%i' expects argument of type 'int', but argument 2 has type 'int *' [-Wformat=]
+hello_world.c: In function 'setup_interrupt':
+hello_world.c:95:2: warning: implicit declaration of function 'alt_irq_register' [-Wimplicit-function-declaration]
+  alt_irq_register(KEYS_IRQ,context_to_be_passed,button_interrupt_function);
+  ^
+hello_world.c: In function 'main':
+hello_world.c:150:21: warning: pointer targets in passing argument 1 of 'setup_interrupt' differ in signedness [-Wpointer-sign]
+     setup_interrupt(&uiButtonsValue);
+                     ^
+hello_world.c:88:6: note: expected 'int *' but argument is of type 'unsigned int *'
+ void setup_interrupt(int*val){
+      ^
+hello_world.c:102:12: warning: unused variable 'ticker_LED' [-Wunused-variable]
+  alt_alarm ticker_LED;
+            ^
+Info: Linking HeLlOwOrLD.elf
+nios2-elf-g++  -T'../HeLlOwOrLD_bsp//linker.x' -msys-crt0='../HeLlOwOrLD_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../HeLlOwOrLD_bsp/   -Wl,-Map=HeLlOwOrLD.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o HeLlOwOrLD.elf obj/default/hello_world.o obj/default/pacecharts.o -lm -msys-lib=m
+nios2-elf-insert HeLlOwOrLD.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name nios2_system --quartus_project_dir "H:/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115" --sopcinfo H:/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115/HeLlOwOrLD_bsp/../nios2_system.sopcinfo
+Info: (HeLlOwOrLD.elf) 100 KBytes program size (code + initialized data).
+Info:                  8083 KBytes free for stack + heap.
+Info: Creating HeLlOwOrLD.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source HeLlOwOrLD.elf >HeLlOwOrLD.objdump
+[HeLlOwOrLD build complete]
+14:00:43 **** Incremental Build of configuration Nios II for project HeLlOwOrLD ****
+make all 
+Info: Building ../HeLlOwOrLD_bsp/
+C:/intelFPGA/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../HeLlOwOrLD_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../HeLlOwOrLD_bsp//HAL/inc -I../HeLlOwOrLD_bsp/ -I../HeLlOwOrLD_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'button_interrupt_function':
+hello_world.c:39:9: warning: format '%i' expects argument of type 'int', but argument 2 has type 'int *' [-Wformat=]
+  printf("button: %i \n", temp); // delete later
+         ^
+hello_world.c:39:9: warning: format '%i' expects argument of type 'int', but argument 2 has type 'int *' [-Wformat=]
+hello_world.c: In function 'setup_interrupt':
+hello_world.c:95:2: warning: implicit declaration of function 'alt_irq_register' [-Wimplicit-function-declaration]
+  alt_irq_register(KEYS_IRQ,context_to_be_passed,button_interrupt_function);
+  ^
+hello_world.c: In function 'main':
+hello_world.c:150:21: warning: pointer targets in passing argument 1 of 'setup_interrupt' differ in signedness [-Wpointer-sign]
+     setup_interrupt(&uiButtonsValue);
+                     ^
+hello_world.c:88:6: note: expected 'int *' but argument is of type 'unsigned int *'
+ void setup_interrupt(int*val){
+      ^
+Info: Linking HeLlOwOrLD.elf
+nios2-elf-g++  -T'../HeLlOwOrLD_bsp//linker.x' -msys-crt0='../HeLlOwOrLD_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../HeLlOwOrLD_bsp/   -Wl,-Map=HeLlOwOrLD.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o HeLlOwOrLD.elf obj/default/hello_world.o obj/default/pacecharts.o -lm -msys-lib=m
+nios2-elf-insert HeLlOwOrLD.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name nios2_system --quartus_project_dir "H:/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115" --sopcinfo H:/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115/HeLlOwOrLD_bsp/../nios2_system.sopcinfo
+Info: (HeLlOwOrLD.elf) 100 KBytes program size (code + initialized data).
+Info:                  8083 KBytes free for stack + heap.
+Info: Creating HeLlOwOrLD.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source HeLlOwOrLD.elf >HeLlOwOrLD.objdump
+[HeLlOwOrLD build complete]
+14:01:03 **** Incremental Build of configuration Nios II for project HeLlOwOrLD ****
+make all 
+Info: Building ../HeLlOwOrLD_bsp/
+C:/intelFPGA/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../HeLlOwOrLD_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../HeLlOwOrLD_bsp//HAL/inc -I../HeLlOwOrLD_bsp/ -I../HeLlOwOrLD_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'button_interrupt_function':
+hello_world.c:39:9: warning: format '%i' expects argument of type 'int', but argument 2 has type 'int *' [-Wformat=]
+  printf("button: %i \n", temp); // delete later
+         ^
+hello_world.c:39:9: warning: format '%i' expects argument of type 'int', but argument 2 has type 'int *' [-Wformat=]
+hello_world.c: In function 'setup_interrupt':
+hello_world.c:95:2: warning: implicit declaration of function 'alt_irq_register' [-Wimplicit-function-declaration]
+  alt_irq_register(KEYS_IRQ,context_to_be_passed,button_interrupt_function);
+  ^
+hello_world.c: In function 'main':
+hello_world.c:150:21: warning: pointer targets in passing argument 1 of 'setup_interrupt' differ in signedness [-Wpointer-sign]
+     setup_interrupt(&uiButtonsValue);
+                     ^
+hello_world.c:88:6: note: expected 'int *' but argument is of type 'unsigned int *'
+ void setup_interrupt(int*val){
+      ^
+Info: Linking HeLlOwOrLD.elf
+nios2-elf-g++  -T'../HeLlOwOrLD_bsp//linker.x' -msys-crt0='../HeLlOwOrLD_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../HeLlOwOrLD_bsp/   -Wl,-Map=HeLlOwOrLD.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o HeLlOwOrLD.elf obj/default/hello_world.o obj/default/pacecharts.o -lm -msys-lib=m
+nios2-elf-insert HeLlOwOrLD.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name nios2_system --quartus_project_dir "H:/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115" --sopcinfo H:/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115/HeLlOwOrLD_bsp/../nios2_system.sopcinfo
+Info: (HeLlOwOrLD.elf) 100 KBytes program size (code + initialized data).
+Info:                  8083 KBytes free for stack + heap.
+Info: Creating HeLlOwOrLD.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source HeLlOwOrLD.elf >HeLlOwOrLD.objdump
+[HeLlOwOrLD build complete]
+14:04:30 **** Incremental Build of configuration Nios II for project HeLlOwOrLD ****
+make all 
+Info: Building ../HeLlOwOrLD_bsp/
+C:/intelFPGA/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../HeLlOwOrLD_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../HeLlOwOrLD_bsp//HAL/inc -I../HeLlOwOrLD_bsp/ -I../HeLlOwOrLD_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'setup_interrupt':
+hello_world.c:86:2: warning: implicit declaration of function 'alt_irq_register' [-Wimplicit-function-declaration]
+  alt_irq_register(KEYS_IRQ,context_to_be_passed,button_interrupt_function);
+  ^
+hello_world.c: In function 'main':
+hello_world.c:141:21: warning: pointer targets in passing argument 1 of 'setup_interrupt' differ in signedness [-Wpointer-sign]
+     setup_interrupt(&uiButtonsValue);
+                     ^
+hello_world.c:79:6: note: expected 'int *' but argument is of type 'unsigned int *'
+ void setup_interrupt(int*val){
+      ^
+Info: Linking HeLlOwOrLD.elf
+nios2-elf-g++  -T'../HeLlOwOrLD_bsp//linker.x' -msys-crt0='../HeLlOwOrLD_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../HeLlOwOrLD_bsp/   -Wl,-Map=HeLlOwOrLD.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o HeLlOwOrLD.elf obj/default/hello_world.o obj/default/pacecharts.o -lm -msys-lib=m
+nios2-elf-insert HeLlOwOrLD.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name nios2_system --quartus_project_dir "H:/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115" --sopcinfo H:/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115/HeLlOwOrLD_bsp/../nios2_system.sopcinfo
+Info: (HeLlOwOrLD.elf) 100 KBytes program size (code + initialized data).
+Info:                  8083 KBytes free for stack + heap.
+Info: Creating HeLlOwOrLD.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source HeLlOwOrLD.elf >HeLlOwOrLD.objdump
+[HeLlOwOrLD build complete]
+14:05:26 **** Incremental Build of configuration Nios II for project HeLlOwOrLD ****
+make all 
+Info: Building ../HeLlOwOrLD_bsp/
+C:/intelFPGA/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../HeLlOwOrLD_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../HeLlOwOrLD_bsp//HAL/inc -I../HeLlOwOrLD_bsp/ -I../HeLlOwOrLD_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'setup_interrupt':
+hello_world.c:86:2: warning: implicit declaration of function 'alt_irq_register' [-Wimplicit-function-declaration]
+  alt_irq_register(KEYS_IRQ,context_to_be_passed,button_interrupt_function);
+  ^
+hello_world.c: In function 'main':
+hello_world.c:141:21: warning: pointer targets in passing argument 1 of 'setup_interrupt' differ in signedness [-Wpointer-sign]
+     setup_interrupt(&uiButtonsValue);
+                     ^
+hello_world.c:79:6: note: expected 'int *' but argument is of type 'unsigned int *'
+ void setup_interrupt(int*val){
+      ^
+Info: Linking HeLlOwOrLD.elf
+nios2-elf-g++  -T'../HeLlOwOrLD_bsp//linker.x' -msys-crt0='../HeLlOwOrLD_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../HeLlOwOrLD_bsp/   -Wl,-Map=HeLlOwOrLD.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o HeLlOwOrLD.elf obj/default/hello_world.o obj/default/pacecharts.o -lm -msys-lib=m
+nios2-elf-insert HeLlOwOrLD.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name nios2_system --quartus_project_dir "H:/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115" --sopcinfo H:/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115/HeLlOwOrLD_bsp/../nios2_system.sopcinfo
+Info: (HeLlOwOrLD.elf) 100 KBytes program size (code + initialized data).
+Info:                  8083 KBytes free for stack + heap.
+Info: Creating HeLlOwOrLD.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source HeLlOwOrLD.elf >HeLlOwOrLD.objdump
+[HeLlOwOrLD build complete]
+14:07:41 **** Incremental Build of configuration Nios II for project HeLlOwOrLD ****
+make all 
+Info: Building ../HeLlOwOrLD_bsp/
+C:/intelFPGA/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../HeLlOwOrLD_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../HeLlOwOrLD_bsp//HAL/inc -I../HeLlOwOrLD_bsp/ -I../HeLlOwOrLD_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'setup_interrupt':
+hello_world.c:86:2: warning: implicit declaration of function 'alt_irq_register' [-Wimplicit-function-declaration]
+  alt_irq_register(KEYS_IRQ,context_to_be_passed,button_interrupt_function);
+  ^
+hello_world.c: In function 'main':
+hello_world.c:141:21: warning: pointer targets in passing argument 1 of 'setup_interrupt' differ in signedness [-Wpointer-sign]
+     setup_interrupt(&uiButtonsValue);
+                     ^
+hello_world.c:79:6: note: expected 'int *' but argument is of type 'unsigned int *'
+ void setup_interrupt(int*val){
+      ^
+hello_world.c:157:52: warning: passing argument 1 of 'timerLEDISR' makes pointer from integer without a cast [-Wint-conversion]
+      alt_alarm_start(&ticker_LED, 500, timerLEDISR(3), timerContext);
+                                                    ^
+hello_world.c:74:9: note: expected 'void *' but argument is of type 'int'
+ alt_u32 timerLEDISR(void* context,int pos){
+         ^
+hello_world.c:157:40: error: too few arguments to function 'timerLEDISR'
+      alt_alarm_start(&ticker_LED, 500, timerLEDISR(3), timerContext);
+                                        ^
+hello_world.c:74:9: note: declared here
+ alt_u32 timerLEDISR(void* context,int pos){
+         ^
+make: *** [obj/default/hello_world.o] Error 1
+14:09:29 **** Incremental Build of configuration Nios II for project HeLlOwOrLD ****
+make all 
+Info: Building ../HeLlOwOrLD_bsp/
+C:/intelFPGA/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../HeLlOwOrLD_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../HeLlOwOrLD_bsp//HAL/inc -I../HeLlOwOrLD_bsp/ -I../HeLlOwOrLD_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'setup_interrupt':
+hello_world.c:86:2: warning: implicit declaration of function 'alt_irq_register' [-Wimplicit-function-declaration]
+  alt_irq_register(KEYS_IRQ,context_to_be_passed,button_interrupt_function);
+  ^
+hello_world.c: In function 'main':
+hello_world.c:141:21: warning: pointer targets in passing argument 1 of 'setup_interrupt' differ in signedness [-Wpointer-sign]
+     setup_interrupt(&uiButtonsValue);
+                     ^
+hello_world.c:79:6: note: expected 'int *' but argument is of type 'unsigned int *'
+ void setup_interrupt(int*val){
+      ^
+hello_world.c:218:1: error: expected declaration or statement at end of input
+ }
+ ^
+make: *** [obj/default/hello_world.o] Error 1
+14:10:00 **** Incremental Build of configuration Nios II for project HeLlOwOrLD ****
+make all 
+Info: Building ../HeLlOwOrLD_bsp/
+C:/intelFPGA/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../HeLlOwOrLD_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../HeLlOwOrLD_bsp//HAL/inc -I../HeLlOwOrLD_bsp/ -I../HeLlOwOrLD_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'setup_interrupt':
+hello_world.c:86:2: warning: implicit declaration of function 'alt_irq_register' [-Wimplicit-function-declaration]
+  alt_irq_register(KEYS_IRQ,context_to_be_passed,button_interrupt_function);
+  ^
+hello_world.c: In function 'main':
+hello_world.c:141:21: warning: pointer targets in passing argument 1 of 'setup_interrupt' differ in signedness [-Wpointer-sign]
+     setup_interrupt(&uiButtonsValue);
+                     ^
+hello_world.c:79:6: note: expected 'int *' but argument is of type 'unsigned int *'
+ void setup_interrupt(int*val){
+      ^
+Info: Linking HeLlOwOrLD.elf
+nios2-elf-g++  -T'../HeLlOwOrLD_bsp//linker.x' -msys-crt0='../HeLlOwOrLD_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../HeLlOwOrLD_bsp/   -Wl,-Map=HeLlOwOrLD.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o HeLlOwOrLD.elf obj/default/hello_world.o obj/default/pacecharts.o -lm -msys-lib=m
+nios2-elf-insert HeLlOwOrLD.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name nios2_system --quartus_project_dir "H:/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115" --sopcinfo H:/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115/HeLlOwOrLD_bsp/../nios2_system.sopcinfo
+Info: (HeLlOwOrLD.elf) 100 KBytes program size (code + initialized data).
+Info:                  8083 KBytes free for stack + heap.
+Info: Creating HeLlOwOrLD.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source HeLlOwOrLD.elf >HeLlOwOrLD.objdump
+[HeLlOwOrLD build complete]
+14:10:42 **** Incremental Build of configuration Nios II for project HeLlOwOrLD ****
+make all 
+Info: Building ../HeLlOwOrLD_bsp/
+C:/intelFPGA/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../HeLlOwOrLD_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../HeLlOwOrLD_bsp//HAL/inc -I../HeLlOwOrLD_bsp/ -I../HeLlOwOrLD_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'setup_interrupt':
+hello_world.c:86:2: warning: implicit declaration of function 'alt_irq_register' [-Wimplicit-function-declaration]
+  alt_irq_register(KEYS_IRQ,context_to_be_passed,button_interrupt_function);
+  ^
+hello_world.c: In function 'main':
+hello_world.c:141:21: warning: pointer targets in passing argument 1 of 'setup_interrupt' differ in signedness [-Wpointer-sign]
+     setup_interrupt(&uiButtonsValue);
+                     ^
+hello_world.c:79:6: note: expected 'int *' but argument is of type 'unsigned int *'
+ void setup_interrupt(int*val){
+      ^
+Info: Linking HeLlOwOrLD.elf
+nios2-elf-g++  -T'../HeLlOwOrLD_bsp//linker.x' -msys-crt0='../HeLlOwOrLD_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../HeLlOwOrLD_bsp/   -Wl,-Map=HeLlOwOrLD.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o HeLlOwOrLD.elf obj/default/hello_world.o obj/default/pacecharts.o -lm -msys-lib=m
+nios2-elf-insert HeLlOwOrLD.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name nios2_system --quartus_project_dir "H:/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115" --sopcinfo H:/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115/HeLlOwOrLD_bsp/../nios2_system.sopcinfo
+Info: (HeLlOwOrLD.elf) 100 KBytes program size (code + initialized data).
+Info:                  8083 KBytes free for stack + heap.
+Info: Creating HeLlOwOrLD.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source HeLlOwOrLD.elf >HeLlOwOrLD.objdump
+[HeLlOwOrLD build complete]
+14:19:52 **** Incremental Build of configuration Nios II for project HeLlOwOrLD ****
+make all 
+Info: Building ../HeLlOwOrLD_bsp/
+C:/intelFPGA/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../HeLlOwOrLD_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../HeLlOwOrLD_bsp//HAL/inc -I../HeLlOwOrLD_bsp/ -I../HeLlOwOrLD_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c:102:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'void'
+ void setup_interrupt(int*val){
+ ^
+hello_world.c: In function 'main':
+hello_world.c:167:5: warning: implicit declaration of function 'setup_interrupt' [-Wimplicit-function-declaration]
+     setup_interrupt(&uiButtonsValue);
+     ^
+hello_world.c:247:1: error: expected declaration or statement at end of input
+ }
+ ^
+make: *** [obj/default/hello_world.o] Error 1
+14:20:02 **** Incremental Build of configuration Nios II for project HeLlOwOrLD ****
+make all 
+Info: Building ../HeLlOwOrLD_bsp/
+C:/intelFPGA/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../HeLlOwOrLD_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../HeLlOwOrLD_bsp//HAL/inc -I../HeLlOwOrLD_bsp/ -I../HeLlOwOrLD_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'setup_interrupt':
+hello_world.c:107:2: warning: implicit declaration of function 'alt_irq_register' [-Wimplicit-function-declaration]
+  alt_irq_register(KEYS_IRQ,context_to_be_passed,button_interrupt_function);
+  ^
+hello_world.c: In function 'main':
+hello_world.c:165:21: warning: pointer targets in passing argument 1 of 'setup_interrupt' differ in signedness [-Wpointer-sign]
+     setup_interrupt(&uiButtonsValue);
+                     ^
+hello_world.c:100:6: note: expected 'int *' but argument is of type 'unsigned int *'
+ void setup_interrupt(int*val){
+      ^
+hello_world.c:245:1: error: expected declaration or statement at end of input
+ }
+ ^
+make: *** [obj/default/hello_world.o] Error 1
+14:20:41 **** Incremental Build of configuration Nios II for project HeLlOwOrLD ****
+make all 
+Info: Building ../HeLlOwOrLD_bsp/
+C:/intelFPGA/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../HeLlOwOrLD_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../HeLlOwOrLD_bsp//HAL/inc -I../HeLlOwOrLD_bsp/ -I../HeLlOwOrLD_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'setup_interrupt':
+hello_world.c:107:2: warning: implicit declaration of function 'alt_irq_register' [-Wimplicit-function-declaration]
+  alt_irq_register(KEYS_IRQ,context_to_be_passed,button_interrupt_function);
+  ^
+hello_world.c: In function 'main':
+hello_world.c:165:21: warning: pointer targets in passing argument 1 of 'setup_interrupt' differ in signedness [-Wpointer-sign]
+     setup_interrupt(&uiButtonsValue);
+                     ^
+hello_world.c:100:6: note: expected 'int *' but argument is of type 'unsigned int *'
+ void setup_interrupt(int*val){
+      ^
+Info: Linking HeLlOwOrLD.elf
+nios2-elf-g++  -T'../HeLlOwOrLD_bsp//linker.x' -msys-crt0='../HeLlOwOrLD_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../HeLlOwOrLD_bsp/   -Wl,-Map=HeLlOwOrLD.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o HeLlOwOrLD.elf obj/default/hello_world.o obj/default/pacecharts.o -lm -msys-lib=m
+nios2-elf-insert HeLlOwOrLD.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name nios2_system --quartus_project_dir "H:/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115" --sopcinfo H:/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115/HeLlOwOrLD_bsp/../nios2_system.sopcinfo
+Info: (HeLlOwOrLD.elf) 101 KBytes program size (code + initialized data).
+Info:                  8083 KBytes free for stack + heap.
+Info: Creating HeLlOwOrLD.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source HeLlOwOrLD.elf >HeLlOwOrLD.objdump
+[HeLlOwOrLD build complete]
+14:21:03 **** Incremental Build of configuration Nios II for project HeLlOwOrLD ****
+make all 
+Info: Building ../HeLlOwOrLD_bsp/
+C:/intelFPGA/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../HeLlOwOrLD_bsp/
+[BSP build complete]
+[HeLlOwOrLD build complete]
+14:21:57 **** Incremental Build of configuration Nios II for project HeLlOwOrLD ****
+make all 
+Info: Building ../HeLlOwOrLD_bsp/
+C:/intelFPGA/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../HeLlOwOrLD_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../HeLlOwOrLD_bsp//HAL/inc -I../HeLlOwOrLD_bsp/ -I../HeLlOwOrLD_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'setup_interrupt':
+hello_world.c:107:2: warning: implicit declaration of function 'alt_irq_register' [-Wimplicit-function-declaration]
+  alt_irq_register(KEYS_IRQ,context_to_be_passed,button_interrupt_function);
+  ^
+hello_world.c: In function 'main':
+hello_world.c:165:21: warning: pointer targets in passing argument 1 of 'setup_interrupt' differ in signedness [-Wpointer-sign]
+     setup_interrupt(&uiButtonsValue);
+                     ^
+hello_world.c:100:6: note: expected 'int *' but argument is of type 'unsigned int *'
+ void setup_interrupt(int*val){
+      ^
+hello_world.c:117:12: warning: unused variable 'ticker_VPLED' [-Wunused-variable]
+  alt_alarm ticker_VPLED;
+            ^
+hello_world.c:116:12: warning: unused variable 'ticker_APLED' [-Wunused-variable]
+  alt_alarm ticker_APLED;
+            ^
+Info: Linking HeLlOwOrLD.elf
+nios2-elf-g++  -T'../HeLlOwOrLD_bsp//linker.x' -msys-crt0='../HeLlOwOrLD_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../HeLlOwOrLD_bsp/   -Wl,-Map=HeLlOwOrLD.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o HeLlOwOrLD.elf obj/default/hello_world.o obj/default/pacecharts.o -lm -msys-lib=m
+nios2-elf-insert HeLlOwOrLD.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name nios2_system --quartus_project_dir "H:/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115" --sopcinfo H:/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115/HeLlOwOrLD_bsp/../nios2_system.sopcinfo
+Info: (HeLlOwOrLD.elf) 101 KBytes program size (code + initialized data).
+Info:                  8083 KBytes free for stack + heap.
+Info: Creating HeLlOwOrLD.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source HeLlOwOrLD.elf >HeLlOwOrLD.objdump
+[HeLlOwOrLD build complete]
+14:23:24 **** Incremental Build of configuration Nios II for project HeLlOwOrLD ****
+make all 
+Info: Building ../HeLlOwOrLD_bsp/
+C:/intelFPGA/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../HeLlOwOrLD_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../HeLlOwOrLD_bsp//HAL/inc -I../HeLlOwOrLD_bsp/ -I../HeLlOwOrLD_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'setup_interrupt':
+hello_world.c:107:2: warning: implicit declaration of function 'alt_irq_register' [-Wimplicit-function-declaration]
+  alt_irq_register(KEYS_IRQ,context_to_be_passed,button_interrupt_function);
+  ^
+hello_world.c: In function 'main':
+hello_world.c:165:21: warning: pointer targets in passing argument 1 of 'setup_interrupt' differ in signedness [-Wpointer-sign]
+     setup_interrupt(&uiButtonsValue);
+                     ^
+hello_world.c:100:6: note: expected 'int *' but argument is of type 'unsigned int *'
+ void setup_interrupt(int*val){
+      ^
+hello_world.c:117:12: warning: unused variable 'ticker_VPLED' [-Wunused-variable]
+  alt_alarm ticker_VPLED;
+            ^
+hello_world.c:116:12: warning: unused variable 'ticker_APLED' [-Wunused-variable]
+  alt_alarm ticker_APLED;
+            ^
+Info: Linking HeLlOwOrLD.elf
+nios2-elf-g++  -T'../HeLlOwOrLD_bsp//linker.x' -msys-crt0='../HeLlOwOrLD_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../HeLlOwOrLD_bsp/   -Wl,-Map=HeLlOwOrLD.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o HeLlOwOrLD.elf obj/default/hello_world.o obj/default/pacecharts.o -lm -msys-lib=m
+nios2-elf-insert HeLlOwOrLD.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name nios2_system --quartus_project_dir "H:/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115" --sopcinfo H:/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115/HeLlOwOrLD_bsp/../nios2_system.sopcinfo
+Info: (HeLlOwOrLD.elf) 101 KBytes program size (code + initialized data).
+Info:                  8083 KBytes free for stack + heap.
+Info: Creating HeLlOwOrLD.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source HeLlOwOrLD.elf >HeLlOwOrLD.objdump
+[HeLlOwOrLD build complete]

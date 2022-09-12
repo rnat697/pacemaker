@@ -1,4 +1,4 @@
 eclipse.preferences.version=1
-newSoftwareExampleWizardPage.defaultLocation=\\\\files.auckland.ac.nz\\myhome\\Documents\\GitHub\\ddd-mode-pacemaker-303-group-10\\SCChart\\DE2-115\\software\\ddd_pace_software
-newSoftwareExampleWizardPage.sopcinfoFile=\\\\files.auckland.ac.nz\\myhome\\Documents\\GitHub\\ddd-mode-pacemaker-303-group-10\\SCChart\\DE2-115\\nios2_system.sopcinfo
-newSoftwareExampleWizardPage2.newBspLocation=\\\\files.auckland.ac.nz\\myhome\\Documents\\GitHub\\ddd-mode-pacemaker-303-group-10\\SCChart\\DE2-115\\software\\ddd_pace_software_bsp
+newSoftwareExampleWizardPage.defaultLocation=H\:\\Documents\\GitHub\\ddd-mode-pacemaker-303-group-10\\SCChart\\DE2-115\\software
+newSoftwareExampleWizardPage.sopcinfoFile=H\:\\Documents\\GitHub\\ddd-mode-pacemaker-303-group-10\\SCChart\\DE2-115\\nios2_system.sopcinfo
+newSoftwareExampleWizardPage2.newBspLocation=H\:\\Documents\\GitHub\\ddd-mode-pacemaker-303-group-10\\SCChart\\DE2-115\\HeLlOwOrLD_bsp
