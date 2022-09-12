@@ -155,11 +155,9 @@ int main()
 		data.VS = 0; // reset on new tick
 
 
-		if (switchValueInteger==1){ //mode 1
-			// if have time to do: only print mode 1 once
-			//fprintf(lcd, "BUTTON VALUE: %d\n", uiButtonsValue);
-			//printf("MODE 1\n");
-			setup_interrupt(&uiButtonsValue);
+		if (switchValueInteger==1){ //mode1
+			//printf("mode 1\n");
+			 setup_interrupt(&uiButtonsValue);
 			if(buttonAS == 1){ // AS = KEY1
 				data.AS = 1;
 				buttonAS = 0;
@@ -222,18 +220,18 @@ int main()
 
 
 		//IOWR_ALTERA_AVALON_PIO_DATA(LEDS_RED_BASE, uiSwitchValue);
-//		uiButtonsValuePrevious = uiButtonsValue;
-//		uiButtonsValue = IORD_ALTERA_AVALON_PIO_DATA(KEYS_BASE);
-//			if(lcd != NULL)
-//			{
-//				if(uiButtonsValuePrevious != uiButtonsValue)
-//				{
-//					#define ESC 27
-//					#define CLEAR_LCD_STRING "[2J"
-//					fprintf(lcd, "%c%s", ESC, CLEAR_LCD_STRING);
-//					fprintf(lcd, "BUTTON VALUE: %d\n", uiButtonsValue);
-//				}
-//			}
+		uiButtonsValuePrevious = uiButtonsValue;
+		uiButtonsValue = IORD_ALTERA_AVALON_PIO_DATA(KEYS_BASE);
+			if(lcd != NULL)
+			{
+				if(uiButtonsValuePrevious != uiButtonsValue)
+				{
+					#define ESC 27
+					#define CLEAR_LCD_STRING "[2J"
+					fprintf(lcd, "%c%s", ESC, CLEAR_LCD_STRING);
+					fprintf(lcd, "BUTTON VALUE: %d\n", uiButtonsValue);
+				}
+			}
 
 
 		}

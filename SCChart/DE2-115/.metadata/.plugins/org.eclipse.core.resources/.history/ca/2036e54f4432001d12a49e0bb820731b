@@ -156,7 +156,7 @@ int main()
 
 
 		if (switchValueInteger==1){ //mode 1
-			// if have time to do: only print mode 1 once
+			// if have time to do: only print mode 1 twice
 			//fprintf(lcd, "BUTTON VALUE: %d\n", uiButtonsValue);
 			//printf("MODE 1\n");
 			setup_interrupt(&uiButtonsValue);

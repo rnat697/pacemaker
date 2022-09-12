@@ -155,10 +155,8 @@ int main()
 		data.VS = 0; // reset on new tick
 
 
-		if (switchValueInteger==1){ //mode 1
-			// if have time to do: only print mode 1 once
-			//fprintf(lcd, "BUTTON VALUE: %d\n", uiButtonsValue);
-			//printf("MODE 1\n");
+		if (switchValueInteger==1){ //mode1
+			printf("MODE 1\n");
 			setup_interrupt(&uiButtonsValue);
 			if(buttonAS == 1){ // AS = KEY1
 				data.AS = 1;

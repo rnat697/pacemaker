@@ -887,3 +887,66 @@ C Model Exception: C Model Status [Element hello_world.c does not exist.]
 
 !ENTRY com.altera.sbtgui.launch 1 0 2022-09-12 14:23:31.643
 !MESSAGE Executing: [C:/intelfpga/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go /cygdrive/h/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115/software/HeLlOwOrLD.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-09-12 14:27:21.375
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-09-12 14:27:22.034
+!MESSAGE Executing: [C:/intelfpga/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-09-12 14:27:23.855
+!MESSAGE Executing: [C:/intelfpga/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go /cygdrive/h/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115/software/HeLlOwOrLD.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-09-12 14:30:39.249
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-09-12 14:30:39.768
+!MESSAGE Executing: [C:/intelfpga/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-09-12 14:30:41.572
+!MESSAGE Executing: [C:/intelfpga/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go /cygdrive/h/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115/software/HeLlOwOrLD.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-09-12 14:33:51.383
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-09-12 14:33:51.901
+!MESSAGE Executing: [C:/intelfpga/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-09-12 14:33:53.786
+!MESSAGE Executing: [C:/intelfpga/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go /cygdrive/h/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115/software/HeLlOwOrLD.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-09-12 14:35:22.638
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-09-12 14:35:23.159
+!MESSAGE Executing: [C:/intelfpga/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-09-12 14:35:24.921
+!MESSAGE Executing: [C:/intelfpga/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go /cygdrive/h/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115/software/HeLlOwOrLD.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-09-12 14:38:11.406
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-09-12 14:38:11.905
+!MESSAGE Executing: [C:/intelfpga/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-09-12 14:38:13.710
+!MESSAGE Executing: [C:/intelfpga/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go /cygdrive/h/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115/software/HeLlOwOrLD.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-09-12 14:39:26.862
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-09-12 14:39:27.339
+!MESSAGE Executing: [C:/intelfpga/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-09-12 14:39:29.120
+!MESSAGE Executing: [C:/intelfpga/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go /cygdrive/h/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115/software/HeLlOwOrLD.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-09-12 14:39:52.759
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-09-12 14:39:53.376
+!MESSAGE Executing: [C:/intelfpga/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-09-12 14:40:00.123
+!MESSAGE Executing: [C:/intelfpga/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go /cygdrive/h/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115/software/HeLlOwOrLD.elf]
