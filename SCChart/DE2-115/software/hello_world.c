@@ -21,13 +21,26 @@
 #include <sys/alt_alarm.h>
 #include <sys/alt_irq.h>
 
+
+#include "altera_avalon_uart.h"
+#include "altera_avalon_uart_regs.h"
+// its to look at the msk to check if data is there.
 #include "pacecharts.h"
 #include "timing.h"
-
+// BAUD RATE IS 115200
 
 unsigned int volatile buttonAS;
 unsigned int volatile buttonVS;
 unsigned int volatile turnOffLED;
+
+typedef struct{
+	alt_alarm ticker;
+	alt_alarm ticker_VSLED;
+	alt_alarm ticker_ASLED;
+	alt_alarm ticker_APLED;
+	alt_alarm ticker_VPLED;
+
+}Ticks;
 
 void button_interrupt_function(void* context, alt_u32 id){
 	int* temp = (int*) context; // casting context first
@@ -94,7 +107,7 @@ alt_u32 vpLEDISR(void* context){
 
 
 
-void setup_interrupt(int*val){
+void setup_interrupt(int*val){//buttons for Mode 1
 	void *context_to_be_passed = (void*) val;
 	//clear edge capture register
 	IOWR_ALTERA_AVALON_PIO_EDGE_CAP(KEYS_BASE,0);
@@ -104,15 +117,77 @@ void setup_interrupt(int*val){
 	alt_irq_register(KEYS_IRQ,context_to_be_passed,button_interrupt_function);
 }
 
+
+void setup_interruptMode2(int*val){
+
+
+	//ALTERA_AVALON_UART_STATUS_RRDY_MASK or ALTERA_AVALON_UART_STATUS_TRDY_MSK
+	//	IOWR_ALTERA_AVALON_PIO_IRQ_MASK() call to enable the interrupt handler, and associated
+	//	IOWR_ALTERA_AVALON_PIO_EDGE_CAP() calls whenever the interrupts should be cleared.
+
+	void *context_to_be_passed = (void*) val;
+	//clear edge capture register
+	IOWR_ALTERA_AVALON_PIO_EDGE_CAP(UART_BASE,0);
+	// enable interrupts for left and right buttons i.e. button 2 and button 0
+	IOWR_ALTERA_AVALON_PIO_IRQ_MASK(UART_BASE, 1);//when interrupt triggered.
+	// register the ISR
+	alt_irq_register(KEYS_IRQ,context_to_be_passed,button_interrupt_function);
+
+
+}
+
+//Aron helped again :)
+void mode_1(unsigned int uiButtonsValue, TickData* data, Ticks* tickStruct, void* timerContext){
+	setup_interrupt(&uiButtonsValue);
+	if(buttonAS == 1){ // AS = KEY1
+
+		 //use -> instead of . as it changes directly and not create a new instance?
+		data->AS = 1;
+		buttonAS = 0; //global parameter doesn't need assignment.
+		printf("AS set\n");
+
+			if(!getGreenLED(5)) {
+				setGreenLED(5, 1); // turn on LED 5 for AS
+				alt_alarm_start(&tickStruct->ticker_ASLED, 200, asLEDISR, timerContext);
+			}
+		}
+
+	else if (buttonVS ==1){// VS = KEY0
+		data->VS = 1;
+		buttonVS =0;
+		printf("VS set\n");
+		if(!getGreenLED(4)) {
+			setGreenLED(4, 1); // turn on LED 4 for VS
+			alt_alarm_start(&tickStruct->ticker_VSLED, 200, vsLEDISR, timerContext);
+		}
+	}
+
+
+	if(data->AP)//remove == coz checking chara gainst number variable.
+	{	printf("AP is paced\n");
+		if(!getGreenLED(1)) {
+			setGreenLED(1, 1); // turn on LED 1 for AP
+			alt_alarm_start(&tickStruct->ticker_APLED, 200, apLEDISR, timerContext);
+		}
+	}
+
+
+	else if(data->VP){
+		printf("VP is paced\n");
+		if(!getGreenLED(0)) {
+			setGreenLED(0, 1); // turn on LED 0 for VS
+
+			alt_alarm_start(&tickStruct->ticker_VPLED, 200, vpLEDISR, timerContext);
+		}
+	}
+}
+
+
+
 int main()
 {
 	TickData data;
-	alt_alarm ticker;
-	alt_alarm ticker_VSLED;
-	alt_alarm ticker_ASLED;
-	alt_alarm ticker_APLED;
-	alt_alarm ticker_VPLED;
-
+	Ticks tickStruct;
 	reset(&data);
 	tick(&data);
 
@@ -130,7 +205,8 @@ int main()
 	uint64_t prevTime = 0;
 	uint64_t systemTime = 0;
 	void* timerContext = (void*) &systemTime;   //from aron github https://github.com/aron-jeremiah/CompSys303-SCCharts-Examples/blob/main/NiosExamples/SCCharts_Timer_Intergration_Example/main.c
-	alt_alarm_start(&ticker, 1, timerISR, timerContext);
+	alt_alarm_start(&tickStruct.ticker, 1, timerISR, timerContext);
+
 
 
 
@@ -142,7 +218,7 @@ int main()
 		prevTime = systemTime;
 
 
-
+		int countAtimer;
 		//update inputs
 		tick(&data);
 		uiButtonsValue = 0;
@@ -154,59 +230,95 @@ int main()
 		data.AS =0;// reset on new tick
 		data.VS = 0; // reset on new tick
 
+		int countVP = 100;
+		int countAP = 100;
+		int countAS = 100;
+		int countVS = 100;
 
 		if (switchValueInteger==1){ //mode 1
 			// if have time to do: only print mode 1 once
 			//fprintf(lcd, "BUTTON VALUE: %d\n", uiButtonsValue);
 			//printf("MODE 1\n");
-			setup_interrupt(&uiButtonsValue);
-			if(buttonAS == 1){ // AS = KEY1
-				data.AS = 1;
-				buttonAS = 0;
-				printf("AS set\n");
+			mode_1(uiButtonsValue,&data,&tickStruct, timerContext);
 
-					if(!getGreenLED(5)) {
-						setGreenLED(5, 1); // turn on LED 5 for AS
-						alt_alarm_start(&ticker_ASLED, 200, asLEDISR, timerContext);
-					}
+
+
+		}else if (switchValueInteger==2){//mode2
+			//printf("mode 2\n");
+			//mode_2();
+			///////Uart Code//////
+
+			IOWR_ALTERA_AVALON_UART_CONTROL(UART_BASE,0);
+			//make interrupt that triggers uart read.
+			// interrupt sets data to global variable
+			//if conditional checks if there is something in the variable
+			//reads variable and then unset the.
+
+
+//			IOWR_ALTERA_AVALON_PIO_IRQ_MASK() call to enable the interrupt handler, and associated
+//			IOWR_ALTERA_AVALON_PIO_EDGE_CAP() calls whenever the interrupts should be cleared.
+
+
+			if(IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)& ALTERA_AVALON_UART_STATUS_RRDY_MSK){
+				char input= IORD_ALTERA_AVALON_UART_RXDATA(UART_BASE);// read input data from UART
+				IOWR_ALTERA_AVALON_UART_CONTROL(UART_BASE,(1<<7));
+
+				//char dataInMemory[1000];
+				//FILE * fileDescriptor = fmemopen(dataInMemory, sizeof(dataInMemory), "W");
+
+
+				if((input=='A')||(input=='a'))
+				{
+					printf("AS is set\n");
+					data.AS = 1;
+				}else {
+					data.AS = 0;
+				}
+				if(data.AS){
+					countAS = 100;
+				}else if (countAS > 0){
+					countAS--;
 				}
 
-			else if (buttonVS ==1){// VS = KEY0
-				data.VS = 1;
-				buttonVS =0;
-				printf("VS set\n");
-				if(!getGreenLED(4)) {
-					setGreenLED(4, 1); // turn on LED 4 for VS
-					alt_alarm_start(&ticker_VSLED, 200, vsLEDISR, timerContext);
+				if((input=='V')||(input=='v'))
+				{
+					printf("VS is set\n");
+					data.VS=1;
+
+				}else{
+					data.VS = 0;
 				}
+				if(data.VS){
+					countVS = 100;
+				}else if (countVS > 0){
+					countVS--;
+				}
+
 			}
-
-
-			if(data.AP==1)
-			{	printf("AP is paced\n");
-				if(!getGreenLED(1)) {
-					setGreenLED(1, 1); // turn on LED 1 for AP
-					alt_alarm_start(&ticker_APLED, 200, apLEDISR, timerContext);
-				}
+			if(data.AP)//remove == coz checking chara gainst number variable.
+				{	printf("AP is paced\n");
+					while((~IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)&& ALTERA_AVALON_UART_STATUS_TRDY_MSK)){}
+					IOWR_ALTERA_AVALON_UART_TXDATA(UART_BASE, 'A');
+					countAP = 100;
+			}else if(countAP >0){
+				countAP--;
 			}
-
-
-			else if(data.VP==1){
+			if(data.VP){
 				printf("VP is paced\n");
-				if(!getGreenLED(0)) {
-					setGreenLED(0, 1); // turn on LED 0 for VS
+				while((!IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)& ALTERA_AVALON_UART_STATUS_TRDY_MSK)){}
+				IOWR_ALTERA_AVALON_UART_TXDATA(UART_BASE, 'V');
+				countVP = 100;
 
-					alt_alarm_start(&ticker_VPLED, 200, vpLEDISR, timerContext);
-				}
+			}else if(countVP > 0){
+				countVP--;
 			}
+		}//switch mode end
 
+	}
+	fclose(lcd);
 
+}
 
-
-		else if (switchValueInteger==2){//mode2
-			printf("mode 2\n");
-
-		}
 
 
 		//mode 1
@@ -236,9 +348,6 @@ int main()
 //			}
 
 
-		}
-	}
-	fclose(lcd);
 
-}
+
 
