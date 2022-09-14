@@ -291,17 +291,22 @@ int main()
 //				}
 
 			}
-			if(data.AP){//remove == coz checking char against number variable.
-//					printf("AP is paced\n");
-					while(!(IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)& ALTERA_AVALON_UART_STATUS_TRDY_MSK)){}
-					IOWR_ALTERA_AVALON_UART_TXDATA(UART_BASE, 'A');
+			if(data.AP)//remove == coz checking chara gainst number variable.
+//				{	printf("AP is paced\n");
+//					//while((~IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)&& ALTERA_AVALON_UART_STATUS_TRDY_MSK)){}
+//					IOWR_ALTERA_AVALON_UART_TXDATA(UART_BASE, 'A');
 //					countAP = 100;
 
-
+				FILE* fp;
+				fp = fopen(UART_NAME, "w"); // open up UART with write accesss
+				if (fp != NULL) // check if the UART is open successfully
+				{
+				fprintf(fp, "%s", 'A'); // use fprintf to write things
+				fclose(fp); // remember to close the file
 			}
 			if(data.VP){
 				printf("VP is paced\n");
-				while(!(IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)& ALTERA_AVALON_UART_STATUS_TRDY_MSK)){}
+				//while((!IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)& ALTERA_AVALON_UART_STATUS_TRDY_MSK)){}
 				IOWR_ALTERA_AVALON_UART_TXDATA(UART_BASE, 'V');
 				countVP = 100;
 

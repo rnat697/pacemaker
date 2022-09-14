@@ -118,23 +118,23 @@ void setup_interrupt(int*val){//buttons for Mode 1
 }
 
 
-//void setup_interruptMode2(int*val){
-//
-//
-//	//ALTERA_AVALON_UART_STATUS_RRDY_MASK or ALTERA_AVALON_UART_STATUS_TRDY_MSK
-//	//	IOWR_ALTERA_AVALON_PIO_IRQ_MASK() call to enable the interrupt handler, and associated
-//	//	IOWR_ALTERA_AVALON_PIO_EDGE_CAP() calls whenever the interrupts should be cleared.
-//
-//	void *context_to_be_passed = (void*) val;
-//	//clear edge capture register
-//	IOWR_ALTERA_AVALON_PIO_EDGE_CAP(UART_BASE,0);
-//
-//	IOWR_ALTERA_AVALON_PIO_IRQ_MASK(UART_BASE, 1);//when interrupt triggered.
-//	// register the ISR
-//	alt_irq_register(KEYS_IRQ,context_to_be_passed,button_interrupt_function);
-//
-//
-//}
+void setup_interruptMode2(int*val){
+
+
+	//ALTERA_AVALON_UART_STATUS_RRDY_MASK or ALTERA_AVALON_UART_STATUS_TRDY_MSK
+	//	IOWR_ALTERA_AVALON_PIO_IRQ_MASK() call to enable the interrupt handler, and associated
+	//	IOWR_ALTERA_AVALON_PIO_EDGE_CAP() calls whenever the interrupts should be cleared.
+
+	void *context_to_be_passed = (void*) val;
+	//clear edge capture register
+	IOWR_ALTERA_AVALON_PIO_EDGE_CAP(UART_BASE,0);
+	// enable interrupts for left and right buttons i.e. button 2 and button 0
+	IOWR_ALTERA_AVALON_PIO_IRQ_MASK(UART_BASE, 1);//when interrupt triggered.
+	// register the ISR
+	alt_irq_register(KEYS_IRQ,context_to_be_passed,button_interrupt_function);
+
+
+}
 
 //Aron helped again :)
 void mode_1(unsigned int uiButtonsValue, TickData* data, Ticks* tickStruct, void* timerContext){
@@ -265,46 +265,52 @@ int main()
 
 				//char dataInMemory[1000];
 				//FILE * fileDescriptor = fmemopen(dataInMemory, sizeof(dataInMemory), "W");
-				//printf('%s\n',input);
+
 
 				if((input=='A')||(input=='a'))
 				{
 					printf("AS is set\n");
 					data.AS = 1;
+				}else {
+					data.AS = 0;
 				}
-//				if(data.AS){
-//					countAS = 100;
-//				}else if (countAS > 0){
-//					countAS--;
-//				}
+				if(data.AS){
+					countAS = 100;
+				}else if (countAS > 0){
+					countAS--;
+				}
 
 				if((input=='V')||(input=='v'))
 				{
 					printf("VS is set\n");
 					data.VS=1;
 
+				}else{
+					data.VS = 0;
 				}
-//				if(data.VS){
-//					countVS = 100;
-//				}else if (countVS > 0){
-//					countVS--;
-//				}
+				if(data.VS){
+					countVS = 100;
+				}else if (countVS > 0){
+					countVS--;
+				}
 
 			}
-			if(data.AP){//remove == coz checking char against number variable.
-//					printf("AP is paced\n");
-					while(!(IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)& ALTERA_AVALON_UART_STATUS_TRDY_MSK)){}
+			if(data.AP)//remove == coz checking chara gainst number variable.
+				{	printf("AP is paced\n");
+					while((~IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)&& ALTERA_AVALON_UART_STATUS_TRDY_MSK)){}
 					IOWR_ALTERA_AVALON_UART_TXDATA(UART_BASE, 'A');
-//					countAP = 100;
-
-
+					countAP = 100;
+			}else if(countAP >0){
+				countAP--;
 			}
 			if(data.VP){
 				printf("VP is paced\n");
-				while(!(IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)& ALTERA_AVALON_UART_STATUS_TRDY_MSK)){}
+				while((!IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)& ALTERA_AVALON_UART_STATUS_TRDY_MSK)){}
 				IOWR_ALTERA_AVALON_UART_TXDATA(UART_BASE, 'V');
 				countVP = 100;
 
+			}else if(countVP > 0){
+				countVP--;
 			}
 		}//switch mode end
 

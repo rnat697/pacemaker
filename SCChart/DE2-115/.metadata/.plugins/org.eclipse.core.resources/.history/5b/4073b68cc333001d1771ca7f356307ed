@@ -265,7 +265,7 @@ int main()
 
 				//char dataInMemory[1000];
 				//FILE * fileDescriptor = fmemopen(dataInMemory, sizeof(dataInMemory), "W");
-				//printf('%s\n',input);
+				printf('%s',input);
 
 				if((input=='A')||(input=='a'))
 				{
@@ -291,17 +291,15 @@ int main()
 //				}
 
 			}
-			if(data.AP){//remove == coz checking char against number variable.
-//					printf("AP is paced\n");
-					while(!(IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)& ALTERA_AVALON_UART_STATUS_TRDY_MSK)){}
+			if(data.AP)//remove == coz checking chara gainst number variable.
+				{	printf("AP is paced\n");
+					//while((~IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)&& ALTERA_AVALON_UART_STATUS_TRDY_MSK)){}
 					IOWR_ALTERA_AVALON_UART_TXDATA(UART_BASE, 'A');
-//					countAP = 100;
-
-
+					countAP = 100;
 			}
 			if(data.VP){
 				printf("VP is paced\n");
-				while(!(IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)& ALTERA_AVALON_UART_STATUS_TRDY_MSK)){}
+				//while((!IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)& ALTERA_AVALON_UART_STATUS_TRDY_MSK)){}
 				IOWR_ALTERA_AVALON_UART_TXDATA(UART_BASE, 'V');
 				countVP = 100;
 

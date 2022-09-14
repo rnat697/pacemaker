@@ -291,7 +291,7 @@ int main()
 //				}
 
 			}
-			if(data.AP){//remove == coz checking char against number variable.
+			if(data.AP){//remove == coz checking chara gainst number variable.
 //					printf("AP is paced\n");
 					while(!(IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)& ALTERA_AVALON_UART_STATUS_TRDY_MSK)){}
 					IOWR_ALTERA_AVALON_UART_TXDATA(UART_BASE, 'A');
