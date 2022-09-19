@@ -1,48 +1,9 @@
-12:41:05 **** Incremental Build of configuration Nios II for project HeLlOwOrLD ****
+11:50:13 **** Incremental Build of configuration Nios II for project HeLlOwOrLD ****
 make all 
 Info: Building ../HeLlOwOrLD_bsp/
 C:/intelFPGA/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../HeLlOwOrLD_bsp/
 [BSP build complete]
-Info: Compiling hello_world.c to obj/default/hello_world.o
-nios2-elf-gcc -xc -MP -MMD -c -I../HeLlOwOrLD_bsp//HAL/inc -I../HeLlOwOrLD_bsp/ -I../HeLlOwOrLD_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
-hello_world.c: In function 'setup_interrupt':
-hello_world.c:117:2: warning: implicit declaration of function 'alt_irq_register' [-Wimplicit-function-declaration]
-  alt_irq_register(KEYS_IRQ,context_to_be_passed,button_interrupt_function);
-  ^
-hello_world.c: In function 'mode_1':
-hello_world.c:141:18: warning: pointer targets in passing argument 1 of 'setup_interrupt' differ in signedness [-Wpointer-sign]
-  setup_interrupt(&uiButtonsValue);
-                  ^
-hello_world.c:110:6: note: expected 'int *' but argument is of type 'unsigned int *'
- void setup_interrupt(int*val){//buttons for Mode 1
-      ^
-hello_world.c: In function 'main':
-hello_world.c:236:7: warning: unused variable 'countVS' [-Wunused-variable]
-   int countVS = 100;
-       ^
-hello_world.c:235:7: warning: unused variable 'countAS' [-Wunused-variable]
-   int countAS = 100;
-       ^
-hello_world.c:234:7: warning: unused variable 'countAP' [-Wunused-variable]
-   int countAP = 100;
-       ^
-hello_world.c:233:7: warning: variable 'countVP' set but not used [-Wunused-but-set-variable]
-   int countVP = 100;
-       ^
-hello_world.c:221:7: warning: unused variable 'countAtimer' [-Wunused-variable]
-   int countAtimer;
-       ^
-hello_world.c:196:15: warning: variable 'uiButtonsValuePrevious' set but not used [-Wunused-but-set-variable]
-  unsigned int uiButtonsValuePrevious;
-               ^
-Info: Linking HeLlOwOrLD.elf
-nios2-elf-g++  -T'../HeLlOwOrLD_bsp//linker.x' -msys-crt0='../HeLlOwOrLD_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../HeLlOwOrLD_bsp/   -Wl,-Map=HeLlOwOrLD.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o HeLlOwOrLD.elf obj/default/hello_world.o obj/default/pacecharts.o -lm -msys-lib=m
-nios2-elf-insert HeLlOwOrLD.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name nios2_system --quartus_project_dir "H:/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115" --sopcinfo H:/Documents/GitHub/ddd-mode-pacemaker-303-group-10/SCChart/DE2-115/HeLlOwOrLD_bsp/../nios2_system.sopcinfo
-Info: (HeLlOwOrLD.elf) 68 KBytes program size (code + initialized data).
-Info:                  8115 KBytes free for stack + heap.
-Info: Creating HeLlOwOrLD.objdump
-nios2-elf-objdump --disassemble --syms --all-header --source HeLlOwOrLD.elf >HeLlOwOrLD.objdump
 [HeLlOwOrLD build complete]
 
-12:41:09 Build Finished (took 3s.858ms)
+11:50:14 Build Finished (took 1s.908ms)
 

@@ -24,7 +24,7 @@
 
 #include "altera_avalon_uart.h"
 #include "altera_avalon_uart_regs.h"
-
+// its to look at the msk to check if data is there.
 #include "pacecharts.h"
 #include "timing.h"
 // BAUD RATE IS 115200
@@ -118,6 +118,23 @@ void setup_interrupt(int*val){//buttons for Mode 1
 }
 
 
+//void setup_interruptMode2(int*val){
+//
+//
+//	//ALTERA_AVALON_UART_STATUS_RRDY_MASK or ALTERA_AVALON_UART_STATUS_TRDY_MSK
+//	//	IOWR_ALTERA_AVALON_PIO_IRQ_MASK() call to enable the interrupt handler, and associated
+//	//	IOWR_ALTERA_AVALON_PIO_EDGE_CAP() calls whenever the interrupts should be cleared.
+//
+//	void *context_to_be_passed = (void*) val;
+//	//clear edge capture register
+//	IOWR_ALTERA_AVALON_PIO_EDGE_CAP(UART_BASE,0);
+//
+//	IOWR_ALTERA_AVALON_PIO_IRQ_MASK(UART_BASE, 1);//when interrupt triggered.
+//	// register the ISR
+//	alt_irq_register(KEYS_IRQ,context_to_be_passed,button_interrupt_function);
+//
+//
+//}
 
 //Aron helped again :)
 void mode_1(unsigned int uiButtonsValue, TickData* data, Ticks* tickStruct, void* timerContext){
@@ -165,43 +182,7 @@ void mode_1(unsigned int uiButtonsValue, TickData* data, Ticks* tickStruct, void
 	}
 }
 
-void mode_2(TickData* data){
-	///////Uart Code//////
-	IOWR_ALTERA_AVALON_UART_CONTROL(UART_BASE,0);
-
-
-	if(IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)& ALTERA_AVALON_UART_STATUS_RRDY_MSK){
-		char input= IORD_ALTERA_AVALON_UART_RXDATA(UART_BASE);// read input data from UART
-		IOWR_ALTERA_AVALON_UART_CONTROL(UART_BASE,(1<<7));
-
-
-		if((input=='A')||(input=='a'))
-		{
-			printf("AS is set\n");
-			data->AS = 1;
-		}
-
-
-		if((input=='V')||(input=='v'))
-		{
-			printf("VS is set\n");
-			data->VS=1;
-
-		}
-
-
-	}
-	if(data->AP){
-			printf("AP is paced\n");
-			while(!(IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)& ALTERA_AVALON_UART_STATUS_TRDY_MSK)){}
-			IOWR_ALTERA_AVALON_UART_TXDATA(UART_BASE, 'A');
-	}
-	if(data->VP){
-		printf("VP is paced\n");
-		while(!(IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)& ALTERA_AVALON_UART_STATUS_TRDY_MSK)){}
-		IOWR_ALTERA_AVALON_UART_TXDATA(UART_BASE, 'V');
-
-	}
+void mode_2(){
 
 }
 
@@ -214,6 +195,7 @@ int main()
 
 	unsigned int uiSwitchValue = 0;
 	unsigned int uiButtonsValue;
+	unsigned int uiButtonsValuePrevious;
 
 
 	FILE *lcd;
@@ -226,15 +208,23 @@ int main()
 	uint64_t systemTime = 0;
 	void* timerContext = (void*) &systemTime;   //from aron github https://github.com/aron-jeremiah/CompSys303-SCCharts-Examples/blob/main/NiosExamples/SCCharts_Timer_Intergration_Example/main.c
 	alt_alarm_start(&tickStruct.ticker, 1, timerISR, timerContext);
+
+
+
+
+
+
 	while(1)
 	{
 		data.deltaT = systemTime - prevTime;
 		prevTime = systemTime;
 
+
+		int countAtimer;
 		//update inputs
 		tick(&data);
 		uiButtonsValue = 0;
-
+		uiButtonsValuePrevious = 0;
 		uiSwitchValue = IORD_ALTERA_AVALON_PIO_DATA(SWITCHES_BASE);
 		IOWR_ALTERA_AVALON_PIO_DATA(LEDS_RED_BASE, uiSwitchValue);
 		int switchValueInteger = (int)(uiSwitchValue);
@@ -242,16 +232,99 @@ int main()
 		data.AS =0;// reset on new tick
 		data.VS = 0; // reset on new tick
 
+		int countVP = 100;
+		int countAP = 100;
+		int countAS = 100;
+		int countVS = 100;
 
 		if (switchValueInteger==1){ //mode 1
+			// if have time to do: only print mode 1 once
+			//fprintf(lcd, "BUTTON VALUE: %d\n", uiButtonsValue);
+			//printf("MODE 1\n");
 			mode_1(uiButtonsValue,&data,&tickStruct, timerContext);
 
-		}else if (switchValueInteger==2){//mode2
-			mode_2(&data);
 
+
+		}else if (switchValueInteger==2){//mode2
+			//printf("mode 2\n");
+			//mode_2();
+			///////Uart Code//////
+
+			IOWR_ALTERA_AVALON_UART_CONTROL(UART_BASE,0);
+
+
+			if(IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)& ALTERA_AVALON_UART_STATUS_RRDY_MSK){
+				char input= IORD_ALTERA_AVALON_UART_RXDATA(UART_BASE);// read input data from UART
+				IOWR_ALTERA_AVALON_UART_CONTROL(UART_BASE,(1<<7));
+
+
+				if((input=='A')||(input=='a'))
+				{
+					printf("AS is set\n");
+					data.AS = 1;
+				}
+
+
+				if((input=='V')||(input=='v'))
+				{
+					printf("VS is set\n");
+					data.VS=1;
+
+				}
+
+
+			}
+			if(data.AP){//remove == coz checking char against number variable.
+					printf("AP is paced\n");
+					while(!(IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)& ALTERA_AVALON_UART_STATUS_TRDY_MSK)){}
+					IOWR_ALTERA_AVALON_UART_TXDATA(UART_BASE, 'A');
+
+
+
+			}
+			if(data.VP){
+				printf("VP is paced\n");
+				while(!(IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)& ALTERA_AVALON_UART_STATUS_TRDY_MSK)){}
+				IOWR_ALTERA_AVALON_UART_TXDATA(UART_BASE, 'V');
+				countVP = 100;
+
+			}
 		}//switch mode end
 
 	}
 	fclose(lcd);
 
 }
+
+
+
+		//mode 1
+
+			//intput KEY1 and KEY0 to simulate atrial and ventricular even
+			//output green led when pacing both atrial and ventricle.
+
+		//mode 2
+			//input from uart connection, A and V stand for AS, VS
+			//aaaaa
+
+
+
+
+		//IOWR_ALTERA_AVALON_PIO_DATA(LEDS_RED_BASE, uiSwitchValue);
+//		uiButtonsValuePrevious = uiButtonsValue;
+//		uiButtonsValue = IORD_ALTERA_AVALON_PIO_DATA(KEYS_BASE);
+//			if(lcd != NULL)
+//			{
+//				if(uiButtonsValuePrevious != uiButtonsValue)
+//				{
+//					#define ESC 27
+//					#define CLEAR_LCD_STRING "[2J"
+//					fprintf(lcd, "%c%s", ESC, CLEAR_LCD_STRING);
+//					fprintf(lcd, "BUTTON VALUE: %d\n", uiButtonsValue);
+//				}
+//			}
+
+
+
+
+

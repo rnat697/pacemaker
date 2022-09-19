@@ -24,7 +24,7 @@
 
 #include "altera_avalon_uart.h"
 #include "altera_avalon_uart_regs.h"
-
+// its to look at the msk to check if data is there.
 #include "pacecharts.h"
 #include "timing.h"
 // BAUD RATE IS 115200

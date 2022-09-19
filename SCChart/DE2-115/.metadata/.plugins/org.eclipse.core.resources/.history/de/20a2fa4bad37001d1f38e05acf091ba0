@@ -24,7 +24,7 @@
 
 #include "altera_avalon_uart.h"
 #include "altera_avalon_uart_regs.h"
-
+// its to look at the msk to check if data is there.
 #include "pacecharts.h"
 #include "timing.h"
 // BAUD RATE IS 115200
@@ -255,3 +255,25 @@ int main()
 	fclose(lcd);
 
 }
+
+
+
+
+		//IOWR_ALTERA_AVALON_PIO_DATA(LEDS_RED_BASE, uiSwitchValue);
+//		uiButtonsValuePrevious = uiButtonsValue;
+//		uiButtonsValue = IORD_ALTERA_AVALON_PIO_DATA(KEYS_BASE);
+//			if(lcd != NULL)
+//			{
+//				if(uiButtonsValuePrevious != uiButtonsValue)
+//				{
+//					#define ESC 27
+//					#define CLEAR_LCD_STRING "[2J"
+//					fprintf(lcd, "%c%s", ESC, CLEAR_LCD_STRING);
+//					fprintf(lcd, "BUTTON VALUE: %d\n", uiButtonsValue);
+//				}
+//			}
+
+
+
+
+
