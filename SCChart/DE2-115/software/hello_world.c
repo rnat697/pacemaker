@@ -48,23 +48,23 @@ void button_interrupt_function(void* context, alt_u32 id){
 
 	// clear edge capture register
 	IOWR_ALTERA_AVALON_PIO_EDGE_CAP(KEYS_BASE,0);
-	if(*temp == 2){
+	if(*temp == 2){ // KEY1 button for AS input
 
 		buttonAS = 1;
 
-	}else if (*temp == 1){
+	}else if (*temp == 1){ // KEY0 button for VS input
 		buttonVS = 1;
 	}
 }
 
 void setGreenLED(uint pos, char val) {
 	int current = IORD_ALTERA_AVALON_PIO_DATA(LEDS_GREEN_BASE);
-	//printf("Setting LED %d to %d\n", pos, val);
+
 	if(val) {
-		IOWR_ALTERA_AVALON_PIO_DATA(LEDS_GREEN_BASE, current | (1 << pos));
+		IOWR_ALTERA_AVALON_PIO_DATA(LEDS_GREEN_BASE, current | (1 << pos)); // Turn on green LED
 	}
 	else {
-		IOWR_ALTERA_AVALON_PIO_DATA(LEDS_GREEN_BASE, current & (~(1 << pos)));
+		IOWR_ALTERA_AVALON_PIO_DATA(LEDS_GREEN_BASE, current & (~(1 << pos))); // Turn off  green LED
 	}
 }
 
@@ -74,12 +74,13 @@ char getGreenLED(uint pos) {
 }
 
 //source from aron, :)
-alt_u32 timerISR(void* context){
+alt_u32 timerISR(void* context){ // ISR timer for Scchart clocks
 	int* timeCount = (int*) context;
 	(*timeCount)++;
 	return 1; // next time out is 1ms
 }
 
+/// ISRs for green LED so we can see it turn on and off
 alt_u32 vsLEDISR(void* context){
 	setGreenLED(4, 0);
 
@@ -120,6 +121,7 @@ void setup_interrupt(int*val){//buttons for Mode 1
 
 
 //Aron helped again :)
+// Controls how mode 1 operates, using buttons to send AS and VS signals and pace using green LEDS
 void mode_1(unsigned int uiButtonsValue, TickData* data, Ticks* tickStruct, void* timerContext){
 	setup_interrupt(&uiButtonsValue);
 	if(buttonAS == 1){ // AS = KEY1
@@ -146,7 +148,7 @@ void mode_1(unsigned int uiButtonsValue, TickData* data, Ticks* tickStruct, void
 	}
 
 
-	if(data->AP)//remove == coz checking chara gainst number variable.
+	if(data->AP)
 	{	printf("AP is paced\n");
 		if(!getGreenLED(1)) {
 			setGreenLED(1, 1); // turn on LED 1 for AP
@@ -170,19 +172,19 @@ void mode_2(TickData* data){
 	IOWR_ALTERA_AVALON_UART_CONTROL(UART_BASE,0);
 
 
-	if(IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)& ALTERA_AVALON_UART_STATUS_RRDY_MSK){
+	if(IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)& ALTERA_AVALON_UART_STATUS_RRDY_MSK){ // Check if UART is able to be red
 		char input= IORD_ALTERA_AVALON_UART_RXDATA(UART_BASE);// read input data from UART
 		IOWR_ALTERA_AVALON_UART_CONTROL(UART_BASE,(1<<7));
 
 
-		if((input=='A')||(input=='a'))
+		if((input=='A')||(input=='a')) // Pass in AS into scchart code
 		{
 			printf("AS is set\n");
 			data->AS = 1;
 		}
 
 
-		if((input=='V')||(input=='v'))
+		if((input=='V')||(input=='v')) // Pass in VS into scchart code
 		{
 			printf("VS is set\n");
 			data->VS=1;
@@ -191,14 +193,14 @@ void mode_2(TickData* data){
 
 
 	}
-	if(data->AP){
+	if(data->AP){ 
 			printf("AP is paced\n");
-			while(!(IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)& ALTERA_AVALON_UART_STATUS_TRDY_MSK)){}
+			while(!(IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)& ALTERA_AVALON_UART_STATUS_TRDY_MSK)){} // wait for transmit to be ready
 			IOWR_ALTERA_AVALON_UART_TXDATA(UART_BASE, 'A');
 	}
 	if(data->VP){
 		printf("VP is paced\n");
-		while(!(IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)& ALTERA_AVALON_UART_STATUS_TRDY_MSK)){}
+		while(!(IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)& ALTERA_AVALON_UART_STATUS_TRDY_MSK)){} // wait for transmit to be ready
 		IOWR_ALTERA_AVALON_UART_TXDATA(UART_BASE, 'V');
 
 	}
@@ -227,7 +229,8 @@ int main()
 	void* timerContext = (void*) &systemTime;   //from aron github https://github.com/aron-jeremiah/CompSys303-SCCharts-Examples/blob/main/NiosExamples/SCCharts_Timer_Intergration_Example/main.c
 	alt_alarm_start(&tickStruct.ticker, 1, timerISR, timerContext);
 	while(1)
-	{
+	{	
+		// Setting time for scchart code
 		data.deltaT = systemTime - prevTime;
 		prevTime = systemTime;
 
