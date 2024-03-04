@@ -1,5 +1,9 @@
-# Assignment 1
-DDD-Mode pacmaker in SCCharts and NIOS II
+# DDD-Mode pacemaker
+DDD-Mode pacemaker in SCCharts and NIOS II for Microcomputers and Embedded Systems course (COMPSYS 303) in 2022.
+
+# Contributors
+- Rachel Nataatmadja - [rnat697](https://github.com/rnat697)
+- Shou Miyamoto - [sm43576](https://github.com/sm43576)
 
 ## Folder locations for respective code
 - NIOS main code: ddd-mode-pacemaker-303-group-10\SCChart\DE2-115\software
